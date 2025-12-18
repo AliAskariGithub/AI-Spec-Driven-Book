@@ -1,0 +1,199 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+  --ifm-color-primary: #2e8555;
+  --ifm-color-primary-dark: #29784c;
+  --ifm-color-primary-darker: #277148;
+  --ifm-color-primary-darkest: #205d3b;
+  --ifm-color-primary-light: #33925d;
+  --ifm-color-primary-lighter: #359962;
+  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styles for educational content */
+.educational-highlight {
+  background-color: #f0f8ff;
+  border-left: 4px solid #2e8555;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.learning-objectives {
+  background-color: #e8f4f8;
+  border: 1px solid #b3e0f2;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.practical-example {
+  background-color: #fff8e1;
+  border: 1px solid #ffeaa7;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* Simulation-specific styles for Module 2 */
+.simulation-concept {
+  background-color: #f0f9ff;
+  border: 1px solid #bae6fd;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.simulation-concept::before {
+  content: "🔬";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.gazebo-section {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.gazebo-section::before {
+  content: "🤖";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.unity-section {
+  background-color: #fef7f0;
+  border: 1px solid #fed7aa;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.unity-section::before {
+  content: "🎮";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.sensor-data {
+  background-color: #f5f3ff;
+  border: 1px solid #ddd6fe;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: 'Courier New', monospace;
+}
+
+.physics-properties {
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+/* Code block enhancements for educational content */
+.prism-code.language-python {
+  border-left: 3px solid #357abd;
+}
+
+.prism-code.language-bash {
+  border-left: 3px solid #56b6c2;
+}
+
+/* Sidebar enhancements for educational structure */
+.menu__list-item--deprecated {
+  opacity: 0.6;
+}
+
+/* Isaac-specific styles for Module 3 */
+.isaac-section {
+  background-color: #fff0f5;
+  border: 1px solid #fcc2d7;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+
+.isaac-section::before {
+  content: "🚀";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.isaac-concept {
+  background-color: #f0f6ff;
+  border: 1px solid #9ec5fe;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.isaac-concept::before {
+  content: "🎯";
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+.isaac-code-block {
+  background-color: #f8fafc;
+  border-left: 3px solid #64748b;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: 'Courier New', monospace;
+}
+
+.isaac-warning {
+  background-color: #fffbeb;
+  border: 1px solid #f59e0b;
+  border-radius: 4px;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid #f59e0b;
+}
+
+/* Responsive design for educational content */
+@media (max-width: 996px) {
+  .educational-highlight,
+  .learning-objectives,
+  .practical-example,
+  .isaac-section,
+  .isaac-concept,
+  .isaac-warning {
+    padding: 0.75rem;
+  }
+}

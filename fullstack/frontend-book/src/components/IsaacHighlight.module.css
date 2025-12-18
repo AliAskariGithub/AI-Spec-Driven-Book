@@ -1,0 +1,39 @@
+.isaacHighlight {
+  background-color: #fff0f5;
+  border: 1px solid #fcc2d7;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  position: relative;
+}
+
+.isaacHighlight--warning {
+  background-color: #fffbeb;
+  border: 1px solid #f59e0b;
+}
+
+.isaacHighlight--success {
+  background-color: #f0fdf4;
+  border: 1px solid #bbf7d0;
+}
+
+.isaacHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.isaacIcon {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.isaacTitle {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #881391;
+}
+
+.isaacContent {
+  margin-left: 2rem;
+}

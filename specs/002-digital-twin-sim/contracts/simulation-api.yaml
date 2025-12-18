@@ -1,0 +1,275 @@
+# API Contract: Simulation Control API for Educational Content
+
+openapi: 3.0.0
+info:
+  title: Simulation Control API
+  description: API for controlling and monitoring simulation environments in educational context
+  version: 1.0.0
+  contact:
+    name: Educational Robotics Platform
+    email: education@robotics.example.com
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server for simulation control
+
+paths:
+  /simulation/world:
+    get:
+      summary: Get current simulation world information
+      description: Retrieve information about the current simulation environment
+      responses:
+        '200':
+          description: Current world state
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/WorldState'
+        '404':
+          description: No active simulation
+    post:
+      summary: Load a new simulation world
+      description: Load a specified world file into the simulation environment
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                world_file:
+                  type: string
+                  description: Path to the world file to load
+                  example: "humanoid_environment.sdf"
+                reset_on_load:
+                  type: boolean
+                  description: Whether to reset simulation state when loading
+                  default: true
+      responses:
+        '200':
+          description: World loaded successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "World loaded successfully"
+        '400':
+          description: Invalid world file
+        '500':
+          description: Server error during loading
+
+  /simulation/robot:
+    post:
+      summary: Spawn a robot in the simulation
+      description: Add a robot model to the current simulation world
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RobotSpawnRequest'
+      responses:
+        '200':
+          description: Robot spawned successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  robot_id:
+                    type: string
+                    example: "humanoid_01"
+        '400':
+          description: Invalid robot model or spawn parameters
+        '500':
+          description: Server error during spawn
+
+  /simulation/control:
+    post:
+      summary: Control simulation execution
+      description: Start, pause, or reset the simulation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                command:
+                  type: string
+                  enum: [start, pause, reset, step]
+                  description: Command to execute
+                  example: "start"
+      responses:
+        '200':
+          description: Command executed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "success"
+                  message:
+                    type: string
+                    example: "Simulation started"
+        '400':
+          description: Invalid command
+        '500':
+          description: Server error during command execution
+
+  /sensors/data:
+    get:
+      summary: Get sensor data from simulation
+      description: Retrieve current sensor readings from simulated sensors
+      parameters:
+        - name: sensor_type
+          in: query
+          required: false
+          schema:
+            type: string
+            enum: [lidar, camera, imu, all]
+          description: Type of sensor data to retrieve
+        - name: robot_id
+          in: query
+          required: false
+          schema:
+            type: string
+          description: Specific robot to get sensor data from
+      responses:
+        '200':
+          description: Sensor data retrieved
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  timestamp:
+                    type: string
+                    format: date-time
+                  sensors:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/SensorData'
+        '404':
+          description: No sensors found or robot not in simulation
+
+components:
+  schemas:
+    WorldState:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of the current world
+        time:
+          type: number
+          description: Current simulation time in seconds
+        robots:
+          type: array
+          items:
+            $ref: '#/components/schemas/RobotInfo'
+        environment:
+          $ref: '#/components/schemas/EnvironmentInfo'
+
+    RobotInfo:
+      type: object
+      properties:
+        id:
+          type: string
+          description: Unique identifier for the robot
+        model:
+          type: string
+          description: Robot model name
+        position:
+          $ref: '#/components/schemas/Position'
+        sensors:
+          type: array
+          items:
+            $ref: '#/components/schemas/SensorInfo'
+
+    Position:
+      type: object
+      properties:
+        x:
+          type: number
+        y:
+          type: number
+        z:
+          type: number
+        roll:
+          type: number
+        pitch:
+          type: number
+        yaw:
+          type: number
+
+    EnvironmentInfo:
+      type: object
+      properties:
+        gravity:
+          type: number
+          description: Gravity constant in m/s^2
+          default: -9.81
+        objects:
+          type: array
+          items:
+            type: string
+            description: List of object names in the environment
+
+    SensorInfo:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Sensor name
+        type:
+          type: string
+          enum: [lidar, camera, imu, gps, force_torque]
+        topic:
+          type: string
+          description: ROS topic for sensor data
+
+    RobotSpawnRequest:
+      type: object
+      properties:
+        model:
+          type: string
+          description: Robot model to spawn
+          example: "humanoid_robot"
+        name:
+          type: string
+          description: Instance name for the robot
+          example: "student_robot_1"
+        position:
+          $ref: '#/components/schemas/Position'
+        parameters:
+          type: object
+          description: Additional parameters for robot configuration
+
+    SensorData:
+      type: object
+      properties:
+        sensor_name:
+          type: string
+          description: Name of the sensor
+        sensor_type:
+          type: string
+          enum: [lidar, camera, imu]
+        timestamp:
+          type: string
+          format: date-time
+        data:
+          type: object
+          description: Sensor-specific data payload
+          additionalProperties: true

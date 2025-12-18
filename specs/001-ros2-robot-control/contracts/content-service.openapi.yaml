@@ -1,0 +1,94 @@
+# API Contract: Documentation Content Service
+
+## Purpose
+This contract defines the interface for accessing educational content in the robotics course book. This will enable future integration with the RAG chatbot functionality.
+
+## Endpoints
+
+### GET /api/v1/content/module/{moduleId}
+Retrieve all content for a specific module.
+
+**Request**:
+- Path: `/api/v1/content/module/{moduleId}`
+- Method: `GET`
+- Headers: `Accept: application/json`
+
+**Response**:
+- Status: `200 OK`
+- Body:
+```json
+{
+  "moduleId": "module-1",
+  "title": "The Robotic Nervous System",
+  "description": "Introduction to robotic middleware for AI/CS students",
+  "chapters": [
+    {
+      "chapterId": "robotic-middleware-fundamentals",
+      "title": "Robotic Middleware Fundamentals",
+      "content": "Full markdown content of the chapter...",
+      "learningGoals": ["Understand middleware purpose", "Identify architecture components"],
+      "estimatedTime": "45 minutes"
+    },
+    {
+      "chapterId": "core-communication-concepts",
+      "title": "Core Communication Concepts",
+      "content": "Full markdown content of the chapter...",
+      "learningGoals": ["Distinguish communication patterns", "Implement basic communication"],
+      "estimatedTime": "60 minutes"
+    },
+    {
+      "chapterId": "ai-agents-robot-models",
+      "title": "AI Agents and Robot Models",
+      "content": "Full markdown content of the chapter...",
+      "learningGoals": ["Connect AI agents to robots", "Understand robot models"],
+      "estimatedTime": "75 minutes"
+    }
+  ]
+}
+```
+
+### GET /api/v1/content/chapter/{chapterId}
+Retrieve content for a specific chapter.
+
+**Request**:
+- Path: `/api/v1/content/chapter/{chapterId}`
+- Method: `GET`
+- Headers: `Accept: application/json`
+
+**Response**:
+- Status: `200 OK`
+- Body:
+```json
+{
+  "chapterId": "robotic-middleware-fundamentals",
+  "title": "Robotic Middleware Fundamentals",
+  "moduleId": "module-1",
+  "content": "Full markdown content of the chapter...",
+  "learningGoals": ["Understand middleware purpose", "Identify architecture components"],
+  "prerequisites": ["Basic programming knowledge"],
+  "estimatedTime": "45 minutes",
+  "relatedTopics": ["core-communication-concepts"]
+}
+```
+
+## Error Responses
+
+### 404 Not Found
+```json
+{
+  "error": "Content not found",
+  "message": "The requested module or chapter does not exist"
+}
+```
+
+### 500 Internal Server Error
+```json
+{
+  "error": "Internal server error",
+  "message": "An unexpected error occurred while retrieving content"
+}
+```
+
+## Security
+- No authentication required for educational content access
+- Rate limiting: 100 requests per minute per IP address

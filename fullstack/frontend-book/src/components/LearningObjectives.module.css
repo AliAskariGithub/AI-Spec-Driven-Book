@@ -1,0 +1,33 @@
+.learningObjectives {
+  background-color: #e8f4f8;
+  border: 1px solid #b3e0f2;
+  border-radius: 4px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.learningObjectivesHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.learningObjectivesIcon {
+  margin-right: 0.5rem;
+  fill: #2e8555;
+}
+
+.learningObjectivesTitle {
+  margin: 0;
+  color: #2e8555;
+  font-size: 1.2rem;
+}
+
+.learningObjectivesList {
+  margin: 0;
+  padding-left: 1.5rem;
+}
+
+.learningObjectivesList li {
+  margin-bottom: 0.5rem;
+}
