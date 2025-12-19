@@ -1,0 +1,186 @@
+/**
+ * FeatureSection component styles
+ * Implements responsive grid layout for feature cards
+ */
+
+.featureSection {
+  padding: 4rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--custom-color-text);
+  line-height: 1.3;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: var(--custom-color-text-secondary);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+.featureItem {
+  height: 100%;
+}
+
+.featureCard {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid layout (default) */
+.grid .featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* List layout */
+.list .featuresGrid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* Carousel layout would require additional JavaScript for sliding functionality */
+.carousel .featuresGrid {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.carousel .featuresGrid::-webkit-scrollbar {
+  display: none;
+}
+
+/* Animation for feature entrance */
+@keyframes featureEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.featureItem {
+  animation: featureEntrance 0.6s ease-out;
+  animation-fill-mode: both;
+}
+
+.featureItem:nth-child(1) { animation-delay: 0.1s; }
+.featureItem:nth-child(2) { animation-delay: 0.2s; }
+.featureItem:nth-child(3) { animation-delay: 0.3s; }
+.featureItem:nth-child(4) { animation-delay: 0.4s; }
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .featureItem {
+    animation: none;
+  }
+}
+
+/* Responsive design */
+@media screen and (max-width: 996px) {
+  .featureSection {
+    padding: 3rem 0;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    padding: 0 1rem;
+  }
+
+  .featuresGrid {
+    gap: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .title {
+    font-size: 1.75rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  /* For list layout on mobile */
+  .list .featuresGrid {
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .featuresGrid {
+    gap: 1.25rem;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .featureCard {
+    border: 2px solid;
+  }
+}
+
+/* Focus management for accessibility */
+.featureCard:focus {
+  outline: 2px solid var(--custom-color-primary);
+  outline-offset: 2px;
+}
+
+/* Card-specific styling */
+.featureCard .cardTitle {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.featureCard .cardDescription {
+  margin-bottom: 0;
+  flex-grow: 1;
+}
+
+/* Ensure proper heading hierarchy */
+.featureSection h2 {
+  font-family: var(--ifm-heading-font-family);
+}

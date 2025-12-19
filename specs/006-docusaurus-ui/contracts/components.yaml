@@ -1,0 +1,217 @@
+# Component Contracts: Docusaurus UI Upgrade
+
+## Component: FeatureCard
+
+### Interface Definition
+```typescript
+interface FeatureCardProps {
+  id: string;
+  title: string;
+  description: string;
+  icon?: string | React.ComponentType<any>;
+  link?: string;
+  color?: string;
+  className?: string;
+}
+
+interface FeatureCardState {
+  isHovered: boolean;
+  isActive: boolean;
+}
+```
+
+### Expected Behavior
+- Renders with smooth hover animations when user hovers over the card (FR-010)
+- Maintains readability during hover animations (User Story 1)
+- Supports keyboard navigation and focus states (FR-012)
+- Responsive design adapts to different screen sizes (FR-013)
+
+### Validation Rules
+- All interactive elements must pass accessibility checks
+- Hover states must be clearly visible (FR-010)
+- Must maintain proper contrast ratios (FR-007)
+
+---
+
+## Component: ThemeToggleButton
+
+### Interface Definition
+```typescript
+interface ThemeToggleButtonProps {
+  className?: string;
+  onThemeChange?: (theme: 'light' | 'dark') => void;
+}
+
+interface ThemeToggleButtonState {
+  currentTheme: 'light' | 'dark';
+}
+```
+
+### Expected Behavior
+- Toggles between light and dark modes when clicked (FR-004)
+- Persists theme preference across sessions
+- Updates all UI elements to reflect new theme (User Story 2)
+- Maintains readability in both themes (User Story 2)
+
+### Validation Rules
+- Dark mode must be default on initial load (FR-004)
+- All elements must maintain WCAG 2.1 AA contrast ratios in both themes (FR-007)
+- Theme toggle must be accessible via keyboard (FR-012)
+
+---
+
+## Component: TypographyWrapper
+
+### Interface Definition
+```typescript
+interface TypographyWrapperProps {
+  variant: 'heading' | 'body';
+  pageType: 'landing' | 'textbook';
+  children: React.ReactNode;
+  className?: string;
+  element?: string; // 'h1', 'h2', 'p', etc.
+}
+```
+
+### Expected Behavior
+- Applies correct font family based on page type (FR-002, FR-003)
+- Landing pages: Headings use Archivo, body text uses General Sans
+- Textbook pages: Headings use Archivo, body text uses SourceSerif4
+- Falls back to system fonts if custom fonts fail to load
+
+### Validation Rules
+- Must achieve 95% font implementation rate (SC-002)
+- Must maintain proper contrast ratios (FR-007)
+- Must handle custom browser font settings gracefully (Edge Case)
+
+---
+
+## Component: ResponsiveCardGrid
+
+### Interface Definition
+```typescript
+interface ResponsiveCardGridProps {
+  children: React.ReactNode[];
+  className?: string;
+  columns?: {
+    mobile: number;
+    tablet: number;
+    desktop: number;
+  };
+  gap?: string;
+}
+```
+
+### Expected Behavior
+- Adapts number of columns based on screen size (FR-013)
+- Maintains proper spacing across all device sizes (SC-007)
+- Handles extremely large and small screen resolutions gracefully (Edge Case)
+
+### Validation Rules
+- Must work correctly on mobile, tablet, and desktop (FR-013, SC-007)
+- All layout elements must adapt properly (SC-007)
+- Must maintain readability on all screen sizes (User Story 1)
+
+---
+
+## Component: AccessibleButton
+
+### Interface Definition
+```typescript
+interface AccessibleButtonProps {
+  children: React.ReactNode;
+  onClick?: () => void;
+  href?: string;
+  variant?: 'primary' | 'secondary' | 'outline';
+  className?: string;
+  disabled?: boolean;
+  ariaLabel?: string;
+}
+
+interface AccessibleButtonState {
+  isFocused: boolean;
+  isActive: boolean;
+}
+```
+
+### Expected Behavior
+- Supports both mouse and keyboard interaction (FR-012)
+- Shows clear visual focus indicators
+- Maintains accessibility when JavaScript is disabled (Edge Case)
+- Provides proper ARIA attributes for screen readers
+
+### Validation Rules
+- 100% of interactive elements must pass accessibility checks (SC-004)
+- Must be keyboard accessible (FR-012)
+- Must maintain functionality when JavaScript is disabled (Edge Case)
+
+---
+
+## Component: NavigationBar
+
+### Interface Definition
+```typescript
+interface NavigationBarProps {
+  logo?: string | React.ReactNode;
+  textLogo: string;
+  navigationItems: NavigationItem[];
+  showSearch?: boolean;
+  showThemeToggle?: boolean;
+  className?: string;
+}
+
+interface NavigationItem {
+  id: string;
+  text: string;
+  path: string;
+  type: 'internal' | 'external';
+}
+```
+
+### Expected Behavior
+- Includes text logo, textbook link, search bar, and theme toggle (FR-008)
+- Functions correctly across all pages (User Story 2)
+- Maintains consistent navigation experience
+- Supports keyboard navigation (FR-012)
+
+### Validation Rules
+- Must include all required navigation elements (FR-008)
+- Theme toggle must function correctly across all pages (SC-003)
+- All elements must be keyboard accessible (FR-012)
+
+---
+
+## Component: FooterSections
+
+### Interface Definition
+```typescript
+interface FooterSectionsProps {
+  sections: FooterSection[];
+  copyrightText: string;
+  className?: string;
+}
+
+interface FooterSection {
+  title: string;
+  items: FooterLink[];
+  sectionType: 'learn' | 'community' | 'resources' | 'about';
+}
+
+interface FooterLink {
+  id: string;
+  label: string;
+  href: string;
+  type: 'internal' | 'external';
+}
+```
+
+### Expected Behavior
+- Organizes links into Learn, Community, Resources, and About sections (FR-009)
+- Displays consistently across all pages (User Story 2)
+- Supports all required footer link types (social, GitHub, mission, etc.)
+- Maintains responsive design (FR-013)
+
+### Validation Rules
+- Must include all 4 required sections (FR-009)
+- All links must direct to appropriate pages (User Story 2)
+- Must maintain responsive design across devices (FR-013)

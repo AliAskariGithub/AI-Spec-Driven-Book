@@ -1,0 +1,341 @@
+/**
+ * FeaturedChapters Styles
+ * Color scheme: Indigo #6C3BAA primary, proper contrast for light/dark modes
+ */
+
+.featuredChapters {
+  padding: 0;
+}
+
+.chaptersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.chapterCard {
+  position: relative;
+  background: #FFFFFF;
+  border: 2px solid rgba(108, 59, 170, 0.15);
+  border-radius: 16px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  overflow: hidden;
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+[data-theme='dark'] .chapterCard {
+  background: #1A1A1F;
+  border-color: rgba(108, 59, 170, 0.25);
+}
+
+/* Fade in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Chapter number badge */
+.chapterNumber {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(108, 59, 170, 0.1);
+  color: #6C3BAA;
+  font-size: 1.25rem;
+  font-weight: 700;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 2;
+}
+
+[data-theme='dark'] .chapterNumber {
+  background: rgba(108, 59, 170, 0.2);
+  color: #8B5CD6;
+}
+
+.chapterCard:hover .chapterNumber {
+  background: #6C3BAA;
+  color: #FFFFFF;
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 4px 12px rgba(108, 59, 170, 0.4);
+}
+
+/* Content area */
+.chapterContent {
+  position: relative;
+  z-index: 2;
+}
+
+.chapterTitle {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #000000;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+  padding-right: 3rem;
+}
+
+[data-theme='dark'] .chapterTitle {
+  color: #FFFFFF;
+}
+
+.chapterCard:hover .chapterTitle {
+  color: #6C3BAA;
+}
+
+.chapterDescription {
+  font-size: 1rem;
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+[data-theme='dark'] .chapterDescription {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Link styling */
+.chapterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: #6C3BAA;
+  border: 2px solid #6C3BAA;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .chapterLink {
+  color: #FFFFFF;
+  border-color: #6C3BAA;
+}
+
+.chapterLink::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #6C3BAA;
+  transition: left 0.3s ease;
+  z-index: -1;
+}
+
+.chapterLink:hover::before {
+  left: 0;
+}
+
+.chapterLink:hover {
+  color: #FFFFFF;
+  border-color: #6C3BAA;
+  transform: translateX(4px);
+}
+
+.arrow {
+  display: inline-block;
+  transition: transform 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.chapterLink:hover .arrow {
+  transform: translateX(4px);
+}
+
+/* Glow effect on hover */
+.cardGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: radial-gradient(circle, rgba(108, 59, 170, 0.15), transparent 70%);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  pointer-events: none;
+  z-index: 1;
+}
+
+[data-theme='dark'] .cardGlow {
+  background: radial-gradient(circle, rgba(108, 59, 170, 0.2), transparent 70%);
+}
+
+.chapterCard:hover .cardGlow {
+  width: 500px;
+  height: 500px;
+}
+
+/* Hover state for entire card */
+.chapterCard:hover {
+  transform: translateY(-8px);
+  border-color: #6C3BAA;
+  box-shadow: 0 12px 32px rgba(108, 59, 170, 0.25);
+  background: #FEFEFE;
+}
+
+[data-theme='dark'] .chapterCard:hover {
+  background: #252530;
+  box-shadow: 0 12px 32px rgba(108, 59, 170, 0.35);
+}
+
+/* Active state */
+.chapterCard:active {
+  transform: translateY(-4px);
+}
+
+/* Progress bar at bottom */
+.chapterCard::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #6C3BAA, #8B5CD6);
+  transition: width 0.4s ease;
+  border-radius: 0 0 16px 16px;
+}
+
+.chapterCard:hover::after {
+  width: 100%;
+}
+
+/* Responsive design */
+@media screen and (max-width: 996px) {
+  .chaptersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .chapterTitle {
+    font-size: 1.35rem;
+  }
+  
+  .chapterDescription {
+    font-size: 0.95rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .chaptersGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .chapterCard {
+    padding: 1.75rem;
+  }
+  
+  .chapterNumber {
+    width: 42px;
+    height: 42px;
+    font-size: 1.1rem;
+    top: 1.25rem;
+    right: 1.25rem;
+  }
+  
+  .chapterTitle {
+    font-size: 1.25rem;
+    padding-right: 3.5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .chapterCard {
+    padding: 1.5rem;
+  }
+  
+  .chapterTitle {
+    font-size: 1.15rem;
+  }
+  
+  .chapterDescription {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .chapterLink {
+    padding: 0.65rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Focus states for accessibility */
+.chapterCard:focus-within {
+  outline: 3px solid #6C3BAA;
+  outline-offset: 4px;
+}
+
+.chapterLink:focus-visible {
+  outline: 3px solid #6C3BAA;
+  outline-offset: 4px;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .chapterCard,
+  .chapterNumber,
+  .chapterTitle,
+  .chapterDescription,
+  .chapterLink,
+  .arrow,
+  .cardGlow {
+    animation: none;
+    transition: none;
+  }
+  
+  .chapterCard:hover,
+  .chapterCard:active {
+    transform: none;
+  }
+  
+  .chapterCard:hover .chapterNumber {
+    transform: scale(1.05);
+  }
+  
+  .chapterLink:hover,
+  .chapterLink:hover .arrow {
+    transform: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .chapterCard {
+    border-width: 3px;
+  }
+  
+  .chapterLink {
+    border-width: 3px;
+  }
+  
+  .chapterCard:hover {
+    border-width: 3px;
+  }
+}

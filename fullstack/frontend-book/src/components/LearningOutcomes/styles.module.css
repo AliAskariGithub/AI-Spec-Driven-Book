@@ -1,0 +1,242 @@
+.learningOutcomes {
+  padding: 4rem 0;
+  background: #FFFFFF;
+}
+
+[data-theme='dark'] .learningOutcomes {
+  background: #0F0F14;
+}
+
+.learningOutcomes h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #000000;
+}
+
+[data-theme='dark'] .learningOutcomes h2 {
+  color: #FFFFFF;
+}
+
+.learningOutcomesList {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  list-style: none;
+}
+
+.learningOutcomesItem {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  background: #F7F7FB;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  color: #000000;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(108, 59, 170, 0.1);
+}
+
+[data-theme='dark'] .learningOutcomesItem {
+  background: #1A1A1F;
+  color: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border-color: rgba(108, 59, 170, 0.2);
+}
+
+/* Hover effect with lift and glow */
+.learningOutcomesItem:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(108, 59, 170, 0.2);
+  background: #FFFFFF;
+  border-color: #6C3BAA;
+}
+
+[data-theme='dark'] .learningOutcomesItem:hover {
+  background: #252530;
+  box-shadow: 0 8px 24px rgba(108, 59, 170, 0.3);
+  border-color: #6C3BAA;
+}
+
+/* Interactive ripple effect background */
+.learningOutcomesItem::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(108, 59, 170, 0.05);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+[data-theme='dark'] .learningOutcomesItem::before {
+  background: rgba(108, 59, 170, 0.1);
+}
+
+.learningOutcomesItem:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+/* Checkmark with animation */
+.learningOutcomesCheckmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: #6C3BAA;
+  color: #FFFFFF;
+  border-radius: 50%;
+  margin-right: 1rem;
+  flex-shrink: 0;
+  font-size: 14px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(108, 59, 170, 0.3);
+}
+
+/* Checkmark hover animation */
+.learningOutcomesItem:hover .learningOutcomesCheckmark {
+  transform: rotate(360deg) scale(1.15);
+  box-shadow: 0 4px 16px rgba(108, 59, 170, 0.5);
+  background: #5a2f8f;
+}
+
+/* Text content wrapper */
+.learningOutcomesText {
+  flex: 1;
+  z-index: 1;
+  transition: transform 0.3s ease;
+  color: rgba(0, 0, 0, 0.75);
+}
+
+[data-theme='dark'] .learningOutcomesText {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.learningOutcomesItem:hover .learningOutcomesText {
+  transform: translateX(4px);
+  color: #000000;
+}
+
+[data-theme='dark'] .learningOutcomesItem:hover .learningOutcomesText {
+  color: #FFFFFF;
+}
+
+/* Fade-in animation for items */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.learningOutcomesItem {
+  animation: fadeInUp 0.6s ease forwards;
+  opacity: 0;
+}
+
+/* Stagger animation delay for each item */
+.learningOutcomesItem:nth-child(1) { animation-delay: 0.1s; }
+.learningOutcomesItem:nth-child(2) { animation-delay: 0.2s; }
+.learningOutcomesItem:nth-child(3) { animation-delay: 0.3s; }
+.learningOutcomesItem:nth-child(4) { animation-delay: 0.4s; }
+.learningOutcomesItem:nth-child(5) { animation-delay: 0.5s; }
+.learningOutcomesItem:nth-child(6) { animation-delay: 0.6s; }
+.learningOutcomesItem:nth-child(7) { animation-delay: 0.7s; }
+.learningOutcomesItem:nth-child(8) { animation-delay: 0.8s; }
+
+/* Active/clicked state */
+.learningOutcomesItem:active {
+  transform: scale(0.98);
+}
+
+/* Completed state (add this class via JavaScript) */
+.learningOutcomesItem.completed .learningOutcomesCheckmark {
+  background: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.4);
+}
+
+.learningOutcomesItem.completed {
+  opacity: 0.7;
+  background: rgba(108, 59, 170, 0.05);
+}
+
+[data-theme='dark'] .learningOutcomesItem.completed {
+  background: rgba(108, 59, 170, 0.1);
+}
+
+.learningOutcomesItem.completed .learningOutcomesText {
+  text-decoration: line-through;
+  color: rgba(0, 0, 0, 0.5);
+}
+
+[data-theme='dark'] .learningOutcomesItem.completed .learningOutcomesText {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Progress bar at bottom of each item */
+.learningOutcomesItem::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: #6C3BAA;
+  transition: width 0.4s ease;
+  border-radius: 0 0 12px 12px;
+}
+
+.learningOutcomesItem:hover::after {
+  width: 100%;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .learningOutcomes {
+    padding: 2rem 0;
+  }
+  
+  .learningOutcomes h2 {
+    font-size: 1.5rem;
+  }
+  
+  .learningOutcomesList {
+    padding: 0 0.5rem;
+  }
+  
+  .learningOutcomesItem {
+    padding: 0.75rem;
+    border-radius: 8px;
+  }
+  
+  .learningOutcomesCheckmark {
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+  }
+  
+  /* Reduce animation intensity on mobile */
+  .learningOutcomesItem:hover {
+    transform: translateY(-2px);
+  }
+  
+  .learningOutcomesItem:hover .learningOutcomesCheckmark {
+    transform: rotate(180deg) scale(1.05);
+  }
+}

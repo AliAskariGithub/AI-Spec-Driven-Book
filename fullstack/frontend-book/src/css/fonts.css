@@ -1,0 +1,84 @@
+/* Font face declarations for Docusaurus UI Upgrade */
+
+/* Archivo - for headings */
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/Archivo/Archivo-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/Archivo/Archivo-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/Archivo/Archivo-SemiBold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Archivo';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/Archivo/Archivo-Bold.woff2') format('woff2');
+}
+
+/* General Sans - for landing page body text */
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/GeneralSans/GeneralSans-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url('/fonts/GeneralSans/GeneralSans-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/GeneralSans/GeneralSans-Semibold.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'General Sans';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: url('/fonts/GeneralSans/GeneralSans-Bold.woff2') format('woff2');
+}
+
+/* SourceSerif4 - for textbook page body text */
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/SourceSerif4/SourceSerif4-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Source Serif 4';
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+  src: url('/fonts/SourceSerif4/SourceSerif4-Semibold.woff2') format('woff2');
+}

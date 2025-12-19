@@ -27,17 +27,30 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'AliAskariGithub', // Usually your GitHub org/user name.
+  projectName: 'AI-Spec-Driven-Book', // Usually your repo name.
 
   onBrokenLinks: 'throw',
+  onBrokenAnchors: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en'],
+    locales: ['en', 'ur'],
+    localeConfigs: {
+      en: {
+        label: 'English',
+        direction: 'ltr',
+        htmlLang: 'en-US',
+      },
+      ur: {
+        label: 'اردو',
+        direction: 'rtl',
+        htmlLang: 'ur-PK',
+      },
+    },
   },
 
   presets: [
@@ -80,14 +93,17 @@ const config = {
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
+        defaultMode: 'dark', // Set dark mode as default
         respectPrefersColorScheme: true,
       },
+      metadata: [
+        {name: 'keywords', content: 'robotics, ROS 2, AI, computer science, education, middleware, simulation, NVIDIA Isaac, Gazebo, Unity'},
+        {name: 'author', content: 'AI-Spec Driven Book Team'},
+        {name: 'robots', content: 'index, follow'},
+        {name: 'theme-color', content: '#2e8555'},
+      ],
       navbar: {
         title: 'AI-Spec Driven Book',
-        logo: {
-          alt: 'AI-Spec Logo',
-          src: 'img/logo.svg',
-        },
         items: [
           {
             type: 'docSidebar',
@@ -110,28 +126,19 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Learn',
             items: [
               {
-                label: 'Textbook',
+                label: 'Introduction',
                 to: '/docs/intro',
               },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
               {
-                label: 'Stack Overflow',
-                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
+                label: 'The Robotic Nervous System',
+                to: '/docs/module-1/',
               },
               {
-                label: 'Discord',
-                href: 'https://discordapp.com/invite/docusaurus',
-              },
-              {
-                label: 'X',
-                href: 'https://x.com/docusaurus',
+                label: 'The Digital Twin',
+                to: '/docs/module-2/',
               },
             ],
           },
@@ -139,20 +146,50 @@ const config = {
             title: 'Social Links',
             items: [
               {
-                label: 'GitHub',
-                href: 'https://github.com/AliAskariGithub',
-              },
-              {
                 label: 'Facebook',
                 href: 'https://www.facebook.com/NexuGem',
               },
               {
                 label: 'Instagram',
-                href: 'https://www.instagram.com/nexugem',
+                href: 'https://www.instagram.com/nexugem/',
               },
               {
-                label: 'X (Twitter)',
+                label: 'X',
                 href: 'https://x.com/Syed_Ali_Askari',
+              },
+            ],
+          },
+          {
+            title: 'Resources',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/AliAskariGithub',
+              },
+              {
+                label: 'Documentation',
+                to: '/docs/intro',
+              },
+              {
+                label: 'Tutorials',
+                to: '/docs/tutorial-basics/congratulations',
+              },
+            ],
+          },
+          {
+            title: 'About',
+            items: [
+              {
+                label: 'GitHub',
+                href: 'https://github.com/AliAskariGithub',
+              },
+              {
+                label: 'Docusaurus',
+                href: 'https://docusaurus.io/',
+              },
+              {
+                label: 'Stack Overflow',
+                href: 'https://stackoverflow.com/questions/tagged/docusaurus',
               },
             ],
           },

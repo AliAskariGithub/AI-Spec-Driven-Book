@@ -4,72 +4,18 @@
  * work well for content-centric websites.
  */
 
-/* Font face definitions for Archivo and General Sans */
-@font-face {
-  font-family: 'Archivo';
-  src: url('/fonts/Archivo/Archivo-Regular.woff2') format('woff2');
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Archivo';
-  src: url('/fonts/Archivo/Archivo-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Archivo';
-  src: url('/fonts/Archivo/Archivo-SemiBold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Archivo';
-  src: url('/fonts/Archivo/Archivo-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans/GeneralSans-Medium.woff2') format('woff2');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans/GeneralSans-Semibold.woff2') format('woff2');
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'General Sans';
-  src: url('/fonts/GeneralSans/GeneralSans-Bold.woff2') format('woff2');
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
+/* Import font definitions */
+@import url('./fonts.css');
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #6C3BAA; /* Indigo primary color */
+  --ifm-color-primary-dark: #5a3291;
+  --ifm-color-primary-darker: #552f89;
+  --ifm-color-primary-darkest: #44266e;
+  --ifm-color-primary-light: #7e4ecd;
+  --ifm-color-primary-lighter: #8557d0;
+  --ifm-color-primary-lightest: #976bd8;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 
@@ -77,6 +23,7 @@
   --ifm-font-family-base: 'General Sans', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
   --ifm-font-family-monospace: 'Courier New', Consolas, monospace;
   --ifm-heading-font-family: 'Archivo', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  --ifm-font-family-textbook-body: "Source Serif 4", serif;
 
   /* Custom spacing variables */
   --ifm-spacing-horizontal: 1.5rem;
@@ -84,13 +31,13 @@
   --ifm-global-radius: 8px;
 
   /* New color palette for better accessibility */
-  --custom-color-primary: #1a73e8;
-  --custom-color-primary-dark: #0d62c9;
-  --custom-color-primary-darker: #0a56b0;
-  --custom-color-primary-darkest: #084087;
-  --custom-color-primary-light: #4285f4;
-  --custom-color-primary-lighter: #5a95f5;
-  --custom-color-primary-lightest: #84abf7;
+  --custom-color-primary: #6C3BAA; /* Indigo primary color */
+  --custom-color-primary-dark: #5a3291;
+  --custom-color-primary-darker: #552f89;
+  --custom-color-primary-darkest: #44266e;
+  --custom-color-primary-light: #7e4ecd;
+  --custom-color-primary-lighter: #8557d0;
+  --custom-color-primary-lightest: #976bd8;
 
   --custom-color-accent: #ff6d01;
   --custom-color-accent-light: #ff8533;
@@ -108,23 +55,23 @@
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 [data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+  --ifm-color-primary: #b18cff;
+  --ifm-color-primary-dark: #9267ff;
+  --ifm-color-primary-darker: #8557d0;
+  --ifm-color-primary-darkest: #6c3baa;
+  --ifm-color-primary-light: #c9b0ff;
+  --ifm-color-primary-lighter: #d8c9ff;
+  --ifm-color-primary-lightest: #f0ebff;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 
   /* Enhanced dark mode custom color variables */
-  --custom-color-primary: #5a95f5;
-  --custom-color-primary-dark: #4285f4;
-  --custom-color-primary-darker: #1a73e8;
-  --custom-color-primary-darkest: #0d62c9;
-  --custom-color-primary-light: #84abf7;
-  --custom-color-primary-lighter: #a4c4f9;
-  --custom-color-primary-lightest: #d0e0ff;
+  --custom-color-primary: #b18cff;
+  --custom-color-primary-dark: #9267ff;
+  --custom-color-primary-darker: #8557d0;
+  --custom-color-primary-darkest: #6c3baa;
+  --custom-color-primary-light: #c9b0ff;
+  --custom-color-primary-lighter: #d8c9ff;
+  --custom-color-primary-lightest: #f0ebff;
 
   --custom-color-accent: #ff9e5c;
   --custom-color-accent-light: #ffb780;
@@ -339,8 +286,18 @@
   color: var(--custom-color-text);
 }
 
-/* Responsive design for educational content */
+/* Responsive design for textbook content */
+.main-wrapper .markdown {
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
 @media (max-width: 996px) {
+  .main-wrapper .markdown {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
   .educational-highlight,
   .learning-objectives,
   .practical-example,
@@ -361,6 +318,22 @@
   }
 }
 
+@media (max-width: 576px) {
+  .main-wrapper .markdown {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  /* Adjust sidebar for mobile */
+  .menu__link {
+    padding: 0.5rem 0.75rem;
+  }
+
+  .menu__link:hover {
+    transform: translateX(2px); /* Smaller transform on mobile */
+  }
+}
+
 /* Typography enhancements for accessibility */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--ifm-heading-font-family);
@@ -370,12 +343,59 @@ h1, h2, h3, h4, h5, h6 {
   scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem); /* For anchor links with fixed navbar */
 }
 
+/* Default body text for general pages */
 p {
   font-family: var(--ifm-font-family-base);
   font-size: 1.05rem;
   line-height: 1.7;
   color: var(--custom-color-text);
   margin-bottom: 1rem;
+}
+
+/* Enhanced contrast for accessibility */
+p,
+.main-wrapper .markdown {
+  color: var(--custom-color-text);
+  opacity: 0.95; /* Ensure high contrast */
+}
+
+/* Specific typography for textbook content (docs pages) */
+/* Apply Source Serif 4 to all text in doc content area */
+article.doc-content p,
+article.doc-content div,
+article.doc-content span,
+article.doc-content li {
+  font-family: var(--ifm-font-family-textbook-body) !important;
+}
+
+/* Apply Archivo to headings in textbook content */
+article.doc-content h1,
+article.doc-content h2,
+article.doc-content h3,
+article.doc-content h4,
+article.doc-content h5,
+article.doc-content h6 {
+  font-family: var(--ifm-heading-font-family) !important;
+}
+
+/* Ensure body text in textbook content uses Source Serif 4 */
+.markdown,
+.markdown > * {
+  font-family: var(--ifm-font-family-textbook-body) !important;
+}
+
+/* Specific rules for doc content */
+.main-wrapper .markdown {
+  font-family: var(--ifm-font-family-textbook-body) !important;
+}
+
+.main-wrapper .markdown h1,
+.main-wrapper .markdown h2,
+.main-wrapper .markdown h3,
+.main-wrapper .markdown h4,
+.main-wrapper .markdown h5,
+.main-wrapper .markdown h6 {
+  font-family: var(--ifm-heading-font-family) !important;
 }
 
 /* Accessibility enhancements */
@@ -619,11 +639,47 @@ pre {
   opacity: 0.7;
 }
 
-/* Sidebar enhancements */
+/* Sidebar enhancements with improved contrast */
 .menu {
   font-family: var(--ifm-font-family-base);
 }
 
+.menu__list-item {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 0.125rem 0;
+  padding: 0.6rem 1rem;
+}
+
+.menu__list-item:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+  transform: translateX(4px);
+}
+
+/* Default menu link styling for light mode */
+.menu__link {
+  font-family: var(--ifm-font-family-base);
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 0.125rem 0;
+  padding: 0.6rem 1rem;
+  color: #202124; /* Dark text for light mode */
+}
+
+.menu__link:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+  color: var(--ifm-color-primary);
+  transform: translateX(4px);
+}
+
+.menu__link--active,
+.menu__link--active:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Enhanced collapsible category styles */
 .menu__list-item-collapsible {
   border-radius: var(--ifm-global-radius);
   margin-bottom: 0.25rem;
@@ -631,40 +687,211 @@ pre {
 }
 
 .menu__list-item-collapsible:hover {
-  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 90%);
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 90%);
 }
 
 .menu__list-item-collapsible .menu__link--sublist {
   font-weight: 600;
-  color: var(--custom-color-text);
+  color: #202124; /* Dark text for light mode */
   padding: 0.75rem 1rem;
   border-radius: var(--ifm-global-radius);
 }
 
 .menu__list-item-collapsible .menu__link--sublist:hover {
-  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 85%);
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+  color: var(--ifm-color-primary);
 }
 
-.menu__link {
-  font-family: var(--ifm-font-family-base);
-  border-radius: var(--ifm-global-radius);
-  margin: 0.125rem 0;
-  padding: 0.6rem 1rem;
-  transition: all 0.2s ease;
-  color: var(--custom-color-text-secondary);
+/* Focus states for accessibility */
+.menu__link:focus,
+.menu__list-item:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
 }
 
-.menu__link:hover {
-  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 90%);
-  color: var(--custom-color-primary);
+/* Dark mode sidebar styling */
+[data-theme='dark'] .menu__link {
+  color: #f8f9fa !important; /* Light text for dark mode */
 }
 
-.menu__link--active,
-.menu__link--active:hover {
-  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 85%);
-  color: var(--custom-color-primary);
-  font-weight: 600;
+[data-theme='dark'] .menu__link:hover {
+  color: var(--ifm-color-primary-light) !important;
 }
+
+[data-theme='dark'] .menu__link--active,
+[data-theme='dark'] .menu__link--active:hover {
+  color: var(--ifm-color-primary-light) !important;
+}
+
+[data-theme='dark'] .menu__list-item-collapsible .menu__link--sublist {
+  color: #f8f9fa !important; /* Light text for dark mode */
+}
+
+[data-theme='dark'] .menu__list-item-collapsible .menu__link--sublist:hover {
+  color: var(--ifm-color-primary-light) !important;
+}
+
+/* Sidebar icons and arrows */
+.menu__caret,
+.menu__link svg {
+  color: #202124; /* Dark icons for light mode */
+}
+
+[data-theme='dark'] .menu__caret,
+[data-theme='dark'] .menu__link svg {
+  color: #f8f9fa !important; /* Light icons for dark mode */
+}
+
+
+/* Featured chapters button enhancements */
+.chapterCard .button--outline {
+  background-color: transparent;
+  border: 2px solid var(--ifm-color-primary);
+  color: var(--custom-color-text);
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+}
+
+.chapterCard .button--outline:hover {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+/* Key Features and What You Will Learn sections enhancements */
+/* Feature Card enhancements - using high specificity to override component styles */
+html body .featureCard {
+  background: var(--ifm-color-emphasis-100) !important;
+  color: var(--custom-color-text) !important;
+}
+
+[data-theme='light'] body .featureCard {
+  background: #ffffff !important;
+  color: #202124 !important;
+}
+
+[data-theme='dark'] body .featureCard {
+  background: #2d3748 !important;
+  color: #f8f9fa !important;
+}
+
+html body .featureCard .title {
+  color: var(--custom-color-text) !important;
+}
+
+[data-theme='light'] body .featureCard .title {
+  color: #202124 !important;
+}
+
+[data-theme='dark'] body .featureCard .title {
+  color: #f8f9fa !important;
+}
+
+html body .featureCard .description {
+  color: var(--custom-color-text) !important;
+}
+
+[data-theme='light'] body .featureCard .description {
+  color: #202124 !important;
+}
+
+[data-theme='dark'] body .featureCard .description {
+  color: #f8f9fa !important;
+}
+
+/* Learning Outcomes enhancements - using high specificity to override component styles */
+html body .learningOutcomes {
+  background-color: var(--ifm-color-emphasis-100) !important;
+}
+
+[data-theme='light'] body .learningOutcomes {
+  background-color: #f8f9fa !important;
+}
+
+[data-theme='dark'] body .learningOutcomes {
+  background-color: #1a202c !important;
+}
+
+html body .learningOutcomes h2 {
+  color: var(--custom-color-text) !important;
+}
+
+[data-theme='light'] body .learningOutcomes h2 {
+  color: #202124 !important;
+}
+
+[data-theme='dark'] body .learningOutcomes h2 {
+  color: #f8f9fa !important;
+}
+
+html body .learningOutcomesItem {
+  background: var(--ifm-color-emphasis-100) !important;
+  color: var(--custom-color-text) !important;
+}
+
+[data-theme='light'] body .learningOutcomesItem {
+  background: #ffffff !important;
+  color: #202124 !important;
+}
+
+[data-theme='dark'] body .learningOutcomesItem {
+  background: #2d3748 !important;
+  color: #f8f9fa !important;
+}
+
+.learningOutcomesCheckmark {
+  background-color: var(--ifm-color-primary);
+  color: white;
+}
+
+/* Accessible button enhancements for feature cards */
+.featureCard .accessibleButton--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.featureCard .accessibleButton--primary:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+  color: white;
+}
+
+.featureCard .accessibleButton--secondary {
+  background-color: transparent;
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.featureCard .accessibleButton--secondary:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+/* Theme-specific button enhancements */
+[data-theme='light'] .featureCard .accessibleButton--secondary {
+  color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='light'] .featureCard .accessibleButton--secondary:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+[data-theme='dark'] .featureCard .accessibleButton--secondary {
+  color: var(--ifm-color-primary-light);
+  border-color: var(--ifm-color-primary-light);
+}
+
+[data-theme='dark'] .featureCard .accessibleButton--secondary:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary-light);
+  color: #202124;
+  border-color: var(--ifm-color-primary-light);
+}
+
 
 /* Footer enhancements */
 .footer {
@@ -695,4 +922,420 @@ pre {
   margin-top: 2rem;
   padding-top: 1rem;
   border-top: 1px solid var(--custom-color-gray-medium);
+}
+/* ===================================================================
+   ENHANCED ATTRACTIVE SIDEBAR STYLES
+   Color scheme: Indigo #6C3BAA primary, proper contrast for light/dark modes
+   =================================================================== */
+
+/* Sidebar container enhancement */
+.menu {
+  font-family: var(--ifm-font-family-base);
+  padding: 1rem 0.5rem;
+}
+
+/* Menu list items with modern card-like appearance */
+.menu__list-item {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  border-radius: 8px;
+  margin: 0.25rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.menu__list-item::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 3px;
+  background: #6C3BAA;
+  transform: scaleY(0);
+  transition: transform 0.3s ease;
+  border-radius: 0 4px 4px 0;
+}
+
+.menu__list-item:hover::before {
+  transform: scaleY(1);
+}
+
+.menu__list-item:hover {
+  background: linear-gradient(90deg, rgba(108, 59, 170, 0.08) 0%, transparent 100%);
+  transform: translateX(4px);
+}
+
+/* Menu links with enhanced typography and spacing */
+.menu__link {
+  font-family: var(--ifm-font-family-base);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  color: #000000;
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+[data-theme='dark'] .menu__link {
+  color: #FFFFFF;
+}
+
+/* Icon styling for menu items */
+.menu__link svg {
+  color: rgba(0, 0, 0, 0.6);
+  transition: all 0.3s ease;
+  width: 18px;
+  height: 18px;
+}
+
+[data-theme='dark'] .menu__link svg {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Hover state with gradient background */
+.menu__link:hover {
+  background: linear-gradient(90deg, rgba(108, 59, 170, 0.1) 0%, rgba(108, 59, 170, 0.05) 100%);
+  color: #6C3BAA;
+  transform: translateX(2px);
+  padding-left: 1.25rem;
+}
+
+[data-theme='dark'] .menu__link:hover {
+  background: linear-gradient(90deg, rgba(139, 92, 214, 0.15) 0%, rgba(139, 92, 214, 0.05) 100%);
+  color: #B18CFF;
+}
+
+.menu__link:hover svg {
+  color: #6C3BAA;
+  transform: scale(1.1);
+}
+
+[data-theme='dark'] .menu__link:hover svg {
+  color: #B18CFF;
+}
+
+/* Active menu link with vibrant styling */
+.menu__link--active {
+  background: linear-gradient(135deg, rgba(108, 59, 170, 0.15) 0%, rgba(108, 59, 170, 0.08) 100%);
+  color: #6C3BAA;
+  font-weight: 600;
+  border-left: 3px solid #6C3BAA;
+  padding-left: 1rem;
+  box-shadow: 0 2px 8px rgba(108, 59, 170, 0.15);
+}
+
+[data-theme='dark'] .menu__link--active {
+  background: linear-gradient(135deg, rgba(177, 140, 255, 0.2) 0%, rgba(177, 140, 255, 0.1) 100%);
+  color: #B18CFF;
+  border-left-color: #B18CFF;
+  box-shadow: 0 2px 8px rgba(177, 140, 255, 0.2);
+}
+
+.menu__link--active svg {
+  color: #6C3BAA;
+}
+
+[data-theme='dark'] .menu__link--active svg {
+  color: #B18CFF;
+}
+
+/* Enhanced glow effect on active state */
+.menu__link--active::after {
+  content: '';
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: #6C3BAA;
+  border-radius: 50%;
+  box-shadow: 0 0 8px rgba(108, 59, 170, 0.6);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+[data-theme='dark'] .menu__link--active::after {
+  background: #B18CFF;
+  box-shadow: 0 0 8px rgba(177, 140, 255, 0.8);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translateY(-50%) scale(1.2);
+  }
+}
+
+/* Collapsible category enhancement */
+.menu__list-item-collapsible {
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .menu__list-item-collapsible {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.menu__list-item-collapsible:hover {
+  background: rgba(108, 59, 170, 0.05);
+  box-shadow: 0 2px 8px rgba(108, 59, 170, 0.08);
+}
+
+[data-theme='dark'] .menu__list-item-collapsible:hover {
+  background: rgba(177, 140, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(177, 140, 255, 0.12);
+}
+
+/* Category header styling */
+.menu__list-item-collapsible .menu__link--sublist {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #000000;
+  padding: 0.875rem 1rem;
+  border-radius: 8px;
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .menu__list-item-collapsible .menu__link--sublist {
+  color: #FFFFFF;
+}
+
+.menu__list-item-collapsible .menu__link--sublist:hover {
+  background: linear-gradient(90deg, rgba(108, 59, 170, 0.12) 0%, rgba(108, 59, 170, 0.06) 100%);
+  color: #6C3BAA;
+  transform: translateX(2px);
+}
+
+[data-theme='dark'] .menu__list-item-collapsible .menu__link--sublist:hover {
+  background: linear-gradient(90deg, rgba(177, 140, 255, 0.15) 0%, rgba(177, 140, 255, 0.08) 100%);
+  color: #B18CFF;
+}
+
+/* Caret (arrow) styling with smooth rotation */
+.menu__caret {
+  color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  width: 16px;
+  height: 16px;
+}
+
+[data-theme='dark'] .menu__caret {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.menu__list-item-collapsible:hover .menu__caret {
+  color: #6C3BAA;
+  transform: scale(1.2);
+}
+
+[data-theme='dark'] .menu__list-item-collapsible:hover .menu__caret {
+  color: #B18CFF;
+}
+
+/* Expanded state caret animation */
+.menu__list-item-collapsible--active .menu__caret {
+  transform: rotate(90deg);
+  color: #6C3BAA;
+}
+
+[data-theme='dark'] .menu__list-item-collapsible--active .menu__caret {
+  color: #B18CFF;
+}
+
+/* Nested menu items with indentation effect */
+.menu__list .menu__list {
+  margin-top: 0.25rem;
+  padding-left: 0.5rem;
+  border-left: 2px solid rgba(108, 59, 170, 0.15);
+  margin-left: 0.75rem;
+}
+
+[data-theme='dark'] .menu__list .menu__list {
+  border-left-color: rgba(177, 140, 255, 0.2);
+}
+
+.menu__list .menu__list .menu__link {
+  font-size: 0.9rem;
+  padding: 0.65rem 1rem;
+  position: relative;
+}
+
+/* Nested item hover effect */
+.menu__list .menu__list .menu__link::before {
+  content: '';
+  position: absolute;
+  left: -0.5rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  background: transparent;
+  border: 2px solid #6C3BAA;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+[data-theme='dark'] .menu__list .menu__list .menu__link::before {
+  border-color: #B18CFF;
+}
+
+.menu__list .menu__list .menu__link:hover::before {
+  opacity: 1;
+}
+
+/* Focus states for accessibility */
+.menu__link:focus,
+.menu__link:focus-visible {
+  outline: 2px solid #6C3BAA;
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+[data-theme='dark'] .menu__link:focus,
+[data-theme='dark'] .menu__link:focus-visible {
+  outline-color: #B18CFF;
+}
+
+/* Scrollbar styling for sidebar */
+.menu::-webkit-scrollbar {
+  width: 6px;
+}
+
+.menu::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 3px;
+}
+
+[data-theme='dark'] .menu::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.menu::-webkit-scrollbar-thumb {
+  background: #6C3BAA;
+  border-radius: 3px;
+  transition: background 0.3s ease;
+}
+
+[data-theme='dark'] .menu::-webkit-scrollbar-thumb {
+  background: #B18CFF;
+}
+
+.menu::-webkit-scrollbar-thumb:hover {
+  background: #5a2f8f;
+}
+
+[data-theme='dark'] .menu::-webkit-scrollbar-thumb:hover {
+  background: #C9B0FF;
+}
+
+/* Section divider styling */
+.menu__list-item--separator {
+  margin: 1rem 0;
+  padding: 0 1rem;
+}
+
+.menu__list-item--separator::before {
+  content: '';
+  display: block;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(108, 59, 170, 0.3), transparent);
+  margin: 0.5rem 0;
+}
+
+[data-theme='dark'] .menu__list-item--separator::before {
+  background: linear-gradient(90deg, transparent, rgba(177, 140, 255, 0.3), transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 996px) {
+  .menu__link {
+    padding: 0.7rem 0.875rem;
+    font-size: 0.9rem;
+  }
+  
+  .menu__list-item-collapsible .menu__link--sublist {
+    padding: 0.8rem 0.875rem;
+    font-size: 0.95rem;
+  }
+  
+  .menu__list .menu__list {
+    padding-left: 0.4rem;
+    margin-left: 0.6rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .menu {
+    padding: 0.75rem 0.25rem;
+  }
+  
+  .menu__link {
+    padding: 0.65rem 0.75rem;
+  }
+  
+  .menu__list-item:hover {
+    transform: translateX(2px);
+  }
+  
+  .menu__link:hover {
+    transform: translateX(1px);
+    padding-left: 1rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .menu__list-item,
+  .menu__link,
+  .menu__caret,
+  .menu__list-item::before,
+  .menu__link--active::after {
+    animation: none;
+    transition: none;
+  }
+  
+  .menu__list-item:hover,
+  .menu__link:hover {
+    transform: none;
+  }
+  
+  .menu__caret {
+    transition: transform 0.1s ease;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .menu__link {
+    border: 1px solid transparent;
+  }
+  
+  .menu__link:hover {
+    border-color: #6C3BAA;
+  }
+  
+  .menu__link--active {
+    border: 2px solid #6C3BAA;
+  }
+  
+  [data-theme='dark'] .menu__link:hover {
+    border-color: #B18CFF;
+  }
+  
+  [data-theme='dark'] .menu__link--active {
+    border-color: #B18CFF;
+  }
 }

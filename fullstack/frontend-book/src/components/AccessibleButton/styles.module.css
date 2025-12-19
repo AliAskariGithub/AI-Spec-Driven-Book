@@ -1,0 +1,47 @@
+.accessibleButton {
+  transition: all 0.2s ease;
+  outline-offset: 2px;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.accessibleButton:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.accessibleButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.accessibleButton--primary {
+  background-color: var(--ifm-color-primary);
+  border-color: var(--ifm-color-primary);
+  color: white;
+}
+
+.accessibleButton--primary:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary-dark);
+  border-color: var(--ifm-color-primary-dark);
+}
+
+.accessibleButton--secondary {
+  background-color: transparent;
+  border: 1px solid var(--ifm-color-primary);
+  color: var(--ifm-color-primary);
+}
+
+.accessibleButton--secondary:hover:not(:disabled) {
+  background-color: var(--ifm-color-primary);
+  color: white;
+  border-color: var(--ifm-color-primary);
+}
+
+.buttonIcon {
+  font-size: 1rem;
+  line-height: 1;
+  display: inline-block;
+  margin-right: 0.5rem;
+}

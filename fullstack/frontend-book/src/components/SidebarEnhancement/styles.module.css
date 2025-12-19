@@ -1,0 +1,62 @@
+/* Enhanced sidebar styles with improved hover states */
+.sidebarItem {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 0.125rem 0;
+  padding: 0.6rem 1rem;
+}
+
+.sidebarItem:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+  color: var(--ifm-color-primary);
+  transform: translateX(4px);
+}
+
+.sidebarItemLink {
+  transition: all 0.2s ease;
+  border-radius: 4px;
+  margin: 0.125rem 0;
+  padding: 0.6rem 1rem;
+}
+
+.sidebarItemLink:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+  color: var(--ifm-color-primary);
+  transform: translateX(4px);
+}
+
+.sidebarItemLinkActive,
+.sidebarItemLinkActive:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+  color: var(--ifm-color-primary);
+  font-weight: 600;
+}
+
+/* Enhanced collapsible category styles */
+.sidebarItemCollapsible {
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.sidebarItemCollapsible:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 90%);
+}
+
+.sidebarItemCollapsible .sidebarItemLink--sublist {
+  font-weight: 600;
+  color: var(--ifm-color-emphasis-900);
+  padding: 0.75rem 1rem;
+  border-radius: var(--ifm-global-radius);
+}
+
+.sidebarItemCollapsible .sidebarItemLink--sublist:hover {
+  background-color: color-mix(in srgb, var(--ifm-color-primary), transparent 85%);
+}
+
+/* Focus states for accessibility */
+.sidebarItemLink:focus,
+.sidebarItem:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}

@@ -1,0 +1,109 @@
+.navigationBar {
+  background-color: var(--ifm-color-emphasis-100);
+  border-bottom: 1px solid var(--ifm-color-emphasis-300);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navbarBrand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--ifm-color-emphasis-900);
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.navbarItems {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.navbarLink {
+  text-decoration: none;
+  color: var(--ifm-color-emphasis-700);
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.navbarLink:hover {
+  color: var(--ifm-color-primary);
+}
+
+.navbarSearchInput {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 4px;
+  background-color: var(--ifm-color-emphasis-100);
+  color: var(--ifm-color-emphasis-900);
+  font-family: inherit;
+  font-size: 0.9rem;
+}
+
+.navbarSearchInput:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+.themeToggleButton {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  border-radius: 4px;
+  transition: background-color 0.2s ease;
+  color: var(--ifm-color-emphasis-900);
+}
+
+.themeToggleButton:focus {
+  outline: 2px solid var(--ifm-color-primary);
+  outline-offset: 2px;
+}
+
+/* Responsive styles */
+@media (max-width: 996px) {
+  .navbarItems {
+    gap: 1rem;
+  }
+
+  .navbarBrand {
+    font-size: 1.1rem;
+  }
+
+  .navbarLink {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .navigationBar {
+    padding: 0.5rem;
+  }
+
+  .navbarItems {
+    gap: 0.75rem;
+  }
+
+  .navbarSearchInput {
+    min-width: 120px;
+  }
+}
+
+@media (max-width: 576px) {
+  .navbarItems {
+    gap: 0.5rem;
+  }
+
+  .navbarBrand {
+    font-size: 1rem;
+  }
+
+  .navbarSearchInput {
+    min-width: 100px;
+    font-size: 0.8rem;
+  }
+}

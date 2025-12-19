@@ -1,23 +1,617 @@
 /**
- * CSS files with the .module.css suffix will be treated as CSS modules
- * and scoped locally.
+ * Enhanced Homepage Styles
+ * Color scheme: Indigo #6C3BAA primary, proper contrast for light/dark modes
  */
 
+/* Hero Banner Styles */
 .heroBanner {
-  padding: 4rem 0;
+  padding: 6rem 0;
   text-align: center;
   position: relative;
   overflow: hidden;
+  background: linear-gradient(135deg, #f5f3f9 0%, #FFFFFF 100%);
+  font-family: 'Archivo', system-ui, -apple-system, sans-serif;
 }
 
-@media screen and (max-width: 996px) {
-  .heroBanner {
-    padding: 2rem;
+[data-theme='dark'] .heroBanner {
+  background: linear-gradient(135deg, #1a1520 0%, #0F0F14 100%);
+}
+
+/* Animated background shapes */
+.heroBanner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(108, 59, 170, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatShape 20s ease-in-out infinite;
+  filter: blur(40px);
+}
+
+.heroBanner::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(108, 59, 170, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: floatShape 15s ease-in-out infinite reverse;
+  filter: blur(40px);
+}
+
+@keyframes floatShape {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
   }
+  33% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  66% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+}
+
+.heroContent {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Title with typewriter effect */
+.heroBanner .hero__title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #000000;
+  line-height: 1.2;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+  position: relative;
+  display: inline-block;
+  min-height: 4.2rem;
+}
+
+[data-theme='dark'] .heroBanner .hero__title {
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(108, 59, 170, 0.3);
+}
+
+/* Blinking cursor for typewriter effect */
+.cursor {
+  display: inline-block;
+  width: 3px;
+  animation: blink 1s step-end infinite;
+  color: #6C3BAA;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+@keyframes blink {
+  0%, 50% {
+    opacity: 1;
+  }
+  51%, 100% {
+    opacity: 0;
+  }
+}
+
+/* Gradient text shimmer effect */
+.heroBanner .hero__title::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(108, 59, 170, 0.3),
+    transparent
+  );
+  animation: shimmer 3s ease-in-out infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  50%, 100% {
+    left: 100%;
+  }
+}
+
+.heroBanner .hero__subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2.5rem;
+  color: rgba(0, 0, 0, 0.75);
+  line-height: 1.5;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'General Sans', system-ui, -apple-system, sans-serif;
+}
+
+[data-theme='dark'] .heroBanner .hero__subtitle {
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .buttons {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+/* Primary Button - Enhanced */
+.primaryButton {
+  min-width: 200px;
+  background: #6C3BAA;
+  color: #FFFFFF;
+  border: none;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(108, 59, 170, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.primaryButton::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.5s ease, height 0.5s ease;
+}
+
+.primaryButton:hover::before {
+  width: 400px;
+  height: 400px;
+}
+
+.primaryButton::after {
+  content: '→';
+  position: absolute;
+  right: 1.5rem;
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: all 0.3s ease;
+}
+
+.primaryButton:hover::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.primaryButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(108, 59, 170, 0.5);
+  background: #5a2f8f;
+  padding-right: 3rem;
+}
+
+.primaryButton:active {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(108, 59, 170, 0.4);
+}
+
+/* Secondary Button - Enhanced */
+.secondaryButton {
+  min-width: 200px;
+  background: transparent;
+  color: #6C3BAA;
+  border: 2px solid #6C3BAA;
+  padding: 0.875rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(108, 59, 170, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme='dark'] .secondaryButton {
+  color: #FFFFFF;
+  border-color: #6C3BAA;
+}
+
+.secondaryButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: #6C3BAA;
+  transition: left 0.4s ease;
+  z-index: -1;
+}
+
+.secondaryButton:hover::before {
+  left: 0;
+}
+
+.secondaryButton:hover {
+  color: #FFFFFF;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(108, 59, 170, 0.4);
+}
+
+.secondaryButton:active {
+  transform: translateY(-1px);
+}
+
+/* Features Section */
+.featuresSection {
+  padding: 4rem 0;
+  background: #FFFFFF;
+  position: relative;
+}
+
+[data-theme='dark'] .featuresSection {
+  background: #0F0F14;
+}
+
+.featuresSection h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+  color: #000000;
+  font-size: 2.5rem;
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+[data-theme='dark'] .featuresSection h2 {
+  color: #FFFFFF;
+}
+
+.featuresSection h2::after {
+  content: '';
+  position: absolute;
+  bottom: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, #6C3BAA, #8B5CD6);
+  border-radius: 2px;
+  animation: expandUnderline 0.8s ease-out forwards;
+}
+
+@keyframes expandUnderline {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80px;
+  }
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Learning Outcomes Section */
+.learningSection {
+  padding: 4rem 0;
+  background: #F7F7FB;
+  position: relative;
+}
+
+[data-theme='dark'] .learningSection {
+  background: #1A1A1F;
+}
+
+.learningSection h2 {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+  color: #000000;
+  font-size: 2.5rem;
+}
+
+[data-theme='dark'] .learningSection h2 {
+  color: #FFFFFF;
+}
+
+/* Featured Chapters Section */
+.featuredChapters {
+  padding: 4rem 0;
+  background: #FFFFFF;
+  position: relative;
+}
+
+[data-theme='dark'] .featuredChapters {
+  background: #0F0F14;
+}
+
+.featuredChapters h2 {
+  text-align: center;
+  margin-bottom: 3rem;
+  font-family: 'Archivo', system-ui, -apple-system, sans-serif;
+  color: #000000;
+  font-size: 2.5rem;
+}
+
+[data-theme='dark'] .featuredChapters h2 {
+  color: #FFFFFF;
+}
+
+/* Scroll to Top Button */
+.backToTop {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 48px;
+  height: 48px;
+  background: #6C3BAA;
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 12px rgba(108, 59, 170, 0.4);
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 1000;
+}
+
+.backToTop.visible {
+  opacity: 1;
+  visibility: visible;
+  animation: slideInUp 0.3s ease-out;
+}
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.backToTop:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(108, 59, 170, 0.5);
+  background: #5a2f8f;
+}
+
+.backToTop:active {
+  transform: translateY(-2px);
+}
+
+/* Enhanced responsive design */
+@media screen and (max-width: 996px) {
+  .heroBanner {
+    padding: 4rem 0;
+  }
+
+  .heroBanner .hero__title {
+    font-size: 2.5rem;
+    min-height: 3rem;
+  }
+
+  .heroBanner .hero__subtitle {
+    font-size: 1.25rem;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .primaryButton, .secondaryButton {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .featuresGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .featuresSection h2,
+  .learningSection h2,
+  .featuredChapters h2 {
+    font-size: 2rem;
+  }
+  
+  .backToTop {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .heroBanner {
+    padding: 3rem 1rem;
+  }
+
+  .heroBanner .hero__title {
+    font-size: 2rem;
+    min-height: 2.4rem;
+  }
+
+  .heroBanner .hero__subtitle {
+    font-size: 1.125rem;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .heroBanner::before,
+  .heroBanner::after {
+    width: 400px;
+    height: 400px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .heroBanner .hero__title {
+    font-size: 1.75rem;
+    min-height: 2.1rem;
+  }
+
+  .buttons {
+    gap: 0.75rem;
+  }
+  
+  .featuresSection h2,
+  .learningSection h2,
+  .featuredChapters h2 {
+    font-size: 1.75rem;
+  }
+  
+  .backToTop {
+    bottom: 1rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.25rem;
+  }
+}
+
+/* Animation for hero entrance */
+@keyframes heroEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.heroContent {
+  animation: heroEntrance 0.8s ease-out;
+}
+
+/* Stagger animations for hero elements */
+.hero__title {
+  animation: heroEntrance 0.8s ease-out;
+  animation-delay: 0.1s;
+  animation-fill-mode: both;
+}
+
+.hero__subtitle {
+  animation: heroEntrance 0.8s ease-out;
+  animation-delay: 0.3s;
+  animation-fill-mode: both;
+}
+
+.buttons {
+  animation: heroEntrance 0.8s ease-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: both;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .heroContent,
+  .hero__title,
+  .hero__subtitle,
+  .buttons,
+  .cursor,
+  .backToTop {
+    animation: none;
+  }
+
+  .primaryButton,
+  .secondaryButton,
+  .backToTop {
+    transition: none;
+  }
+  
+  .heroBanner::before,
+  .heroBanner::after {
+    animation: none;
+  }
+  
+  .primaryButton::before,
+  .primaryButton::after,
+  .secondaryButton::before,
+  .hero__title::after {
+    transition: none;
+    animation: none;
+  }
+  
+  .primaryButton:hover,
+  .secondaryButton:hover,
+  .backToTop:hover {
+    transform: none;
+  }
+}
+
+/* Focus styles for accessibility */
+.primaryButton:focus-visible,
+.secondaryButton:focus-visible {
+  outline: 3px solid #6C3BAA;
+  outline-offset: 4px;
+}
+
+.backToTop:focus-visible {
+  outline: 3px solid #6C3BAA;
+  outline-offset: 4px;
+}
+
+/* Button text should maintain proper contrast */
+.primaryButton {
+  position: relative;
+  z-index: 1;
+}
+
+.primaryButton > *,
+.secondaryButton > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .primaryButton,
+  .secondaryButton {
+    border-width: 3px;
+  }
+  
+  .backToTop {
+    border: 3px solid #FFFFFF;
+  }
 }

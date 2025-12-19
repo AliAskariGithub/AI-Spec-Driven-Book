@@ -1,0 +1,130 @@
+/**
+ * Card component styles
+ * Implements responsive card layouts with hover effects
+ */
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Focus state for accessibility */
+.card:focus-visible {
+  outline: 2px solid var(--ifm-color-primary, #25c2a0);
+  outline-offset: 2px;
+}
+
+/* Icon container */
+.iconContainer {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  font-size: 2.5rem;
+  color: var(--ifm-color-primary, #25c2a0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card body */
+.cardBody {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Card title */
+.cardTitle {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--ifm-heading-color, #1c1e21);
+  line-height: 1.4;
+}
+
+/* Card description */
+.cardDescription {
+  margin: 0 0 1rem 0;
+  color: var(--ifm-font-color-base, #606770);
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+/* Feature card variant */
+.feature {
+  border-left: 4px solid var(--ifm-color-primary, #25c2a0);
+}
+
+.feature:hover {
+  border-left-color: var(--ifm-color-primary-dark, #1fae8e);
+}
+
+/* Testimonial card variant */
+.testimonial {
+  background: var(--ifm-color-emphasis-100, #f0f2f5);
+  border-left: 4px solid var(--ifm-color-info, #007bff);
+}
+
+.testimonial:hover {
+  border-left-color: var(--ifm-color-info-dark, #005cbf);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .card {
+    padding: 1rem;
+  }
+
+  .cardTitle {
+    font-size: 1.125rem;
+  }
+
+  .icon {
+    font-size: 2rem;
+  }
+}
+
+/* Animation for card entrance */
+@keyframes cardEntrance {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.card {
+  animation: cardEntrance 0.5s ease-out;
+}
+
+/* Reduce motion accessibility preference */
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card:hover {
+    transition: none;
+    transform: none;
+    animation: none;
+  }
+}
