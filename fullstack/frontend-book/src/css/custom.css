@@ -4,6 +4,63 @@
  * work well for content-centric websites.
  */
 
+/* Font face definitions for Archivo and General Sans */
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo/Archivo-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo/Archivo-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo/Archivo-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Archivo';
+  src: url('/fonts/Archivo/Archivo-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans/GeneralSans-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans/GeneralSans-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'General Sans';
+  src: url('/fonts/GeneralSans/GeneralSans-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* You can override the default Infima variables here. */
 :root {
   --ifm-color-primary: #2e8555;
@@ -15,6 +72,38 @@
   --ifm-color-primary-lightest: #3cad6e;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+
+  /* Custom font variables */
+  --ifm-font-family-base: 'General Sans', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+  --ifm-font-family-monospace: 'Courier New', Consolas, monospace;
+  --ifm-heading-font-family: 'Archivo', system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+
+  /* Custom spacing variables */
+  --ifm-spacing-horizontal: 1.5rem;
+  --ifm-spacing-vertical: 1.5rem;
+  --ifm-global-radius: 8px;
+
+  /* New color palette for better accessibility */
+  --custom-color-primary: #1a73e8;
+  --custom-color-primary-dark: #0d62c9;
+  --custom-color-primary-darker: #0a56b0;
+  --custom-color-primary-darkest: #084087;
+  --custom-color-primary-light: #4285f4;
+  --custom-color-primary-lighter: #5a95f5;
+  --custom-color-primary-lightest: #84abf7;
+
+  --custom-color-accent: #ff6d01;
+  --custom-color-accent-light: #ff8533;
+  --custom-color-accent-lighter: #ffb780;
+
+  --custom-color-gray-light: #f8f9fa;
+  --custom-color-gray-medium: #e9ecef;
+  --custom-color-gray-dark: #6c757d;
+
+  /* Background and text colors */
+  --custom-color-background: #ffffff;
+  --custom-color-text: #202124;
+  --custom-color-text-secondary: #5f6368;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,106 +116,162 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+
+  /* Enhanced dark mode custom color variables */
+  --custom-color-primary: #5a95f5;
+  --custom-color-primary-dark: #4285f4;
+  --custom-color-primary-darker: #1a73e8;
+  --custom-color-primary-darkest: #0d62c9;
+  --custom-color-primary-light: #84abf7;
+  --custom-color-primary-lighter: #a4c4f9;
+  --custom-color-primary-lightest: #d0e0ff;
+
+  --custom-color-accent: #ff9e5c;
+  --custom-color-accent-light: #ffb780;
+  --custom-color-accent-lighter: #ffe0cc;
+
+  --custom-color-gray-light: #2d3748;
+  --custom-color-gray-medium: #4a5568;
+  --custom-color-gray-dark: #a0aec0;
+
+  --custom-color-background: #121212;
+  --custom-color-text: #f8f9fa;
+  --custom-color-text-secondary: #cbd5e0;
+
+  /* Infima dark theme overrides */
+  --ifm-color-emphasis-0: var(--custom-color-text);
+  --ifm-color-emphasis-100: color-mix(in srgb, var(--custom-color-text), transparent 10%);
+  --ifm-color-emphasis-200: color-mix(in srgb, var(--custom-color-text), transparent 30%);
+  --ifm-color-emphasis-300: color-mix(in srgb, var(--custom-color-text), transparent 50%);
+  --ifm-color-emphasis-400: color-mix(in srgb, var(--custom-color-text), transparent 70%);
+  --ifm-color-emphasis-500: color-mix(in srgb, var(--custom-color-text), transparent 80%);
+  --ifm-color-emphasis-600: color-mix(in srgb, var(--custom-color-text), transparent 85%);
+  --ifm-color-emphasis-700: color-mix(in srgb, var(--custom-color-text), transparent 90%);
+  --ifm-color-emphasis-800: color-mix(in srgb, var(--custom-color-text), transparent 95%);
+  --ifm-color-emphasis-900: color-mix(in srgb, var(--custom-color-text), transparent 97%);
+  --ifm-color-emphasis-1000: color-mix(in srgb, var(--custom-color-text), transparent 100%);
+
+  --ifm-background-color: var(--custom-color-background);
+  --ifm-background-surface-color: color-mix(in srgb, var(--custom-color-gray-light), transparent 80%);
+  --ifm-hover-overlay: color-mix(in srgb, var(--custom-color-text), transparent 85%);
 }
 
-/* Custom styles for educational content */
+/* Custom styles for educational content with updated fonts and colors */
 .educational-highlight {
-  background-color: #f0f8ff;
-  border-left: 4px solid #2e8555;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: var(--custom-color-gray-light);
+  border-left: 4px solid var(--custom-color-primary);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 .learning-objectives {
-  background-color: #e8f4f8;
-  border: 1px solid #b3e0f2;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-primary), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 .practical-example {
-  background-color: #fff8e1;
-  border: 1px solid #ffeaa7;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-accent), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-accent), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 /* Simulation-specific styles for Module 2 */
 .simulation-concept {
-  background-color: #f0f9ff;
-  border: 1px solid #bae6fd;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-primary), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
   position: relative;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 .simulation-concept::before {
   content: "🔬";
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 1.2rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1.4rem;
 }
 
 .gazebo-section {
-  background-color: #f0fdf4;
-  border: 1px solid #bbf7d0;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-accent), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-accent), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  position: relative;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 .gazebo-section::before {
   content: "🤖";
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 1.2rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1.4rem;
 }
 
 .unity-section {
-  background-color: #fef7f0;
-  border: 1px solid #fed7aa;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-accent-light), transparent 90%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-accent-light), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  position: relative;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 .unity-section::before {
   content: "🎮";
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 1.2rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1.4rem;
 }
 
 .sensor-data {
-  background-color: #f5f3ff;
-  border: 1px solid #ddd6fe;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
-  font-family: 'Courier New', monospace;
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-primary), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  font-family: var(--ifm-font-family-monospace);
+  color: var(--custom-color-text);
 }
 
 .physics-properties {
-  background-color: #ecfdf5;
-  border: 1px solid #a7f3d0;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-accent), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-accent), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 /* Code block enhancements for educational content */
 .prism-code.language-python {
-  border-left: 3px solid #357abd;
+  border-left: 3px solid var(--custom-color-primary);
 }
 
 .prism-code.language-bash {
-  border-left: 3px solid #56b6c2;
+  border-left: 3px solid var(--custom-color-accent);
 }
 
 /* Sidebar enhancements for educational structure */
@@ -136,54 +281,62 @@
 
 /* Isaac-specific styles for Module 3 */
 .isaac-section {
-  background-color: #fff0f5;
-  border: 1px solid #fcc2d7;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-primary), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  position: relative;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 .isaac-section::before {
   content: "🚀";
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 1.2rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1.4rem;
 }
 
 .isaac-concept {
-  background-color: #f0f6ff;
-  border: 1px solid #9ec5fe;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 95%);
+  border: 1px solid color-mix(in srgb, var(--custom-color-primary), transparent 70%);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
   position: relative;
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 .isaac-concept::before {
   content: "🎯";
   position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
-  font-size: 1.2rem;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 1.4rem;
 }
 
 .isaac-code-block {
-  background-color: #f8fafc;
-  border-left: 3px solid #64748b;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
-  font-family: 'Courier New', monospace;
+  background-color: var(--custom-color-gray-light);
+  border-left: 3px solid var(--custom-color-primary);
+  border-radius: 0 var(--ifm-global-radius) var(--ifm-global-radius) 0;
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  font-family: var(--ifm-font-family-monospace);
+  color: var(--custom-color-text);
 }
 
 .isaac-warning {
-  background-color: #fffbeb;
-  border: 1px solid #f59e0b;
-  border-radius: 4px;
-  padding: 1rem;
-  margin: 1rem 0;
-  border-left: 4px solid #f59e0b;
+  background-color: color-mix(in srgb, var(--custom-color-accent), transparent 90%);
+  border: 1px solid var(--custom-color-accent);
+  border-radius: var(--ifm-global-radius);
+  padding: 1.25rem;
+  margin: 1.25rem 0;
+  border-left: 4px solid var(--custom-color-accent);
+  font-family: var(--ifm-font-family-base);
+  color: var(--custom-color-text);
 }
 
 /* Responsive design for educational content */
@@ -194,6 +347,352 @@
   .isaac-section,
   .isaac-concept,
   .isaac-warning {
+    padding: 1rem;
+  }
+
+  .simulation-concept::before,
+  .gazebo-section::before,
+  .unity-section::before,
+  .isaac-section::before,
+  .isaac-concept::before {
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* Typography enhancements for accessibility */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--custom-color-text);
+  scroll-margin-top: calc(var(--ifm-navbar-height) + 1rem); /* For anchor links with fixed navbar */
+}
+
+p {
+  font-family: var(--ifm-font-family-base);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--custom-color-text);
+  margin-bottom: 1rem;
+}
+
+/* Accessibility enhancements */
+:root {
+  /* Ensure sufficient contrast ratios for accessibility */
+  --ifm-color-emphasis-0: var(--custom-color-text);
+  --ifm-color-emphasis-100: color-mix(in srgb, var(--custom-color-text), transparent 20%);
+  --ifm-color-emphasis-200: color-mix(in srgb, var(--custom-color-text), transparent 40%);
+  --ifm-color-emphasis-300: color-mix(in srgb, var(--custom-color-text), transparent 60%);
+  --ifm-color-emphasis-400: color-mix(in srgb, var(--custom-color-text), transparent 80%);
+  --ifm-color-emphasis-500: color-mix(in srgb, var(--custom-color-text), transparent 85%);
+  --ifm-color-emphasis-600: color-mix(in srgb, var(--custom-color-text), transparent 90%);
+  --ifm-color-emphasis-700: color-mix(in srgb, var(--custom-color-text), transparent 95%);
+  --ifm-color-emphasis-800: color-mix(in srgb, var(--custom-color-text), transparent 97%);
+  --ifm-color-emphasis-900: color-mix(in srgb, var(--custom-color-text), transparent 99%);
+  --ifm-color-emphasis-1000: color-mix(in srgb, var(--custom-color-text), transparent 100%);
+}
+
+/* Focus indicators for keyboard navigation */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+.menu__link:focus,
+.navbar__item:focus,
+.table-of-contents__link:focus {
+  outline: 2px solid var(--custom-color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --ifm-color-emphasis-0: #000;
+    --ifm-color-emphasis-1000: #fff;
+    --custom-color-text: #000;
+    --custom-color-background: #fff;
+  }
+
+  [data-theme='dark'] {
+    :root {
+      --ifm-color-emphasis-0: #fff;
+      --ifm-color-emphasis-1000: #000;
+      --custom-color-text: #fff;
+      --custom-color-background: #000;
+    }
+  }
+}
+
+/* Responsive breakpoints and mobile-first design */
+@media (max-width: 576px) {
+  /* Extra small devices (phones, 576px and down) */
+  .navbar {
+    padding: 0.5rem;
+  }
+
+  .navbar__brand {
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar__title {
+    font-size: 1.1rem;
+    margin-left: 0.5rem;
+  }
+
+  .menu__list-item-collapsible .menu__link--sublist,
+  .menu__link {
+    padding: 0.6rem 0.75rem;
+  }
+
+  .container {
     padding: 0.75rem;
   }
+
+  .hero__title {
+    font-size: 1.75rem;
+  }
+
+  .hero__subtitle {
+    font-size: 1rem;
+  }
+
+  .educational-highlight,
+  .learning-objectives,
+  .practical-example,
+  .isaac-section,
+  .isaac-concept,
+  .isaac-warning,
+  .simulation-concept,
+  .gazebo-section,
+  .unity-section,
+  .sensor-data,
+  .physics-properties,
+  .isaac-code-block {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+
+  .simulation-concept::before,
+  .gazebo-section::before,
+  .unity-section::before,
+  .isaac-section::before,
+  .isaac-concept::before {
+    top: 0.5rem;
+    left: 0.5rem;
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Small devices (landscape phones, 576px and up) */
+  .container {
+    padding: 1rem;
+  }
+
+  .footer__row {
+    flex-direction: column;
+  }
+
+  .footer__col {
+    margin-bottom: 1.5rem;
+  }
+
+  .footer__title {
+    font-size: 1.1rem;
+  }
+
+  .footer__item {
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 992px) {
+  /* Medium devices (tablets, 768px and up) */
+  .container {
+    padding: 1.25rem;
+  }
+
+  .menu {
+    padding-right: 0.5rem;
+  }
+
+  .sidebar {
+    width: 280px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  /* Large devices (desktops, 992px and up) */
+  .container {
+    padding: 1.5rem;
+  }
+
+  .sidebar {
+    width: 300px;
+  }
+}
+
+@media (min-width: 1200px) {
+  /* Extra large devices (large desktops) */
+  .container {
+    max-width: 1400px;
+    padding: 1.75rem;
+  }
+
+  .sidebar {
+    width: 320px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+code {
+  font-family: var(--ifm-font-family-monospace);
+  font-size: 0.9em;
+  background-color: color-mix(in srgb, var(--custom-color-gray-medium), transparent 70%);
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+}
+
+pre {
+  background-color: var(--custom-color-gray-light);
+  border-radius: var(--ifm-global-radius);
+  border: 1px solid var(--custom-color-gray-medium);
+  padding: 1.25rem;
+}
+
+/* Navbar enhancements */
+.navbar {
+  font-family: var(--ifm-font-family-base);
+  font-weight: 500;
+  background-color: var(--custom-color-background);
+  border-bottom: 1px solid var(--custom-color-gray-medium);
+  padding: 0.75rem 1rem;
+}
+
+.navbar__brand {
+  color: var(--custom-color-text);
+}
+
+.navbar__title {
+  color: var(--custom-color-text);
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+}
+
+.navbar__item,
+.navbar__link {
+  font-family: var(--ifm-font-family-base);
+  font-weight: 500;
+  color: var(--custom-color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.navbar__item:hover,
+.navbar__link:hover {
+  color: var(--custom-color-primary);
+}
+
+/* Search bar enhancements */
+.navbar__search-input {
+  border: 1px solid var(--custom-color-gray-medium);
+  border-radius: var(--ifm-global-radius);
+  padding: 0.5rem 1rem;
+  background-color: var(--custom-color-gray-light);
+  color: var(--custom-color-text);
+}
+
+.navbar__search-input::placeholder {
+  color: var(--custom-color-text-secondary);
+  opacity: 0.7;
+}
+
+/* Sidebar enhancements */
+.menu {
+  font-family: var(--ifm-font-family-base);
+}
+
+.menu__list-item-collapsible {
+  border-radius: var(--ifm-global-radius);
+  margin-bottom: 0.25rem;
+  transition: background-color 0.2s ease;
+}
+
+.menu__list-item-collapsible:hover {
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 90%);
+}
+
+.menu__list-item-collapsible .menu__link--sublist {
+  font-weight: 600;
+  color: var(--custom-color-text);
+  padding: 0.75rem 1rem;
+  border-radius: var(--ifm-global-radius);
+}
+
+.menu__list-item-collapsible .menu__link--sublist:hover {
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 85%);
+}
+
+.menu__link {
+  font-family: var(--ifm-font-family-base);
+  border-radius: var(--ifm-global-radius);
+  margin: 0.125rem 0;
+  padding: 0.6rem 1rem;
+  transition: all 0.2s ease;
+  color: var(--custom-color-text-secondary);
+}
+
+.menu__link:hover {
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 90%);
+  color: var(--custom-color-primary);
+}
+
+.menu__link--active,
+.menu__link--active:hover {
+  background-color: color-mix(in srgb, var(--custom-color-primary), transparent 85%);
+  color: var(--custom-color-primary);
+  font-weight: 600;
+}
+
+/* Footer enhancements */
+.footer {
+  background-color: var(--custom-color-gray-light);
+  border-top: 1px solid var(--custom-color-gray-medium);
+  padding: 2.5rem 0 1.5rem;
+}
+
+.footer__title {
+  color: var(--custom-color-text);
+  font-family: var(--ifm-heading-font-family);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer__link-item {
+  color: var(--custom-color-text-secondary);
+  transition: color 0.2s ease;
+}
+
+.footer__link-item:hover {
+  color: var(--custom-color-primary);
+}
+
+.footer__copyright {
+  color: var(--custom-color-text-secondary);
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--custom-color-gray-medium);
 }

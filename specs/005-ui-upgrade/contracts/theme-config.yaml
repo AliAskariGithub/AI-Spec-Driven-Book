@@ -1,0 +1,78 @@
+# Theme Configuration Contract
+
+## Overview
+This contract defines the configuration interface for the custom Docusaurus theme, including all UI upgrade settings.
+
+## Theme Configuration Object
+
+```json
+{
+  "themeConfig": {
+    "navbar": {
+      "title": "string",
+      "logo": {
+        "alt": "string",
+        "src": "string"
+      },
+      "items": [
+        {
+          "type": "string",
+          "position": "string",
+          "label": "string",
+          "to": "string"
+        }
+      ]
+    },
+    "footer": {
+      "style": "string",
+      "links": [
+        {
+          "title": "string",
+          "items": [
+            {
+              "label": "string",
+              "to": "string"
+            }
+          ]
+        }
+      ],
+      "copyright": "string"
+    },
+    "colorMode": {
+      "defaultMode": "string",
+      "disableSwitch": "boolean",
+      "respectPrefersColorScheme": "boolean"
+    },
+    "prism": {
+      "theme": "object",
+      "darkTheme": "object"
+    }
+  }
+}
+```
+
+## Custom CSS Variables Contract
+
+### Typography Variables
+- `--ifm-font-family-base`: Primary font family
+- `--ifm-font-size-base`: Base font size
+- `--ifm-line-height-base`: Base line height
+
+### Color Variables
+- `--ifm-color-primary`: Primary brand color
+- `--ifm-color-primary-dark`: Darker shade of primary
+- `--ifm-color-primary-darker`: Even darker shade
+- `--ifm-color-primary-darkest`: Darkest shade
+- `--ifm-color-primary-light`: Lighter shade of primary
+- `--ifm-color-primary-lighter`: Even lighter shade
+- `--ifm-color-primary-lightest`: Lightest shade
+
+### Spacing Variables
+- `--ifm-spacing-vertical`: Vertical spacing unit
+- `--ifm-spacing-horizontal`: Horizontal spacing unit
+- `--ifm-global-radius`: Global border radius
+
+## Responsive Breakpoints
+- `--ifm-container-width`: Max container width
+- `--ifm-container-width-xl`: Extra large container width
+- Media query breakpoints for mobile, tablet, desktop
