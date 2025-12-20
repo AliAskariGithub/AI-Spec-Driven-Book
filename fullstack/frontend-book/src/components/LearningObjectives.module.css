@@ -1,33 +1,387 @@
+/**
+ * Enhanced Learning Objectives Styles
+ * Color scheme: Indigo #6C3BAA primary, proper contrast for light/dark modes
+ */
+
 .learningObjectives {
-  background-color: #e8f4f8;
-  border: 1px solid #b3e0f2;
-  border-radius: 4px;
-  padding: 1.5rem;
-  margin: 1.5rem 0;
+  background: linear-gradient(135deg, rgba(108, 59, 170, 0.05) 0%, rgba(108, 59, 170, 0.02) 100%);
+  border: 2px solid rgba(108, 59, 170, 0.2);
+  border-radius: 12px;
+  padding: 2rem;
+  margin: 2rem 0;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(108, 59, 170, 0.1);
+  transition: all 0.3s ease;
 }
 
+[data-theme='dark'] .learningObjectives {
+  background: linear-gradient(135deg, rgba(177, 140, 255, 0.08) 0%, rgba(177, 140, 255, 0.03) 100%);
+  border-color: rgba(177, 140, 255, 0.25);
+  box-shadow: 0 4px 12px rgba(177, 140, 255, 0.15);
+}
+
+/* Decorative accent bar */
+.learningObjectives::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+  background: linear-gradient(180deg, #6C3BAA 0%, #8B5CD6 100%);
+  border-radius: 12px 0 0 12px;
+}
+
+[data-theme='dark'] .learningObjectives::before {
+  background: linear-gradient(180deg, #B18CFF 0%, #C9B0FF 100%);
+}
+
+/* Decorative corner accent */
+.learningObjectives::after {
+  content: '✓';
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6C3BAA 0%, #8B5CD6 100%);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 1.25rem;
+  font-weight: 700;
+  box-shadow: 0 2px 8px rgba(108, 59, 170, 0.3);
+  animation: float 3s ease-in-out infinite;
+}
+
+[data-theme='dark'] .learningObjectives::after {
+  background: linear-gradient(135deg, #B18CFF 0%, #C9B0FF 100%);
+  box-shadow: 0 2px 8px rgba(177, 140, 255, 0.4);
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+/* Hover effect */
+.learningObjectives:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(108, 59, 170, 0.15);
+  border-color: rgba(108, 59, 170, 0.3);
+}
+
+[data-theme='dark'] .learningObjectives:hover {
+  box-shadow: 0 8px 20px rgba(177, 140, 255, 0.2);
+  border-color: rgba(177, 140, 255, 0.35);
+}
+
+/* Header section */
 .learningObjectivesHeader {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid rgba(108, 59, 170, 0.15);
+  position: relative;
 }
 
+[data-theme='dark'] .learningObjectivesHeader {
+  border-bottom-color: rgba(177, 140, 255, 0.2);
+}
+
+/* Icon styling */
 .learningObjectivesIcon {
-  margin-right: 0.5rem;
-  fill: #2e8555;
+  width: 32px;
+  height: 32px;
+  margin-right: 0.75rem;
+  padding: 6px;
+  background: linear-gradient(135deg, #6C3BAA 0%, #8B5CD6 100%);
+  border-radius: 8px;
+  fill: #FFFFFF;
+  box-shadow: 0 2px 8px rgba(108, 59, 170, 0.3);
+  transition: all 0.3s ease;
+  flex-shrink: 0;
 }
 
+[data-theme='dark'] .learningObjectivesIcon {
+  background: linear-gradient(135deg, #B18CFF 0%, #C9B0FF 100%);
+  box-shadow: 0 2px 8px rgba(177, 140, 255, 0.4);
+}
+
+.learningObjectives:hover .learningObjectivesIcon {
+  transform: rotate(5deg) scale(1.1);
+}
+
+/* Title styling */
 .learningObjectivesTitle {
   margin: 0;
-  color: #2e8555;
-  font-size: 1.2rem;
+  color: #000000;
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
+[data-theme='dark'] .learningObjectivesTitle {
+  color: #FFFFFF;
+}
+
+/* Optional subtitle/badge */
+.learningObjectivesTitle::after {
+  content: 'Key Goals';
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, #6C3BAA 0%, #8B5CD6 100%);
+  padding: 0.25rem 0.75rem;
+  border-radius: 12px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(108, 59, 170, 0.3);
+}
+
+[data-theme='dark'] .learningObjectivesTitle::after {
+  background: linear-gradient(135deg, #B18CFF 0%, #C9B0FF 100%);
+}
+
+/* List styling */
 .learningObjectivesList {
   margin: 0;
-  padding-left: 1.5rem;
+  padding-left: 0;
+  list-style: none;
 }
 
 .learningObjectivesList li {
-  margin-bottom: 0.5rem;
+  margin-bottom: 1rem;
+  padding-left: 2rem;
+  position: relative;
+  color: rgba(0, 0, 0, 0.85);
+  line-height: 1.6;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .learningObjectivesList li {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Custom checkmark bullets */
+.learningObjectivesList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #6C3BAA 0%, #8B5CD6 100%);
+  color: #FFFFFF;
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(108, 59, 170, 0.3);
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .learningObjectivesList li::before {
+  background: linear-gradient(135deg, #B18CFF 0%, #C9B0FF 100%);
+  box-shadow: 0 2px 6px rgba(177, 140, 255, 0.4);
+}
+
+/* Hover effect on list items */
+.learningObjectivesList li:hover {
+  padding-left: 2.25rem;
+  color: #000000;
+}
+
+[data-theme='dark'] .learningObjectivesList li:hover {
+  color: #FFFFFF;
+}
+
+.learningObjectivesList li:hover::before {
+  transform: scale(1.15) rotate(10deg);
+  box-shadow: 0 4px 12px rgba(108, 59, 170, 0.5);
+}
+
+[data-theme='dark'] .learningObjectivesList li:hover::before {
+  box-shadow: 0 4px 12px rgba(177, 140, 255, 0.6);
+}
+
+/* Stagger animation for list items */
+.learningObjectivesList li {
+  animation: slideIn 0.4s ease-out backwards;
+}
+
+.learningObjectivesList li:nth-child(1) { animation-delay: 0.1s; }
+.learningObjectivesList li:nth-child(2) { animation-delay: 0.2s; }
+.learningObjectivesList li:nth-child(3) { animation-delay: 0.3s; }
+.learningObjectivesList li:nth-child(4) { animation-delay: 0.4s; }
+.learningObjectivesList li:nth-child(5) { animation-delay: 0.5s; }
+.learningObjectivesList li:nth-child(6) { animation-delay: 0.6s; }
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Progress indicator (optional - shows completion) */
+.learningObjectivesProgress {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(108, 59, 170, 0.15);
+}
+
+[data-theme='dark'] .learningObjectivesProgress {
+  border-top-color: rgba(177, 140, 255, 0.2);
+}
+
+.learningObjectivesProgress .progressBar {
+  height: 8px;
+  background: rgba(108, 59, 170, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-theme='dark'] .learningObjectivesProgress .progressBar {
+  background: rgba(177, 140, 255, 0.15);
+}
+
+.learningObjectivesProgress .progressBar::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6C3BAA 0%, #8B5CD6 100%);
+  border-radius: 4px;
+  animation: progressGrow 1s ease-out forwards;
+  animation-delay: 0.5s;
+}
+
+[data-theme='dark'] .learningObjectivesProgress .progressBar::after {
+  background: linear-gradient(90deg, #B18CFF 0%, #C9B0FF 100%);
+}
+
+@keyframes progressGrow {
+  to {
+    width: 100%;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .learningObjectives {
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .learningObjectivesTitle {
+    font-size: 1.15rem;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  
+  .learningObjectivesTitle::after {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+  
+  .learningObjectives::after {
+    width: 32px;
+    height: 32px;
+    font-size: 1.1rem;
+  }
+  
+  .learningObjectivesIcon {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .learningObjectivesList li {
+    font-size: 0.95rem;
+    padding-left: 1.75rem;
+  }
+  
+  .learningObjectivesList li::before {
+    width: 22px;
+    height: 22px;
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .learningObjectives {
+    padding: 1.25rem;
+  }
+  
+  .learningObjectivesHeader {
+    margin-bottom: 1.25rem;
+    padding-bottom: 0.75rem;
+  }
+  
+  .learningObjectivesTitle {
+    font-size: 1.05rem;
+  }
+  
+  .learningObjectivesList li {
+    font-size: 0.9rem;
+    margin-bottom: 0.875rem;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .learningObjectives,
+  .learningObjectivesIcon,
+  .learningObjectivesList li,
+  .learningObjectivesList li::before,
+  .learningObjectives::after {
+    animation: none;
+    transition: none;
+  }
+  
+  .learningObjectives:hover,
+  .learningObjectivesList li:hover {
+    transform: none;
+  }
+  
+  .learningObjectivesList li:hover::before {
+    transform: scale(1.05);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .learningObjectives {
+    border-width: 3px;
+  }
+  
+  .learningObjectivesHeader {
+    border-bottom-width: 3px;
+  }
+  
+  .learningObjectivesList li::before {
+    border: 2px solid #FFFFFF;
+  }
 }

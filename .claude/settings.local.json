@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "WebSearch",
-      "WebFetch(domain:nvidia-isaac.github.io)"
+      "WebFetch(domain:nvidia-isaac.github.io)",
+      "Bash(cp \"C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\frontend-book\\\\src\\\\css\\\\custom.css\" \"C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\frontend-book\\\\src\\\\css\\\\custom.css.bak\")",
+      "Bash(powershell \"Get-ChildItem -Path ''C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\frontend-book\\\\src'' -Recurse | Select-Object FullName | Out-String\")"
     ]
   }
 }
