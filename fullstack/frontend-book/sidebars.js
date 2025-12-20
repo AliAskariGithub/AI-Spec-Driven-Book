@@ -61,6 +61,24 @@ const sidebars = {
         'module-4/cognitive-planning',
       ],
     },
+    {
+      type: 'category',
+      label: 'Module 5: Capstone Project – Autonomous Humanoid',
+      items: [
+        'module-5/index',
+        'module-5/voice-perception',
+        'module-5/navigation-manipulation',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Module 6: Hardware Requirements & Lab Setup',
+      items: [
+        'module-6/index',
+        'module-6/edge-devices',
+        'module-6/lab-configurations',
+      ],
+    },
     // Add more modules as needed
   ],
 };
