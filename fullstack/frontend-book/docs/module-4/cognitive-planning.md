@@ -1,26 +1,28 @@
 ---
 sidebar_position: 3
-title: "Cognitive Planning & Capstone"
-description: "LLM-based task planning and mapping language to ROS 2 actions"
+title: "IMU Data and Sensor Fusion"
+description: "Understanding IMU sensors and techniques for combining multiple sensor inputs"
 ---
 
-# Cognitive Planning & Capstone
+# IMU Data and Sensor Fusion
 
 ## Learning Objectives
 
-- Design and implement LLM-based task planning systems for robotics
-- Map natural language commands to specific ROS 2 action sequences
-- Create hierarchical planning systems that break down complex tasks
-- Implement safety checks and validation for LLM-generated plans
-- Build comprehensive cognitive planning systems that integrate all VLA components
-- Apply cognitive planning techniques to complete capstone projects
+- Understand IMU (Inertial Measurement Unit) sensors and their role in robotics
+- Configure and process IMU data for robot state estimation
+- Implement sensor fusion techniques to combine multiple sensor inputs
+- Analyze the strengths and limitations of different sensor fusion approaches
+- Apply Kalman filtering and complementary filtering for sensor fusion
+- Troubleshoot common IMU and sensor fusion configuration issues
 
 ## Prerequisites
 
-- [Chapter 1: VLA Fundamentals](./vla-fundamentals.md)
-- [Chapter 2: Voice-to-Action](./voice-to-action.md)
-- [Module 1: The Robotic Nervous System](../module-1/) (ROS 2 concepts)
-- [Module 3: The AI-Robot Brain](../module-3/) (NVIDIA Isaac concepts)
+- [Module 1: The Robotic Nervous System](../module-1/) (ROS 2 fundamentals)
+- [Module 2: The Digital Twin](../module-2/) (simulation concepts)
+- [Module 3: The Digital Twin](../module-3/) (Gazebo & Unity simulation)
+- [Chapter 1: Robot Camera Models](./vla-fundamentals) (basic sensor understanding)
+- [Chapter 2: LiDAR Fundamentals](./voice-to-action) (sensor processing concepts)
+- Basic understanding of linear algebra and probability theory
 
 <div className="educational-highlight">
 
@@ -28,533 +30,557 @@ description: "LLM-based task planning and mapping language to ROS 2 actions"
 
 This chapter builds upon concepts from earlier modules:
 
-- **From Chapter 1**: We'll apply VLA architecture principles to cognitive planning systems
-- **From Chapter 2**: Voice-to-action pipelines will feed into cognitive planning systems
-- **From Module 1**: ROS 2 action servers and services will be used for task execution
-- **From Module 3**: NVIDIA Isaac navigation and perception systems will execute planned tasks
+- **From Module 1**: We'll use ROS 2 communication patterns to handle IMU and fused sensor data streams
+- **From Module 2**: Simulation concepts help you test sensor fusion in safe virtual environments
+- **From Module 3**: Digital twin knowledge enhances understanding of sensor simulation
+- **From Previous Chapters**: Camera and LiDAR understanding provides context for multi-sensor integration
 
 </div>
 
-## Introduction to Cognitive Planning in Robotics
+## Introduction to IMU Sensors
 
-Cognitive planning represents the highest level of robot intelligence, where systems can understand complex natural language commands and generate detailed plans to accomplish tasks. Unlike simple reactive behaviors, cognitive planning systems can reason about the world, handle complex multi-step tasks, and adapt to changing conditions.
+An Inertial Measurement Unit (IMU) is a critical sensor in robotics that measures acceleration and angular velocity. IMUs provide continuous information about a robot's motion and orientation, making them essential for navigation, stabilization, and control applications.
 
-<div className="isaac-section">
+### IMU Components and Functionality
 
-### Cognitive Planning Architecture
+<div className="imu-section">
 
-Cognitive planning systems typically include:
+#### Accelerometer
 
-- **Language Understanding**: Interpreting complex natural language commands
-- **World Modeling**: Maintaining an understanding of the environment and robot state
-- **Task Decomposition**: Breaking complex tasks into manageable subtasks
-- **Plan Generation**: Creating sequences of actions to achieve goals
-- **Plan Validation**: Ensuring generated plans are safe and feasible
-- **Execution Monitoring**: Tracking plan execution and handling deviations
-- **Learning and Adaptation**: Improving planning based on experience
+Measures linear acceleration along three axes:
 
-</div>
+- **Function**: Detects linear acceleration and gravitational forces
+- **Output**: 3D acceleration vector (x, y, z) in m/s²
+- **Applications**: Orientation estimation, gravity detection, motion sensing
+- **Limitations**: Cannot distinguish between gravitational and actual acceleration
 
-### Hierarchical Planning Approach
+#### Gyroscope
 
-Effective cognitive planning uses a hierarchical approach:
+Measures angular velocity around three axes:
 
-- **Task Level**: High-level goals and objectives
-- **Activity Level**: Sequences of related actions
-- **Action Level**: Individual robot capabilities
-- **Motion Level**: Specific movement trajectories
-- **Control Level**: Low-level motor commands
+- **Function**: Detects rotational motion around each axis
+- **Output**: 3D angular velocity vector (x, y, z) in rad/s
+- **Applications**: Rotation tracking, stabilization, orientation estimation
+- **Limitations**: Drifts over time due to integration of noise
 
-## LLM-Based Task Planning
+#### Magnetometer (Optional)
 
-Large Language Models excel at cognitive planning by leveraging their world knowledge and reasoning capabilities to generate task plans from natural language.
+Measures magnetic field strength along three axes:
 
-<div className="isaac-concept">
-
-### LLM Planning Capabilities
-
-LLMs bring several key capabilities to task planning:
-
-- **World Knowledge**: Understanding of common objects, locations, and activities
-- **Reasoning**: Logical inference to determine appropriate actions
-- **Generalization**: Applying learned patterns to new situations
-- **Context Awareness**: Considering environmental and situational context
-- **Natural Language Interface**: Direct translation from language to plans
-- **Learning from Examples**: Few-shot learning of new planning patterns
+- **Function**: Detects Earth's magnetic field for heading reference
+- **Output**: 3D magnetic field vector (x, y, z) in µT
+- **Applications**: Absolute orientation, compass heading
+- **Limitations**: Susceptible to magnetic interference
 
 </div>
 
-<div className="isaac-code-block">
+### IMU in Robotic Applications
 
-### LLM-Based Planning Example
+IMUs are used for various robotic tasks:
 
-```python
-# Example LLM-based task planning system
-import openai
-import json
-from typing import List, Dict, Any
+- **Attitude Estimation**: Determining robot orientation relative to gravity
+- **Motion Tracking**: Monitoring robot movement and acceleration
+- **Stabilization**: Providing feedback for robot balance and control
+- **Navigation**: Enhancing position and velocity estimates
+- **Human-Robot Interaction**: Detecting gestures and movements
+- **Vibration Analysis**: Monitoring robot mechanical health
 
-class LLMTaskPlanner:
-    def __init__(self, model_name="gpt-4"):
-        self.model_name = model_name
-        self.system_prompt = """
-        You are a robot task planning assistant. Given a high-level task,
-        generate a detailed plan with specific ROS 2 actions.
+## IMU Data Processing
 
-        The plan should be in JSON format with the following structure:
-        {
-            "task_description": "Original task",
-            "plan_steps": [
-                {
-                    "step_id": integer,
-                    "description": "Human-readable description",
-                    "action_type": "navigation|manipulation|perception|communication",
-                    "ros_action": "specific ROS 2 action name",
-                    "parameters": {"param_name": "param_value"},
-                    "preconditions": ["condition1", "condition2"],
-                    "postconditions": ["condition1", "condition2"],
-                    "confidence": 0.0-1.0
-                }
-            ],
-            "estimated_duration": "ISO 8601 duration format",
-            "safety_considerations": ["consideration1", "consideration2"]
-        }
+### IMU Message Types in ROS
 
-        Always ensure plans are safe, feasible, and appropriate for the robot.
-        """
+IMUs typically publish data using these ROS message types:
 
-    def generate_plan(self, task_description: str, robot_capabilities: Dict[str, Any],
-                     environmental_state: Dict[str, Any]) -> Dict[str, Any]:
-        prompt = f"""
-        Task: {task_description}
+- **sensor_msgs/Imu**: Contains acceleration, angular velocity, and orientation
+- **sensor_msgs/MagneticField**: Contains magnetic field measurements (if magnetometer available)
+- **geometry_msgs/Vector3**: Individual vector measurements
 
-        Robot Capabilities: {json.dumps(robot_capabilities, indent=2)}
+### IMU Calibration and Configuration
 
-        Environmental State: {json.dumps(environmental_state, indent=2)}
+Proper IMU operation requires calibration and configuration:
 
-        Generate a detailed plan following the specified JSON structure.
-        """
+```yaml
+# Example IMU configuration
+imu_config:
+  ros__parameters:
+    # Device parameters
+    device_name: "imu_link"
+    frame_id: "imu_link"
 
-        response = openai.ChatCompletion.create(
-            model=self.model_name,
-            messages=[
-                {"role": "system", "content": self.system_prompt},
-                {"role": "user", "content": prompt}
-            ],
-            temperature=0.1,
-            max_tokens=1000
-        )
+    # Measurement parameters
+    linear_acceleration_covariance: [0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01]
+    angular_velocity_covariance: [0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01]
+    orientation_covariance: [0.01, 0.0, 0.0, 0.0, 0.01, 0.0, 0.0, 0.0, 0.01]
 
-        return json.loads(response.choices[0].message.content)
+    # Update rate
+    publish_rate: 100.0  # Hz
+
+    # Calibration parameters
+    bias_correction: true
+    temperature_compensation: true
 ```
 
+### IMU Data Filtering
+
+Raw IMU data often contains noise that needs to be filtered:
+
+- **Low-pass Filtering**: Removes high-frequency noise from measurements
+- **Bias Estimation**: Estimates and removes sensor bias over time
+- **Temperature Compensation**: Adjusts for temperature-induced drift
+- **Outlier Detection**: Identifies and handles anomalous measurements
+
+## Sensor Fusion Fundamentals
+
+### Why Sensor Fusion?
+
+No single sensor provides perfect information. Sensor fusion combines multiple sensors to achieve better accuracy, reliability, and robustness than any individual sensor alone.
+
+<div className="imu-concept">
+
+#### Sensor Complementarity
+
+Different sensors provide complementary information:
+
+- **IMU**: High-frequency motion data but with drift
+- **GPS**: Absolute position but low-frequency updates
+- **LiDAR**: Precise environmental mapping but affected by motion blur
+- **Cameras**: Rich visual information but affected by lighting conditions
+
+#### Fusion Benefits
+
+- **Accuracy**: Combines precise measurements from different sources
+- **Reliability**: Provides redundancy when individual sensors fail
+- **Robustness**: Maintains performance across different environmental conditions
+- **Completeness**: Provides more comprehensive environmental understanding
+
 </div>
 
-### Planning Strategies
+### Types of Sensor Fusion
 
-Different planning strategies can be employed based on task complexity:
+#### Data-Level Fusion
 
-- **Reactive Planning**: Simple, direct response to commands
-- **Deliberative Planning**: Careful consideration of multiple options
-- **Hierarchical Planning**: Breaking complex tasks into subtasks
-- **Contingency Planning**: Preparing for potential failures
-- **Learning-Based Planning**: Adapting plans based on experience
+Combines raw sensor measurements before processing:
 
-## Mapping Language to ROS 2 Actions
+- **Advantages**: Preserves all original information
+- **Disadvantages**: Requires synchronization and high computational load
+- **Applications**: Multi-camera systems, multi-LiDAR setups
 
-The critical component of cognitive planning is mapping high-level language commands to specific ROS 2 actions that the robot can execute.
+#### Feature-Level Fusion
 
-<div className="isaac-section">
+Combines extracted features from different sensors:
 
-### Action Mapping Framework
+- **Advantages**: Reduces data volume while preserving key information
+- **Disadvantages**: May lose some information during feature extraction
+- **Applications**: Object detection and tracking
 
-The mapping process involves several key components:
+#### Decision-Level Fusion
 
-1. **Command Parsing**: Understanding the natural language command
-2. **Capability Matching**: Identifying robot capabilities that can fulfill the command
-3. **Parameter Extraction**: Extracting specific parameters from the command
-4. **Action Sequencing**: Determining the order of required actions
-5. **Constraint Checking**: Ensuring actions are safe and feasible
-6. **Plan Validation**: Verifying the complete plan before execution
+Combines decisions or estimates from different sensors:
+
+- **Advantages**: Low computational load, easy to implement
+- **Disadvantages**: Less information available for optimal fusion
+- **Applications**: Classification and decision-making systems
+
+## Kalman Filtering for Sensor Fusion
+
+Kalman filters provide optimal state estimation by combining predictions and measurements with uncertainty estimates.
+
+### Kalman Filter Principles
+
+<div className="imu-section">
+
+#### State Prediction
+
+The filter predicts the next state based on the current state and control inputs:
+
+- **State Vector**: Contains position, velocity, and orientation
+- **Process Model**: Describes how state evolves over time
+- **Process Noise**: Models uncertainty in the prediction
+
+#### Measurement Update
+
+The filter updates the predicted state with actual measurements:
+
+- **Measurement Model**: Relates state to sensor measurements
+- **Measurement Noise**: Models sensor uncertainty
+- **Kalman Gain**: Determines optimal balance between prediction and measurement
 
 </div>
 
-<div className="isaac-code-block">
+### Extended Kalman Filter (EKF)
 
-### ROS 2 Action Mapping Example
+For non-linear systems, the Extended Kalman Filter linearizes around the current state estimate:
 
-```python
-# Example action mapping system
-class ActionMapper:
-    def __init__(self):
-        self.action_map = {
-            "navigation": {
-                "go to": "nav2_msgs/action/NavigateToPose",
-                "move to": "nav2_msgs/action/NavigateToPose",
-                "navigate to": "nav2_msgs/action/NavigateToPose"
-            },
-            "manipulation": {
-                "pick up": "control_msgs/action/PickupAction",
-                "grasp": "control_msgs/action/PickupAction",
-                "place": "control_msgs/action/PlaceAction",
-                "put down": "control_msgs/action/PlaceAction"
-            },
-            "perception": {
-                "look at": "vision_msgs/action/DetectObjects",
-                "find": "vision_msgs/action/DetectObjects",
-                "identify": "vision_msgs/action/DetectObjects"
-            }
-        }
+```cpp
+// Example EKF implementation for IMU-camera fusion
+#include <Eigen/Dense>
 
-        self.parameter_extractors = {
-            "location": self.extract_location,
-            "object": self.extract_object,
-            "orientation": self.extract_orientation
-        }
+class IMUCameraEKF {
+private:
+    Eigen::VectorXd state;  // [x, y, z, vx, vy, vz, qw, qx, qy, qz]
+    Eigen::MatrixXd covariance;
 
-    def map_command_to_action(self, command: str, context: Dict[str, Any]) -> List[Dict[str, Any]]:
-        # Parse the command to identify intent and parameters
-        intent = self.parse_intent(command)
-        parameters = self.extract_parameters(command, context)
+public:
+    void predict(double dt, const Eigen::Vector3d& gyro, const Eigen::Vector3d& accel) {
+        // State transition model using IMU data
+        Eigen::MatrixXd F = computeJacobian(state, dt);  // Jacobian of process model
+        Eigen::MatrixXd Q = processNoiseCovariance(dt);  // Process noise
 
-        # Map intent to ROS 2 actions
-        actions = []
-        if intent in self.action_map["navigation"]:
-            actions.append({
-                "action_type": "navigation",
-                "action_name": self.action_map["navigation"][intent],
-                "parameters": {**parameters, **context.get("navigation_params", {})}
-            })
-        elif intent in self.action_map["manipulation"]:
-            actions.append({
-                "action_type": "manipulation",
-                "action_name": self.action_map["manipulation"][intent],
-                "parameters": {**parameters, **context.get("manipulation_params", {})}
-            })
+        // Predict state and covariance
+        state = predictState(state, dt, gyro, accel);
+        covariance = F * covariance * F.transpose() + Q;
+    }
 
-        return actions
+    void update(const Eigen::VectorXd& measurement, const Eigen::MatrixXd& H,
+                const Eigen::MatrixXd& R) {
+        // Kalman gain
+        Eigen::MatrixXd S = H * covariance * H.transpose() + R;
+        Eigen::MatrixXd K = covariance * H.transpose() * S.inverse();
 
-    def parse_intent(self, command: str) -> str:
-        # Simple keyword-based intent parsing
-        # In practice, this would use more sophisticated NLP
-        for intent_category in self.action_map.values():
-            for keyword, _ in intent_category.items():
-                if keyword in command.lower():
-                    return keyword
-        return "unknown"
+        // Update state and covariance
+        Eigen::VectorXd innovation = measurement - expectedMeasurement(state);
+        state = state + K * innovation;
+        covariance = (Eigen::MatrixXd::Identity(state.size(), state.size()) - K * H) * covariance;
+    }
+};
 ```
 
-</div>
+## Complementary Filtering
 
-### ROS 2 Action Types
+Complementary filters combine sensors with different frequency characteristics using simple weighted averaging.
 
-Common ROS 2 action types used in cognitive planning:
+### Complementary Filter Principles
 
-- **Navigation Actions**: `nav2_msgs/action/NavigateToPose`, `nav2_msgs/action/ComputePathToPose`
-- **Manipulation Actions**: `control_msgs/action/FollowJointTrajectory`, `moveit_msgs/action/MoveGroup`
-- **Perception Actions**: `vision_msgs/action/DetectObjects`, `sensor_msgs/action/Image`
-- **Communication Actions**: Custom actions for human-robot interaction
-- **System Actions**: Actions for robot state management and monitoring
+<div className="imu-concept">
 
-## Safety and Validation in Cognitive Planning
+#### Low and High-Frequency Components
 
-Safety is paramount in cognitive planning systems, especially when LLMs generate plans that may not fully consider robot or environmental constraints.
+- **Low-frequency sensors**: Provide accurate long-term reference (e.g., GPS, magnetometer)
+- **High-frequency sensors**: Provide responsive short-term measurements (e.g., gyroscope)
+- **Complementary combination**: Uses low-pass filter for low-frequency and high-pass for high-frequency
 
-<div className="isaac-concept">
+#### Filter Design
 
-### Safety Architecture Layers
-
-Multiple safety layers protect against unsafe LLM-generated plans:
-
-1. **Input Validation**: Checking language commands for safety
-2. **Plan Validation**: Verifying generated plans for safety constraints
-3. **Execution Monitoring**: Watching plan execution for safety violations
-4. **Emergency Stop**: Immediate stop capability for unsafe situations
-5. **Human Override**: Ability for humans to interrupt plans
+- **Cutoff frequency**: Determines balance between sensors
+- **Stability**: Ensures long-term stability with short-term responsiveness
+- **Computational efficiency**: Simple implementation suitable for real-time applications
 
 </div>
 
-<div className="isaac-warning">
+### Implementation Example
 
-### Safety Considerations
+```cpp
+// Complementary filter for orientation estimation
+class ComplementaryFilter {
+private:
+    Eigen::Quaterniond orientation;
+    Eigen::Vector3d bias;
+    double alpha;  // Complementary filter gain (0-1)
 
-Critical safety considerations in cognitive planning:
+public:
+    ComplementaryFilter(double gain = 0.98) : alpha(gain) {
+        orientation.setIdentity();
+        bias.setZero();
+    }
 
-- **Physical Safety**: Ensuring robot actions don't harm humans or environment
-- **Operational Safety**: Preventing robot damage or operational failures
-- **Privacy Protection**: Protecting sensitive information in language processing
-- **Security**: Preventing malicious commands from compromising the system
-- **Reliability**: Ensuring plans can be completed successfully
-- **Fallback Procedures**: Safe responses when plans fail
+    void update(const Eigen::Vector3d& gyro, const Eigen::Vector3d& accel,
+                const Eigen::Vector3d& mag, double dt) {
+        // Integrate gyroscope for high-frequency orientation
+        Eigen::Vector3d omega = gyro - bias;
+        Eigen::Quaterniond q_dot = integrateGyroscope(omega, orientation);
+        Eigen::Quaterniond orientation_gyro = orientation + q_dot * dt;
 
-</div>
+        // Estimate orientation from accelerometer and magnetometer
+        Eigen::Quaterniond orientation_acc_mag = estimateFromAccMag(accel, mag);
 
-### Validation Techniques
+        // Combine using complementary filter
+        Eigen::Quaterniond delta_q = orientation_acc_mag * orientation_gyro.conjugate();
+        delta_q.normalize();
 
-Several validation techniques ensure safe plan execution:
+        // Apply complementary filter in quaternion space
+        double scale = 1.0 - alpha;
+        if (delta_q.w() < 0) {
+            delta_q.coeffs() *= -1.0;  // Ensure shortest rotation path
+        }
 
-- **Static Analysis**: Checking plans against known safety constraints
-- **Simulation Testing**: Validating plans in simulation before execution
-- **Constraint Checking**: Verifying plans meet operational constraints
-- **Human-in-the-Loop**: Requiring human approval for complex plans
-- **Gradual Execution**: Executing plans in small, monitored steps
+        Eigen::Vector4d delta_q_vec(delta_q.w(), delta_q.x(), delta_q.y(), delta_q.z());
+        Eigen::Vector4d combined_vec = alpha * Eigen::Vector4d(orientation_gyro.w(),
+                                                               orientation_gyro.x(),
+                                                               orientation_gyro.y(),
+                                                               orientation_gyro.z()) +
+                                       scale * delta_q_vec;
+        combined_vec.normalize();
 
-## Capstone Project: Complete VLA System
+        orientation.w() = combined_vec(0);
+        orientation.vec() = combined_vec.segment<3>(1);
+    }
 
-The capstone project integrates all components learned in this module into a comprehensive Vision-Language-Action system.
+private:
+    Eigen::Quaterniond integrateGyroscope(const Eigen::Vector3d& omega,
+                                         const Eigen::Quaterniond& q) {
+        // q_dot = 0.5 * omega_quat * q
+        Eigen::Quaterniond omega_quat(0, omega.x(), omega.y(), omega.z());
+        return 0.5 * omega_quat * q;
+    }
+
+    Eigen::Quaterniond estimateFromAccMag(const Eigen::Vector3d& accel,
+                                         const Eigen::Vector3d& mag) {
+        // Estimate orientation from accelerometer and magnetometer
+        // Implementation depends on specific sensor configuration
+        // This is a simplified example
+        Eigen::Vector3d normalized_acc = accel.normalized();
+        // Additional calculations for full orientation estimate
+        return Eigen::Quaterniond::Identity();  // Placeholder
+    }
+};
+```
+
+## ROS Integration for Sensor Fusion
+
+### Robot State Publisher
+
+The robot_state_publisher can integrate IMU and other sensor data to maintain a consistent TF tree:
+
+```yaml
+# Robot state publisher configuration
+robot_state_publisher:
+  ros__parameters:
+    # IMU input
+    imu_topics: ["/imu/data"]
+    use_imu: true
+    use_imu_transformation: true
+
+    # Update frequency
+    publish_frequency: 50.0
+    use_tf_static: true
+
+    # Frame configuration
+    frame_prefix: ""
+    map_frame: "map"
+    odom_frame: "odom"
+    base_frame: "base_link"
+```
+
+### Sensor Fusion Packages
+
+ROS provides several packages for sensor fusion:
+
+- **robot_localization**: Provides EKF and UKF for state estimation
+- **imu_filter_madgwick**: Implements Madgwick filter for orientation estimation
+- **rtabmap_ros**: Fuses multiple sensors for SLAM applications
+
+```yaml
+# Example robot_localization EKF configuration
+ekf_filter_node:
+  ros__parameters:
+    # Frequency of the filter
+    frequency: 50.0
+
+    # Sensor configuration
+    imu0: /imu/data
+    imu0_config: [false, false, false,  # position
+                  false, false, false,  # velocity
+                  true,  true,  true,   # orientation
+                  true,  true,  true,   # angular velocity
+                  true,  true,  true]   # linear acceleration
+
+    # Process noise
+    process_noise_covariance: [0.05, 0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  0.0,  # ...
+
+    # Output frame
+    output_frame: "base_link"
+    base_link_frame: "base_link"
+    world_frame: "odom"
+```
+
+## Practical Sensor Fusion Examples
 
 <div className="practical-example">
 
-### Capstone Project Overview
+### Example 1: IMU-GNSS Fusion for Localization
 
-**Project Goal**: Create a complete VLA system that accepts natural language commands and executes complex tasks using a humanoid robot in simulation.
+Combining IMU and GNSS (GPS) for robust localization:
 
-**System Components**:
-1. **Voice Interface**: Whisper-based speech recognition
-2. **Language Understanding**: LLM-based intent generation
-3. **Cognitive Planning**: LLM-based task planning system
-4. **Action Execution**: ROS 2 action execution with safety checks
-5. **Perception Integration**: Using Isaac ROS perception capabilities
-6. **Human-Robot Interaction**: Natural language feedback and clarification
+1. **IMU Integration**: Provides high-frequency position and velocity estimates
+2. **GNSS Updates**: Provides absolute position reference to correct drift
+3. **Kalman Filtering**: Optimally combines both sensors' information
+4. **Continuous Operation**: Maintains localization even when GNSS signal is lost
 
-**Example Tasks**:
-- "Please go to the kitchen, find a red cup, pick it up, and bring it to me"
-- "Organize the books on the shelf by size, starting with the largest"
-- "Meet me at the entrance in 5 minutes and guide me to the conference room"
+### Example 2: Visual-Inertial Odometry (VIO)
 
-</div>
+Combining camera and IMU for navigation:
 
-<div className="isaac-section">
+1. **Visual Features**: Provides position and orientation from image features
+2. **IMU Data**: Provides high-frequency motion updates between frames
+3. **Sensor Fusion**: Combines visual and inertial measurements for robust tracking
+4. **Real-time Operation**: Enables navigation in GPS-denied environments
 
-### Capstone Implementation Steps
+### Example 3: Multi-Sensor SLAM
 
-1. **System Architecture**: Design complete VLA system architecture
-2. **Component Integration**: Integrate all VLA components
-3. **Safety Implementation**: Implement comprehensive safety systems
-4. **Testing and Validation**: Test system with various commands
-5. **Performance Optimization**: Optimize for real-time operation
-6. **Documentation**: Document system design and operation
+Integrating multiple sensors for mapping and localization:
+
+1. **LiDAR**: Provides precise geometric mapping
+2. **IMU**: Provides motion estimates between LiDAR scans
+3. **Camera**: Provides visual features for loop closure
+4. **Fusion**: Combines all sensors for robust SLAM performance
 
 </div>
 
-### Evaluation Criteria
+## Hands-On Exercise
 
-The capstone system will be evaluated on:
+<div className="practical-example">
 
-- **Task Completion**: Successfully completing complex multi-step tasks
-- **Natural Interaction**: Handling natural language commands effectively
-- **Safety**: Maintaining safety throughout execution
-- **Robustness**: Handling ambiguous or difficult commands gracefully
-- **Performance**: Meeting real-time requirements
-- **User Experience**: Providing natural and intuitive interaction
+### Exercise 1: IMU Data Processing
 
-## Advanced Cognitive Planning Techniques
+1. **Set up an IMU sensor** in your ROS 2 environment
+2. **Subscribe to IMU topics** and visualize the data
+3. **Implement basic filtering** to reduce noise in measurements
+4. **Calculate orientation** from IMU data using integration
+5. **Analyze drift** and compare with ground truth in simulation
 
-<div className="isaac-concept">
+### Exercise 2: Simple Sensor Fusion
 
-### Planning with Uncertainty
+1. **Implement a complementary filter** to combine gyroscope and accelerometer data
+2. **Compare with raw sensor data** to demonstrate fusion benefits
+3. **Test with different gain values** to optimize performance
+4. **Visualize orientation estimates** using RViz
+5. **Validate accuracy** with known motions
 
-Real-world environments introduce uncertainty that planning systems must handle:
+### Exercise 3: Kalman Filter Implementation
 
-- **State Uncertainty**: Uncertain knowledge of environmental state
-- **Action Uncertainty**: Uncertain outcomes of robot actions
-- **Temporal Uncertainty**: Unpredictable timing of events
-- **Sensor Uncertainty**: Uncertain perception of the environment
-
-### Planning Approaches for Uncertainty
-
-- **Probabilistic Planning**: Using probability distributions over states and actions
-- **Replanning**: Continuously updating plans based on new information
-- **Contingency Planning**: Preparing alternative plans for likely failures
-- **Reactive Planning**: Adapting plans based on environmental feedback
+1. **Implement a basic Kalman filter** for position estimation
+2. **Integrate IMU data** for motion prediction
+3. **Add simulated measurements** to demonstrate correction
+4. **Compare performance** with complementary filtering
+5. **Analyze computational requirements** for real-time operation
 
 </div>
 
-<div className="isaac-code-block">
+## Troubleshooting Sensor Fusion Systems
 
-### Example: Replanning System
+Common challenges in sensor fusion system development:
 
-```python
-class ReplanningSystem:
-    def __init__(self):
-        self.current_plan = None
-        self.execution_monitor = ExecutionMonitor()
-        self.llm_planner = LLMTaskPlanner()
-
-    def execute_with_replanning(self, initial_task, context):
-        # Execute initial plan
-        self.current_plan = self.llm_planner.generate_plan(initial_task, context)
-
-        for step in self.current_plan["plan_steps"]:
-            # Execute step with monitoring
-            result = self.execute_step(step)
-
-            if result["status"] == "failure":
-                # Replan based on new information
-                new_context = self.update_context(result["error_info"])
-                self.current_plan = self.llm_planner.generate_plan(
-                    initial_task,
-                    new_context
-                )
-                # Continue with updated plan
-                continue
-            elif result["status"] == "deviation":
-                # Minor deviation, continue with plan adjustment
-                continue
-
-    def update_context(self, error_info):
-        # Update environmental and robot state based on error
-        # This would include new sensor data, changed conditions, etc.
-        return updated_context
-```
-
-</div>
-
-## Hands-On Exercise: Cognitive Planning Implementation
-
-Implement a complete cognitive planning system that maps natural language to ROS 2 actions with safety validation.
-
-### Exercise Steps:
-
-1. **LLM Integration**: Integrate LLM for task planning with proper prompts
-2. **Action Mapping**: Create system to map language to ROS 2 actions
-3. **Safety Validation**: Implement safety checks for generated plans
-4. **Plan Execution**: Execute plans with monitoring and feedback
-5. **Replanning**: Handle plan failures with intelligent replanning
-6. **Integration Testing**: Test complete system with Isaac Sim
-
-### Deliverables:
-
-- Complete cognitive planning system
-- Safety validation mechanisms
-- Plan execution and monitoring
-- Replanning capabilities
-- Test results and performance analysis
-
-## Troubleshooting Cognitive Planning Issues
-
-<div className="isaac-warning">
-
-### Common Cognitive Planning Issues
-
-- **Plan Infeasibility**: Generated plans that cannot be executed by the robot
-- **Safety Violations**: Plans that could cause harm to humans or environment
-- **Resource Conflicts**: Plans that exceed robot capabilities
-- **Temporal Issues**: Plans that don't meet timing constraints
-- **Context Errors**: Plans that don't consider environmental context
-- **Communication Failures**: Issues in ROS 2 communication during execution
-
-</div>
-
-### Debugging Strategies
-
-1. **Plan Visualization**: Visualize generated plans before execution
-2. **Step-by-Step Execution**: Execute plans incrementally with monitoring
-3. **Context Validation**: Verify environmental state before planning
-4. **Capability Checking**: Confirm robot capabilities match plan requirements
-5. **Safety Auditing**: Regular review of safety validation mechanisms
-6. **Performance Monitoring**: Track planning and execution performance
+- **Calibration Issues**: Recalibrate sensors and verify mounting positions
+- **Synchronization Problems**: Check timing and implement proper buffering
+- **Covariance Tuning**: Adjust noise parameters for optimal performance
+- **Integration Complexity**: Use modular design and clear interfaces
+- **Computational Load**: Optimize algorithms for real-time performance
+- **Sensor Failures**: Implement redundancy and fault detection
 
 ## Real-World Connections
 
-<div className="isaac-section">
+<div className="imu-section">
 
 ### Industry Applications
 
-Several companies are implementing cognitive planning systems:
+Several companies are leveraging IMU and sensor fusion for robotics:
 
-- **Boston Dynamics**: LLM-based task planning for robot behaviors
-- **Amazon Robotics**: Cognitive planning for warehouse automation
-- **Toyota Research**: Cognitive planning for human support robots
-- **Aloha**: LLM-guided robotic manipulation systems
-- **Figure AI**: Cognitive planning for humanoid robots
+- **Boston Dynamics**: Advanced IMU-based balance and control systems
+- **iRobot**: Sensor fusion for navigation in Roomba vacuum cleaners
+- **DJI**: IMU and visual sensor fusion for drone stabilization
+- **Autonomous Vehicles**: Multi-sensor fusion for navigation and safety
+- **Industrial Automation**: Sensor fusion for precise robot control
 
 ### Research Institutions
 
-- **Stanford AI Lab**: LLM-based robotic task planning
-- **Berkeley RISELab**: Cognitive planning for robotic systems
-- **MIT CSAIL**: Natural language task planning for robots
-- **CMU Robotics**: Hierarchical task planning with LLMs
-- **ETH Zurich**: Cognitive robotics and planning systems
+- **ETH Zurich**: Advanced sensor fusion algorithms for robotics
+- **MIT CSAIL**: Visual-inertial navigation and SLAM systems
+- **CMU Robotics Institute**: Multi-sensor integration for autonomous systems
+- **Stanford AI Lab**: Sensor fusion for mobile robot navigation
+- **TU Munich**: Robust sensor fusion for challenging environments
 
 ### Success Stories
 
-Cognitive planning systems have enabled:
+Sensor fusion integration has enabled:
 
-- **Autonomous Task Execution**: Robots completing complex tasks independently
-- **Natural Human-Robot Interaction**: Intuitive command and control
-- **Adaptive Behavior**: Robots adapting to changing conditions
-- **Enhanced Capabilities**: New robot abilities through cognitive planning
-- **Commercial Applications**: Deployed cognitive robots in various domains
+- **Autonomous Navigation**: Robust navigation in complex environments
+- **Precise Control**: Accurate robot positioning and manipulation
+- **Reliable Operation**: Continuous operation despite individual sensor failures
+- **Enhanced Safety**: Improved awareness of robot state and environment
+- **GPS-Denied Navigation**: Operation in environments without GPS access
 
 </div>
 
 ### Technical Specifications
 
-- **Computational Requirements**: High-performance computing for real-time LLM inference
-- **Safety Systems**: Multiple safety layers and validation mechanisms
-- **Communication**: Robust ROS 2 communication for distributed planning
-- **Sensors**: Multi-modal sensors for environmental awareness
-- **User Interface**: Natural language and multimodal interaction capabilities
+- **IMU Update Rate**: 100-1000 Hz for real-time applications
+- **Accuracy**: Sub-degree orientation accuracy with proper fusion
+- **Latency**: Millisecond-level response for control applications
+- **Robustness**: Continuous operation despite sensor degradation
+- **Computational Load**: Real-time operation on embedded systems
 
 ## Knowledge Check
 
-To verify your understanding of cognitive planning, consider these questions:
+To verify that you understand IMU data and sensor fusion, consider these questions:
 
-1. How do LLMs enable cognitive planning in robotic systems?
-2. What are the key components of a language-to-ROS 2 action mapping system?
-3. How do you ensure safety in LLM-generated robot plans?
-4. What are the main challenges in implementing cognitive planning systems?
-5. How does hierarchical planning improve cognitive system capabilities?
-
-<div className="isaac-section">
-
-## Acceptance Scenario 1: LLM-Based Task Planning
-
-To demonstrate that students can create LLM-based task planning systems that map natural language to ROS 2 actions, complete the following verification steps:
-
-1. **System Setup**: Configure LLM-based planning system with proper safety validation
-2. **Plan Generation**: Generate appropriate action sequences from natural language commands
-3. **Action Mapping**: Successfully map high-level commands to specific ROS 2 actions
-4. **Safety Validation**: Validate all generated plans for safety and feasibility
-5. **Plan Execution**: Execute planned sequences with monitoring and feedback
-6. **Performance Metrics**: Achieve 85%+ accuracy in command-to-action mapping
-7. **Error Handling**: Handle plan failures with appropriate recovery
-8. **User Experience**: Provide natural and intuitive interaction
-
-The successful completion of this scenario demonstrates:
-- Effective LLM-based planning capabilities
-- Proper mapping of language to ROS 2 actions
-- Comprehensive safety validation systems
-- Robust plan execution and monitoring
-
-</div>
-
-<div className="isaac-section">
-
-## Acceptance Scenario 2: Complete VLA Integration
-
-To verify that students can implement comprehensive cognitive planning systems integrating all VLA components, complete these validation steps:
-
-1. **System Integration**: Integrate voice recognition, language understanding, and action execution
-2. **Multi-Step Tasks**: Execute complex tasks requiring multiple planning and execution steps
-3. **Natural Interaction**: Process natural language commands with minimal ambiguity
-4. **Safety Compliance**: Maintain safety throughout complex task execution
-5. **Performance Validation**: Meet real-time requirements for practical operation
-6. **Robustness Testing**: Handle various command types and environmental conditions
-7. **Capstone Project**: Complete comprehensive VLA system implementation
-8. **Evaluation Metrics**: Achieve 90%+ success rate on capstone tasks
-
-The successful completion of this scenario demonstrates:
-- Complete VLA system integration and operation
-- Effective handling of complex multi-step tasks
-- Natural and robust human-robot interaction
-- Safe and reliable cognitive planning system
-
-</div>
+1. What are the main components of an IMU and their functions?
+2. How does a complementary filter combine different sensor inputs?
+3. What are the advantages of Kalman filtering over simple averaging?
+4. How do you handle sensor synchronization in fusion systems?
+5. What factors should be considered when designing sensor fusion algorithms?
 
 ## Summary
 
-In this chapter, you've learned about cognitive planning systems that use LLMs to generate task plans from natural language commands. You now understand how to map language to ROS 2 actions, implement safety validation, and create comprehensive cognitive planning systems. You've explored advanced techniques like replanning and uncertainty handling, and worked on a complete capstone project integrating all VLA components. This completes Module 4 and provides you with the knowledge to create intelligent robotic systems that can understand and respond to natural language commands while maintaining safety and reliability.
+In this chapter, you've learned about IMU sensors and sensor fusion techniques for robotics. You've explored IMU components, data processing, and various fusion approaches including complementary filtering and Kalman filtering. You now understand how to combine multiple sensor inputs to achieve more accurate and robust robot state estimation. This foundation prepares you for implementing perception pipelines in the next chapter.
 
-The Vision-Language-Action (VLA) approach represents the future of human-robot interaction, enabling robots to understand complex human instructions and execute sophisticated tasks in real-world environments. With the knowledge from this module, you're prepared to develop the next generation of intelligent robotic systems.
+## Quick Test
+
+import TestSection from '@site/src/components/TestSection';
+
+<TestSection questions={[
+  {
+    question: "What are the main components of an IMU?",
+    options: [
+      "Accelerometer and gyroscope only",
+      "Accelerometer, gyroscope, and magnetometer",
+      "Camera and LiDAR sensors",
+      "GPS and barometer only"
+    ],
+    correct: 1,
+    explanation: "An IMU typically consists of an accelerometer (measures linear acceleration), gyroscope (measures angular velocity), and optionally a magnetometer (measures magnetic field for heading reference)."
+  },
+  {
+    question: "What does an accelerometer measure?",
+    options: [
+      "Angular velocity",
+      "Linear acceleration",
+      "Magnetic field",
+      "Distance"
+    ],
+    correct: 1,
+    explanation: "An accelerometer measures linear acceleration along three axes, including both actual acceleration and gravitational forces."
+  },
+  {
+    question: "What is the main advantage of Kalman filtering over simple averaging?",
+    options: [
+      "Lower computational cost",
+      "Better handling of uncertainty and dynamic systems",
+      "Simpler implementation",
+      "Faster processing speed"
+    ],
+    correct: 1,
+    explanation: "Kalman filtering provides optimal state estimation by combining predictions and measurements with uncertainty estimates, making it better for dynamic systems with varying uncertainty."
+  },
+  {
+    question: "What is the typical update rate for IMU sensors in real-time applications?",
+    options: [
+      "10-50 Hz",
+      "100-1000 Hz",
+      "1-10 Hz",
+      "1000-10000 Hz"
+    ],
+    correct: 1,
+    explanation: "IMU sensors typically operate at high frequencies between 100-1000 Hz to provide responsive data for real-time control and navigation applications."
+  },
+  {
+    question: "What does a complementary filter do in sensor fusion?",
+    options: [
+      "Combines high-frequency and low-frequency components from different sensors",
+      "Averages all sensor inputs equally",
+      "Uses only the most accurate sensor",
+      "Filters out all noise completely"
+    ],
+    correct: 0,
+    explanation: "A complementary filter combines low-frequency components from one sensor (e.g., accelerometer/magnetometer for orientation) with high-frequency components from another (e.g., gyroscope) to provide stable and responsive measurements."
+  }
+]} />

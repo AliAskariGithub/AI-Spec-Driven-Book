@@ -33,41 +33,46 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Module 2: The Digital Twin',
+      label: 'Module 2: Robot Kinematics & Physical Structure',
       items: [
         'module-2/index',
-        'module-2/digital-twin-fundamentals',
-        'module-2/physics-simulation-gazebo',
-        'module-2/sensors-interaction',
+        'module-2/links-joints-coordinate-frames',
+        'module-2/forward-inverse-kinematics',
+        'module-2/joint-constraints-motion-limits',
+        'module-2/urdf-mapping-real-simulated',
       ],
     },
     {
       type: 'category',
-      label: 'Module 3: The AI-Robot Brain',
+      label: 'Module 3: The Digital Twin',
       items: [
         'module-3/index',
-        'module-3/nvidia-isaac-overview',
-        'module-3/perception-localization-isaac-ros',
+        'module-3/gazebo-simulation-setup',
+        'module-3/physics-collision-modeling',
         'module-3/navigation-motion-planning',
+        'module-3/unity-visualization',
       ],
     },
     {
       type: 'category',
-      label: 'Module 4: Vision-Language-Action (VLA)',
+      label: 'Module 4: Perception Systems for Robots',
       items: [
         'module-4/index',
-        'module-4/vla-fundamentals',
-        'module-4/voice-to-action',
-        'module-4/cognitive-planning',
+        'module-4/vla-fundamentals',  // Contains Robot Camera Models (RGB, Depth, Stereo)
+        'module-4/voice-to-action',   // Contains LiDAR Fundamentals for Robotics
+        'module-4/cognitive-planning', // Contains IMU Data and Sensor Fusion
+        'module-4/building-perception-pipelines', // Contains Building Perception Pipelines in ROS 2
       ],
     },
     {
       type: 'category',
-      label: 'Module 5: Capstone Project – Autonomous Humanoid',
+      label: 'Module 5: The AI-Robot Brain (NVIDIA Isaac)',
       items: [
         'module-5/index',
-        'module-5/voice-perception',
-        'module-5/navigation-manipulation',
+        'module-5/isaac-sim-overview-architecture',
+        'module-5/synthetic-data-generation',
+        'module-5/isaac-ros-hardware-accelerated-vslam',
+        'module-5/nav2-path-planning-humanoid-mobile-robots',
       ],
     },
     {

@@ -1,0 +1,72 @@
+Create an interactive Test section for each chapter in Module 3 and Module 4
+
+Context:
+- Module 3: The Digital Twin (Gazebo & Unity)
+- Module 4: Perception Systems for Robots
+- Each chapter already contains instructional content
+- The Test section must be appended at the END of each chapter
+
+Objective:
+- Reinforce conceptual understanding immediately after each chapter
+- Provide an active, learner-driven self-assessment experience
+
+Test section name:
+"Quick Test"
+
+Test structure requirements:
+- Total questions: 5 MCQs per chapter
+- Only one question visible at a time
+- User must select an option before proceeding
+- A "Next" button advances to the next question
+- After the final question, show the result on the SAME page
+
+Interaction behavior:
+- When a user selects an option:
+  - The selected option becomes visually brighter / highlighted
+  - All other options reduce opacity to 50%
+- Selection state remains visible until moving to the next question
+- No page reloads during the test flow
+
+Result behavior:
+- After the final question:
+  - Display total score (e.g., 4 / 5)
+  - Indicate which answers were correct or incorrect
+  - Display a short feedback message:
+    - Excellent understanding (5/5)
+    - Good understanding (3–4/5)
+    - Review recommended (0–2/5)
+
+Question design rules:
+- Questions must be directly derived from the chapter content
+- Focus on conceptual clarity, not memorization
+- Avoid ambiguous or trick questions
+- Each question must include:
+  - One correct answer
+  - Three realistic distractors
+
+Module-specific focus areas:
+
+For Module 3 (Digital Twin – Gazebo & Unity):
+- Gazebo environment setup
+- Physics simulation (gravity, collisions)
+- Sensor simulation (LiDAR, depth cameras, IMUs)
+- Unity-based visualization and human–robot interaction
+
+For Module 4 (Perception Systems for Robots):
+- Camera models (RGB, depth, stereo)
+- LiDAR fundamentals
+- IMU data interpretation
+- Sensor fusion concepts
+- ROS 2 perception pipelines
+
+Constraints:
+- Format: Markdown / MDX (Docusaurus-compatible)
+- Test section must remain inside each chapter file
+- Do NOT create new chapters or separate quiz pages
+- If a Quick Test already exists, upgrade it instead of rewriting
+
+Success criteria:
+- Every chapter in Module 3 and Module 4 ends with a Quick Test
+- Learners can complete the test without leaving the page
+- Visual feedback is immediate and clear
+- Final score and understanding level are shown instantly

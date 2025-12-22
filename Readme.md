@@ -1,8 +1,8 @@
-Hackathon I: Create a Textbook for Teaching Physical AI & Humanoid Robotics Course
-The future of work will be a partnership between people, intelligent agents (AI software), and robots. This shift won't necessarily eliminate jobs but will change what humans do, leading to a massive demand for new skills. We have already written a book on AI agents. Therefore, we want you to write a textbook to teach a course in Physical AI & Humanoid Robotics (The course details are documented below). 
+Hackathon I: Create a Textbook for Teaching Module 0: Foundations of Physical AI Course
+The future of work will be a partnership between people, intelligent agents (AI software), and robots. This shift won't necessarily eliminate jobs but will change what humans do, leading to a massive demand for new skills. We have already written a book on AI agents. Therefore, we want you to write a textbook to teach a course in Module 0: Foundations of Physical AI (The course details are documented below). 
 
 Excel in the Hackathon and Launch Your Journey as an AI Startup Founder 🚀
-We’ve recently launched Panaversity (panaversity.org), an initiative focused on teaching cutting-edge AI courses. Alongside this, we’re working on publishing our first book, which you can explore at ai-native.panaversity.org. Our next milestone is to build a portal where authors can create AI-native technical textbooks, and readers can easily access and learn from them using AI Agents. We also plan to publish O/A Level, Science, Engineering, and Medical AI-native books to support students and professionals across disciplines. If you perform well in this hackathon, you may be invited for # 🤖 Hackathon I: Physical AI & Humanoid Robotics Textbook
+We’ve recently launched Panaversity (panaversity.org), an initiative focused on teaching cutting-edge AI courses. Alongside this, we’re working on publishing our first book, which you can explore at ai-native.panaversity.org. Our next milestone is to build a portal where authors can create AI-native technical textbooks, and readers can easily access and learn from them using AI Agents. We also plan to publish O/A Level, Science, Engineering, and Medical AI-native books to support students and professionals across disciplines. If you perform well in this hackathon, you may be invited for # 🤖 Hackathon I: Module 0: Foundations of Physical AI Textbook
 
 > **Create an AI‑Native Textbook. Build a RAG Chatbot. Launch Your Journey as an AI Startup Founder.**
 
@@ -12,7 +12,7 @@ We’ve recently launched Panaversity (panaversity.org), an initiative focused o
 
 The future of work is a collaboration between **humans, intelligent AI agents, and robots**. Physical AI represents the next evolution of artificial intelligence—moving beyond screens into the real, physical world.
 
-This hackathon challenges you to **design, write, and publish an AI‑native textbook** for teaching **Physical AI & Humanoid Robotics**, combining robotics, simulation, perception, and generative AI.
+This hackathon challenges you to **design, write, and publish an AI‑native textbook** for teaching **Module 0: Foundations of Physical AI**, combining robotics, simulation, perception, and generative AI.
 
 ---
 
@@ -115,7 +115,7 @@ Submit your project here:
 
 ---
 
-# 📚 Course: Physical AI & Humanoid Robotics
+# 📚 Course: Module 0: Foundations of Physical AI
 
 ## 🎯 Focus
 
@@ -296,7 +296,7 @@ Passcode: 305850
 
 
 The Course Details
-Physical AI & Humanoid Robotics
+Module 0: Foundations of Physical AI
 Focus and Theme: AI Systems in the Physical World. Embodied Intelligence.
 Goal: Bridging the gap between the digital brain and the physical body. Students apply their AI knowledge to control Humanoid Robots in simulated and real-world environments.
 Quarter Overview

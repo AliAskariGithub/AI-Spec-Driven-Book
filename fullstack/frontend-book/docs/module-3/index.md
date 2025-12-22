@@ -1,22 +1,22 @@
 ---
 sidebar_position: 3
-title: "Module 3: The AI-Robot Brain"
-description: "Advanced perception, navigation, and training for humanoid robots using NVIDIA Isaac"
+title: "Module 3: The Digital Twin"
+description: "Physics simulation and environment building using Gazebo and Unity"
 ---
 
-# Module 3: The AI-Robot Brain (NVIDIA Isaac)
+# Module 3: The Digital Twin (Gazebo & Unity)
 
 ## Overview
 
-Welcome to Module 3 of our robotics education platform! In this module, we'll explore advanced robotics concepts using NVIDIA Isaac, focusing on AI-driven perception, navigation, and training for humanoid robots. Building on your knowledge of ROS 2 from Module 1 and simulation from Module 2, you'll learn how to leverage NVIDIA's powerful Isaac ecosystem.
+Welcome to Module 3 of our robotics education platform! In this module, we'll explore digital twin concepts using Gazebo and Unity, focusing on physics simulation, environment building, and high-fidelity visualization. Building on your knowledge of ROS 2 from Module 1 and simulation from Module 2, you'll learn how to create realistic virtual worlds for robot testing and development.
 
 ## Learning Objectives
 
 By the end of this module, you will be able to:
-- Understand the NVIDIA Isaac Sim and Isaac ROS ecosystem for humanoid robot development
-- Implement Visual SLAM and sensor fusion techniques using Isaac ROS
-- Apply Nav2 concepts specifically adapted for bipedal humanoid movement
-- Integrate perception and navigation systems for complete humanoid robot autonomy
+- Set up and configure Gazebo simulation environments for robotics applications
+- Implement physics, gravity, and collision modeling in Gazebo
+- Simulate various sensors (LiDAR, Depth Cameras, IMUs) in Gazebo
+- Create high-fidelity visualization and human-robot interaction using Unity
 
 ## Prerequisites
 
@@ -25,53 +25,55 @@ Before starting this module, you should have:
 - Completed Module 2: The Digital Twin (Gazebo & Unity simulation)
 - Basic understanding of ROS 2 concepts (topics, services, nodes)
 - Experience with simulation environments
-- Access to a system capable of running NVIDIA Isaac Sim (recommended: GPU with CUDA support)
+- Access to a system capable of running Gazebo and Unity (recommended: multi-core CPU with good GPU performance)
 
 ## Module Structure
 
-This module consists of three chapters that progressively build your understanding of NVIDIA Isaac:
+This module consists of four chapters that progressively build your understanding of digital twin simulation:
 
-1. **NVIDIA Isaac and AI-Driven Robotics** - Overview of Isaac Sim and Isaac ROS, role of photorealistic simulation and synthetic data
-2. **Perception and Localization with Isaac ROS** - Visual SLAM (VSLAM), sensor fusion for humanoid navigation
-3. **Navigation and Motion Planning** - Nav2 concepts, path planning for bipedal humanoid movement
+1. **Gazebo Simulation Environment Setup** - Setting up and configuring Gazebo simulation environments for robotics applications
+2. **Physics, Gravity, and Collision Modeling** - Simulating realistic physics, gravity, and collisions in Gazebo environments
+3. **Sensor Simulation (LiDAR, Depth Cameras, IMUs)** - Simulating various sensors in Gazebo for robot perception and navigation
+4. **Unity-Based Visualization and Human–Robot Interaction** - High-fidelity visualization and human-robot interaction in Unity for digital twin scenarios
 
 ## Getting Started
 
-Ready to dive into NVIDIA Isaac? Make sure you have the required Isaac Sim and Isaac ROS packages installed before proceeding to the first chapter.
+Ready to dive into digital twin simulation? Make sure you have the required Gazebo and Unity packages installed before proceeding to the first chapter.
 
-## Isaac Documentation Resources
+## Gazebo and Unity Documentation Resources
 
-- [Isaac Sim Documentation](https://docs.nvidia.com/isaac/isaac_sim/index.html)
-- [Isaac ROS Documentation](https://docs.ros.org/en/rolling/p/isaac_ros_common/)
-- [Isaac ROS Gardens Examples](https://github.com/NVIDIA-ISAAC-ROS)
-- [NVIDIA Developer Zone](https://developer.nvidia.com/)
-- [Navigation2](https://navigation.ros.org/)
+- [Gazebo Documentation](http://gazebosim.org/)
+- [Unity Documentation](https://docs.unity3d.com/)
+- [Gazebo Tutorials](http://gazebosim.org/tutorials)
+- [Unity Robotics Hub](https://unity.com/solutions/robotics)
+- [ROS Integration Documentation](https://github.com/ros-simulation/gazebo_ros_pkgs)
 
 ## Module Summary and Connections
 
-<div className="isaac-section">
+<div className="digital-twin-section">
 
 ### Integration with Previous Modules
 
 This module builds upon the foundations established in earlier modules:
 
-- **From Module 1**: You'll apply ROS 2 communication patterns, nodes, and services to Isaac ROS packages
-- **From Module 2**: Simulation concepts learned with Gazebo will help you understand Isaac Sim's advanced physics and rendering
-- **Cross-module Integration**: Isaac ROS bridges the gap between robotic middleware (Module 1) and simulation (Module 2)
+- **From Module 1**: You'll apply ROS 2 communication patterns, nodes, and services to simulation environments
+- **From Module 2**: Simulation concepts learned with other tools will help you understand Gazebo's advanced physics and rendering
+- **Cross-module Integration**: Gazebo and Unity bridge the gap between robotic middleware (Module 1) and advanced simulation (Module 2)
 
 ### Chapter Connections
 
 Each chapter in this module builds on the previous one:
 
-1. **Chapter 1** establishes the Isaac ecosystem foundation
-2. **Chapter 2** implements perception systems that feed into navigation
-3. **Chapter 3** uses perception data for intelligent navigation decisions
+1. **Chapter 1** establishes the Gazebo simulation foundation
+2. **Chapter 2** implements physics modeling that enables realistic interactions
+3. **Chapter 3** adds sensor simulation for perception capabilities
+4. **Chapter 4** provides visualization and interaction through Unity
 
 ### Key Concepts Integration
 
-- Perception → Localization → Navigation is a continuous pipeline
-- Synthetic data generation connects simulation and real-world deployment
-- GPU acceleration enables real-time processing for humanoid robots
+- Environment → Physics → Sensors → Visualization is a continuous pipeline
+- Simulation data connects virtual and real-world robotic systems
+- High-fidelity rendering enables immersive human-robot interaction
 
 </div>
 
@@ -79,76 +81,83 @@ Each chapter in this module builds on the previous one:
 
 Test your understanding of Module 3 concepts with these questions:
 
-### Chapter 1: NVIDIA Isaac and AI-Driven Robotics
-1. What are the key differences between Isaac Sim and traditional simulation environments?
-2. How does synthetic data generation benefit AI model training for robotics?
-3. What are the main components of the Isaac ROS ecosystem?
+### Chapter 1: Gazebo Simulation Environment Setup
+1. What are the key components of a Gazebo simulation environment?
+2. How do you configure world properties and robot models in Gazebo?
+3. What are the main differences between Gazebo and other simulation environments?
 
-### Chapter 2: Perception and Localization with Isaac ROS
-4. Explain how Visual SLAM differs for humanoid robots compared to wheeled robots.
-5. What role does sensor fusion play in humanoid robot navigation?
-6. How does Isaac ROS handle the challenges of VSLAM during bipedal locomotion?
+### Chapter 2: Physics, Gravity, and Collision Modeling
+4. Explain how gravity and collision modeling affect robot behavior in simulation.
+5. What role do material properties and friction play in physics simulation?
+6. How does Gazebo handle complex multi-body dynamics?
 
-### Chapter 3: Navigation and Motion Planning
-7. What are the key constraints for path planning in bipedal humanoid robots?
-8. How does the inverted pendulum model apply to humanoid navigation?
-9. What is the role of the Zero Moment Point (ZMP) in humanoid balance control?
+### Chapter 3: Sensor Simulation (LiDAR, Depth Cameras, IMUs)
+7. How do you simulate LiDAR sensors in Gazebo and what parameters are important?
+8. What are the key considerations for camera simulation accuracy?
+9. How do IMU sensors in simulation differ from real hardware?
+
+### Chapter 4: Unity-Based Visualization and Human–Robot Interaction
+10. How do you synchronize data between Gazebo simulation and Unity visualization?
+11. What are the key components of a human-robot interaction interface?
+12. How does Unity visualization enhance the digital twin concept?
 
 ### Integration Questions
-10. How do perception and navigation systems work together in Isaac?
-11. What are the computational requirements for real-time Isaac ROS operations?
-12. How would you troubleshoot localization drift in a humanoid robot?
+13. How do physics and sensor simulation work together in Gazebo?
+14. What are the computational requirements for real-time Gazebo and Unity operation?
+15. How would you troubleshoot synchronization issues between Gazebo and Unity?
 
 ## Module Completion Checklist
 
 Complete these items to ensure you've mastered Module 3:
 
-- [ ] Understand the NVIDIA Isaac Sim and Isaac ROS ecosystem components
-- [ ] Can explain the role of photorealistic simulation and synthetic data in robotics
-- [ ] Implemented Visual SLAM techniques using Isaac ROS
-- [ ] Applied sensor fusion concepts for humanoid navigation
-- [ ] Integrated Nav2 with Isaac for humanoid-specific navigation
-- [ ] Designed path planning algorithms for bipedal movement
-- [ ] Addressed humanoid-specific navigation challenges and constraints
-- [ ] Troubleshot common perception and navigation issues
-- [ ] Configured Isaac ROS perception and navigation pipelines
-- [ ] Demonstrated successful localization in simulated environments
-- [ ] Executed navigation while maintaining balance during locomotion
-- [ ] Applied motion planning techniques to humanoid robots
+- [ ] Understand the Gazebo simulation environment components
+- [ ] Can configure physics, gravity, and collision properties in Gazebo
+- [ ] Implemented sensor simulation for LiDAR, cameras, and IMUs
+- [ ] Created Unity visualization for robot and environment states
+- [ ] Established synchronization between Gazebo and Unity
+- [ ] Designed human-robot interaction interfaces in Unity
+- [ ] Configured digital twin systems with proper data flow
+- [ ] Troubleshot common simulation and visualization issues
+- [ ] Demonstrated successful simulation-visualization integration
+- [ ] Applied physics concepts to realistic robot behavior
+- [ ] Implemented sensor models with realistic data output
+- [ ] Created immersive visualization interfaces
 
 ## Final Acceptance Testing
 
 To verify that Module 3 meets all requirements and learning objectives, complete these acceptance tests:
 
-### Acceptance Test 1: Isaac Ecosystem Understanding
-**Objective**: Students can identify Isaac Sim/ROS components and explain synthetic data benefits
-- [ ] Complete Chapter 1 exercises and verify understanding of Isaac components
-- [ ] Demonstrate knowledge of photorealistic simulation concepts
-- [ ] Explain how synthetic data generation benefits robotics development
+### Acceptance Test 1: Gazebo Environment Setup
+**Objective**: Students can install and configure Gazebo simulation environment with basic world and robot model
+- [ ] Install Gazebo with required dependencies
+- [ ] Create a basic world with physical properties
+- [ ] Add a robot model with appropriate sensors
+- [ ] Configure simulation parameters for realistic behavior
+- [ ] Verify the environment runs without errors
 
-### Acceptance Test 2: Perception and Localization Implementation
-**Objective**: Students can implement basic VSLAM concepts in Isaac Sim and demonstrate successful localization of a humanoid robot in a simulated environment
-- [ ] Configure Isaac ROS VSLAM nodes with camera and IMU inputs
-- [ ] Navigate a humanoid robot to build a map of the environment
-- [ ] Verify the robot maintains accurate position estimates throughout the run
-- [ ] Analyze map quality and localization accuracy
-- [ ] Compare results with and without IMU integration
+### Acceptance Test 2: Physics and Sensor Simulation
+**Objective**: Students can implement realistic physics simulation and sensor modeling in Gazebo
+- [ ] Configure gravity and collision properties for realistic movement
+- [ ] Set up LiDAR, camera, and IMU sensors on a robot
+- [ ] Verify sensor data accuracy and noise characteristics
+- [ ] Test robot interaction with environment objects
+- [ ] Analyze physics simulation stability and performance
 
-### Acceptance Test 3: Navigation and Motion Planning
-**Objective**: Students can implement advanced navigation capabilities for humanoid robots that maintain balance during navigation
-- [ ] Configure Isaac ROS Nav2 with humanoid-specific parameters
-- [ ] Navigate the robot through a path with obstacles and turns
-- [ ] Verify the robot maintains balance throughout the navigation
-- [ ] Confirm the robot follows the planned path with acceptable accuracy
-- [ ] Execute navigation through complex terrain with humanoid-specific constraints
+### Acceptance Test 3: Unity Visualization and Interaction
+**Objective**: Students can create Unity visualization that synchronizes with Gazebo simulation data
+- [ ] Set up Unity project with ROS# integration
+- [ ] Create 3D visualization of robot and environment
+- [ ] Implement real-time synchronization with Gazebo data
+- [ ] Design human-robot interaction interfaces
+- [ ] Test visualization performance and accuracy
 
 ### Module Completion Verification
-- [ ] All three chapters completed with hands-on exercises
+- [ ] All four chapters completed with hands-on exercises
 - [ ] All knowledge check questions answered correctly
 - [ ] Module completion checklist fully marked
 - [ ] Docusaurus build completes successfully with no errors
 - [ ] All internal links function correctly
-- [ ] Isaac-themed styling consistently applied throughout
+- [ ] Digital twin-themed styling consistently applied throughout
 
 ### Performance Requirements
 - [ ] Content loads quickly in web browser
@@ -160,7 +169,8 @@ To verify that Module 3 meets all requirements and learning objectives, complete
 ## Next Steps
 
 After completing this module, you'll have comprehensive knowledge of:
-- NVIDIA Isaac ecosystem for humanoid robotics
-- Advanced perception and navigation systems
-- Integration of AI and robotics for autonomous behavior
-- Preparation for real-world humanoid robot deployment
+- Gazebo and Unity digital twin simulation
+- Physics-based environment modeling
+- Sensor simulation for robot perception
+- High-fidelity visualization and interaction
+- Preparation for advanced robotics simulation and testing

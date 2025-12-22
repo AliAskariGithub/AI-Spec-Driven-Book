@@ -1,23 +1,23 @@
 ---
 sidebar_position: 1
-title: "Module 2: The Digital Twin"
-description: "Understanding physics simulation and digital twins for humanoid robots using Gazebo and Unity"
+title: "Module 2: Robot Kinematics & Physical Structure"
+description: "Understanding robot kinematics and physical structure for humanoid robots including links, joints, coordinate frames, and URDF models"
 ---
 
-# Module 2: The Digital Twin (Gazebo & Unity)
+# Module 2: Robot Kinematics & Physical Structure
 
 ## Overview
 
-Welcome to Module 2 of our robotics education platform! In this module, we'll explore the fascinating world of digital twins and simulation in robotics. Building on your knowledge of ROS 2 from Module 1, you'll learn how to create virtual environments that mirror real-world robotic systems.
+Welcome to Module 2 of our robotics education platform! In this module, we'll explore the fascinating world of robot kinematics and physical structure. Building on your knowledge of ROS 2 from Module 1, you'll learn how humanoid robots are physically constructed, how their joints and links move, and how to mathematically describe their structure and motion.
 
 ## Learning Objectives
 
 By the end of this module, you will be able to:
-- Understand the purpose and benefits of digital twin simulation in robotics
-- Set up physics simulations in Gazebo with gravity, collisions, and dynamics
-- Configure sensor simulations including LiDAR, depth cameras, and IMUs
-- Implement basic human-robot interaction in Unity
-- Compare the use cases for Gazebo versus Unity in robotics applications
+- Identify and describe the links, joints, and coordinate frames of a humanoid robot
+- Perform forward kinematics calculations to determine end-effector positions from joint angles
+- Perform inverse kinematics calculations to determine joint angles for desired positions
+- Understand humanoid joint constraints and motion limits that affect robot movement
+- Analyze URDF models and map them to both simulated and real robot configurations
 
 ## Prerequisites
 
@@ -28,17 +28,18 @@ Before starting this module, you should have:
 
 ## Module Structure
 
-This module consists of three chapters that progressively build your understanding of digital twin simulation:
+This module consists of four chapters that progressively build your understanding of robot kinematics and physical structure:
 
-1. **Digital Twin Fundamentals** - Understanding the purpose of simulation and comparing Gazebo vs Unity
-2. **Physics Simulation with Gazebo** - Setting up physics simulations with gravity, collisions, and dynamics
-3. **Sensors and Interaction** - Simulating sensors and implementing human-robot interaction
+1. **Robot Links, Joints, and Coordinate Frames** - Understanding robot structure and spatial relationships
+2. **Forward and Inverse Kinematics** - Mathematical relationships between joint angles and end-effector positions
+3. **Humanoid Joint Constraints and Motion Limits** - Physical limitations that govern robot movement
+4. **Mapping URDF to Real and Simulated Robots** - Connecting virtual models to physical hardware
 
 ## Getting Started
 
-Ready to dive into digital twin simulation? If you haven't already, make sure you're familiar with the robotic middleware concepts from [Module 1: The Robotic Nervous System](../module-1/index.md) as we'll be building on those concepts.
+Ready to dive into robot kinematics and physical structure? If you haven't already, make sure you're familiar with the robotic middleware concepts from [Module 1: The Robotic Nervous System](../module-1/index.md) as we'll be building on those concepts.
 
-Continue to the next chapter to explore the fundamentals of digital twin technology and compare the simulation platforms available to robotics developers.
+Continue to the next chapter to explore the fundamentals of robot structure, including links, joints, and coordinate frames that form the foundation of humanoid robot design.
 
 ## Testing Module 2 Locally
 
@@ -130,3 +131,65 @@ This module is designed to be deployed alongside the rest of the educational pla
 3. **Responsive Testing**: Verify content displays correctly on different devices
 4. **Performance Check**: Confirm page load times are acceptable
 5. **Search Functionality**: Verify that search works for all Module 2 content
+
+## Quick Test
+
+import TestSection from '@site/src/components/TestSection';
+
+<TestSection questions={[
+  {
+    question: "What are the main learning objectives of Module 2?",
+    options: [
+      "Understanding robot kinematics and physical structure including links, joints, and coordinate frames",
+      "Learning about ROS 2 communication patterns",
+      "Programming robot navigation algorithms",
+      "Setting up simulation environments"
+    ],
+    correct: 0,
+    explanation: "Module 2 focuses on understanding robot kinematics and physical structure, including links, joints, coordinate frames, and URDF models for humanoid robots."
+  },
+  {
+    question: "Which of the following is NOT a chapter in Module 2?",
+    options: [
+      "Robot Links, Joints, and Coordinate Frames",
+      "Forward and Inverse Kinematics",
+      "Humanoid Joint Constraints and Motion Limits",
+      "Robot Navigation and Path Planning"
+    ],
+    correct: 3,
+    explanation: "Module 2 consists of four chapters: Robot Links, Joints, and Coordinate Frames; Forward and Inverse Kinematics; Humanoid Joint Constraints and Motion Limits; and Mapping URDF to Real and Simulated Robots. Robot Navigation and Path Planning is not part of Module 2."
+  },
+  {
+    question: "What is required as a prerequisite for Module 2?",
+    options: [
+      "Basic programming knowledge only",
+      "Completion of Module 1: The Robotic Nervous System",
+      "Advanced mathematics background",
+      "Robotics hardware experience"
+    ],
+    correct: 1,
+    explanation: "The prerequisites for Module 2 include completing Module 1: The Robotic Nervous System and having basic understanding of ROS 2 concepts."
+  },
+  {
+    question: "What does the acronym URDF stand for?",
+    options: [
+      "Unified Robot Description Format",
+      "Universal Robotics Design Framework",
+      "User Robot Development Format",
+      "Universal Robot Data File"
+    ],
+    correct: 0,
+    explanation: "URDF stands for Unified Robot Description Format, which is used to describe robot models and is covered in Module 2."
+  },
+  {
+    question: "What is the primary purpose of forward kinematics?",
+    options: [
+      "To determine joint angles from desired end-effector positions",
+      "To determine end-effector positions from joint angles",
+      "To calculate robot dynamics",
+      "To plan robot navigation paths"
+    ],
+    correct: 1,
+    explanation: "Forward kinematics calculates the end-effector position and orientation given the joint angles of a robot."
+  }
+]} />
