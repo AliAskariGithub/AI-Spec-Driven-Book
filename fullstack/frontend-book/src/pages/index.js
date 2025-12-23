@@ -54,7 +54,7 @@ function HomepageHeader() {
               icon="arrow"
               className={styles.primaryButton}
             >
-              Get Started
+              Start Learning
             </AccessibleButton>
             <AccessibleButton
               variant="secondary"
@@ -62,7 +62,7 @@ function HomepageHeader() {
               icon="book"
               className={styles.secondaryButton}
             >
-              View Examples
+              View Curriculum Roadmap
             </AccessibleButton>
           </div>
         </div>
@@ -73,10 +73,12 @@ function HomepageHeader() {
 
 function WhatYouWillLearn() {
   const learningPoints = [
-    "Modern UI/UX design principles for educational content",
-    "Docusaurus customization techniques",
-    "Accessibility best practices",
-    "Responsive design implementation",
+    "Foundations of Physical AI and embodied intelligence",
+    "Humanoid robot kinematics and physical structure",
+    "Digital twins using Gazebo and Unity",
+    "Perception systems: cameras, LiDAR, IMUs, and sensor fusion",
+    "AI robot brains with NVIDIA Isaac and Nav2",
+    "Vision–Language–Action pipelines for humanoid autonomy",
   ];
 
   return (
@@ -95,23 +97,23 @@ function FeaturedChaptersSection() {
   const chapters = [
     {
       id: "chapter-1",
-      title: "Introduction to Docusaurus",
+      title: "Foundations of Physical AI",
       description:
-        "Learn the basics of Docusaurus and how to set up your first site",
+        "Understand embodied intelligence and why humanoid robots require a new AI paradigm.",
       path: "/docs/intro",
     },
     {
       id: "chapter-2",
-      title: "Customization Techniques",
-      description: "Advanced techniques for customizing your Docusaurus site",
-      path: "/docs/tutorial-basics/create-a-document",
+      title: "Digital Twins & Simulation",
+      description: "Build realistic robot simulations with physics, sensors, and environments.",
+      path: "/docs/module-3/",
     },
     {
       id: "chapter-3",
-      title: "Performance Optimization",
+      title: "Perception, AI Brain & Autonomy",
       description:
-        "Best practices for optimizing your Docusaurus site performance",
-      path: "/docs/tutorial-extras/manage-docs-versions",
+        "Teach robots to see, navigate, reason, and act in the real world.",
+      path: "/docs/module-6/",
     },
   ];
 
@@ -166,26 +168,26 @@ export default function Home() {
   const featureCards = [
     {
       id: "feature-1",
-      title: "Modern Design",
+      title: "Spec-Driven Learning",
       description:
-        "Clean, contemporary UI with attention to typography and spacing",
+        "Every module is defined by clear specifications, learning goals, and success criteria — just like real-world engineering systems.",
       color: "#6C3BAA",
       link: "/docs/intro",
     },
     {
       id: "feature-2",
-      title: "Accessibility First",
+      title: "End-to-End Humanoid Pipeline",
       description:
-        "Built with WCAG 2.1 AA compliance in mind for inclusive design",
+        "Learn the full autonomy stack: kinematics, simulation, perception, AI navigation, and language-driven action.",
       color: "#10b981",
-      link: "/docs/tutorial-basics/create-a-document",
+      link: "/docs/module-1/",
     },
     {
       id: "feature-3",
-      title: "Fully Responsive",
-      description: "Looks great on all devices from mobile to desktop",
+      title: "Simulation-to-Reality Focus",
+      description: "From Gazebo and Unity to NVIDIA Isaac and ROS 2 — bridge virtual robots to real humanoid systems.",
       color: "#3b82f6",
-      link: "/docs/tutorial-basics/create-a-page",
+      link: "/docs/module-3/",
     },
   ];
 

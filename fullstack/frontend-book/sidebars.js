@@ -58,9 +58,9 @@ const sidebars = {
       label: 'Module 4: Perception Systems for Robots',
       items: [
         'module-4/index',
-        'module-4/vla-fundamentals',  // Contains Robot Camera Models (RGB, Depth, Stereo)
-        'module-4/voice-to-action',   // Contains LiDAR Fundamentals for Robotics
-        'module-4/cognitive-planning', // Contains IMU Data and Sensor Fusion
+        'module-4/robot-camera-models',  // Contains Robot Camera Models (RGB, Depth, Stereo)
+        'module-4/lidar-fundamentals',   // Contains LiDAR Fundamentals for Robotics
+        'module-4/imu-sensor-fusion', // Contains IMU Data and Sensor Fusion
         'module-4/building-perception-pipelines', // Contains Building Perception Pipelines in ROS 2
       ],
     },
@@ -77,11 +77,13 @@ const sidebars = {
     },
     {
       type: 'category',
-      label: 'Module 6: Hardware Requirements & Lab Setup',
+      label: 'Module 6: Vision–Language–Action (VLA)',
       items: [
         'module-6/index',
-        'module-6/edge-devices',
-        'module-6/lab-configurations',
+        'module-6/vla-fundamentals',
+        'module-6/voice-to-action',
+        'module-6/cognitive-planning',
+        'module-6/executing-language-plans',
       ],
     },
     // Add more modules as needed

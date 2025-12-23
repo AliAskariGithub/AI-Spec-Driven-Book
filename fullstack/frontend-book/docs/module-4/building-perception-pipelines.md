@@ -20,9 +20,9 @@ description: "Creating integrated systems that process multiple sensor inputs fo
 - [Module 1: The Robotic Nervous System](../module-1/) (ROS 2 fundamentals)
 - [Module 2: The Digital Twin](../module-2/) (simulation concepts)
 - [Module 3: The Digital Twin](../module-3/) (Gazebo & Unity simulation)
-- [Chapter 1: Robot Camera Models](./vla-fundamentals) (camera sensor understanding)
-- [Chapter 2: LiDAR Fundamentals](./voice-to-action) (LiDAR processing)
-- [Chapter 3: IMU Data and Sensor Fusion](./cognitive-planning) (sensor fusion techniques)
+- [Chapter 1: Robot Camera Models](./robot-camera-models) (camera sensor understanding)
+- [Chapter 2: LiDAR Fundamentals](./lidar-fundamentals) (LiDAR processing)
+- [Chapter 3: IMU Data and Sensor Fusion](./imu-sensor-fusion) (sensor fusion techniques)
 
 <div className="educational-highlight">
 
@@ -36,6 +36,14 @@ This chapter builds upon concepts from earlier modules:
 - **From Previous Chapters**: Camera, LiDAR, and IMU knowledge provides building blocks for pipelines
 
 </div>
+
+### Connection to This Module's Chapters
+
+This chapter integrates concepts from this module:
+
+- **From Chapter 1 (Robot Camera Models)**: Camera sensor understanding for visual perception
+- **From Chapter 2 (LiDAR Fundamentals)**: 3D sensing and point cloud processing
+- **From Chapter 3 (IMU Data and Sensor Fusion)**: Sensor fusion techniques for multi-sensor integration
 
 ## Introduction to Perception Pipelines
 
@@ -552,7 +560,11 @@ To verify that you understand perception pipeline development, consider these qu
 
 ## Summary
 
-In this chapter, you've learned how to build perception pipelines in ROS 2 that integrate multiple sensor inputs for robotic perception. You've explored node design principles, multi-sensor integration, performance optimization, and testing strategies. You now understand how to create complete perception systems that process camera, LiDAR, and IMU data in real-time. This completes Module 4 on Perception Systems for Robots, providing you with the knowledge to develop comprehensive perception systems for robotic applications.
+In this chapter, you've learned how to build perception pipelines in ROS 2 that integrate multiple sensor inputs for robotic perception. You've explored node design principles, multi-sensor integration, performance optimization, and testing strategies. You now understand how to create complete perception systems that process camera, LiDAR, and IMU data in real-time.
+
+## Next Steps
+
+[Previous: IMU Data and Sensor Fusion](./imu-sensor-fusion) | [Next: Module 5 Index](../module-5/)
 
 ## Quick Test
 

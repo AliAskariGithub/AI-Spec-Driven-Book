@@ -10,8 +10,8 @@ import {themes as prismThemes} from 'prism-react-renderer';
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'AI-Spec Driven Book',
-  tagline: 'The Robotic Nervous System - ROS 2 for AI/CS Students',
+  title: 'Physical AI & Humanoid Robotics',
+  tagline: 'From embodied intelligence to autonomous humanoids — simulation, perception, AI brains, and Vision–Language–Action systems',
   favicon: 'img/favicon.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -30,7 +30,7 @@ const config = {
   organizationName: 'AliAskariGithub', // Usually your GitHub org/user name.
   projectName: 'AI-Spec-Driven-Book', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenAnchors: 'ignore',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -129,16 +129,32 @@ const config = {
             title: 'Learn',
             items: [
               {
-                label: 'Introduction',
+                label: '0: Foundations of Physical AI',
                 to: '/docs/intro',
               },
               {
-                label: 'The Robotic Nervous System',
+                label: '1: Robotic Nervous System',
                 to: '/docs/module-1/',
               },
               {
-                label: 'The Digital Twin',
+                label: '2: Robot Kinematics & Structure',
                 to: '/docs/module-2/',
+              },
+              {
+                label: '3: Digital Twin',
+                to: '/docs/module-3/',
+              },
+              {
+                label: '4: Perception Systems',
+                to: '/docs/module-4/',
+              },
+              {
+                label: '5: AI-Robot Brain',
+                to: '/docs/module-5/',
+              },
+              {
+                label: '6: Vision–Language–Action',
+                to: '/docs/module-6/',
               },
             ],
           },

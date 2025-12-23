@@ -1,0 +1,391 @@
+openapi: 3.0.0
+info:
+  title: Vision-Language-Action (VLA) API
+  description: API for Vision-Language-Action integration in humanoid robotics
+  version: 1.0.0
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+  - url: http://localhost:8080
+    description: Local development server
+
+paths:
+  /v1/vla/commands:
+    post:
+      summary: Submit a natural language command for processing
+      description: Takes a natural language command and processes it through the VLA system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VLACommandRequest'
+      responses:
+        '200':
+          description: Successfully processed command
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VLACommandResponse'
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal server error
+
+  /v1/vla/commands/{id}:
+    get:
+      summary: Get status of a VLA command
+      description: Retrieve the current status and details of a previously submitted command
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+          description: Unique identifier of the VLA command
+      responses:
+        '200':
+          description: Successfully retrieved command status
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VLACommandStatus'
+        '404':
+          description: Command not found
+        '500':
+          description: Internal server error
+
+  /v1/vla/execute:
+    post:
+      summary: Execute a parsed VLA command
+      description: Execute a command that has been parsed and validated by the VLA system
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/VLAExecuteRequest'
+      responses:
+        '200':
+          description: Successfully started execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VLAExecuteResponse'
+        '400':
+          description: Invalid command or parameters
+        '500':
+          description: Internal server error
+
+  /v1/vla/context:
+    get:
+      summary: Get current VLA context
+      description: Retrieve the current contextual information for the VLA system
+      responses:
+        '200':
+          description: Successfully retrieved context
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/VLAContext'
+        '500':
+          description: Internal server error
+
+  /v1/vla/plan:
+    post:
+      summary: Generate a task plan from natural language
+      description: Generate a structured task plan from a natural language command
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/TaskPlanRequest'
+      responses:
+        '200':
+          description: Successfully generated task plan
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TaskPlanResponse'
+        '400':
+          description: Invalid input
+        '500':
+          description: Internal server error
+
+components:
+  schemas:
+    VLACommandRequest:
+      type: object
+      required:
+        - natural_language_input
+      properties:
+        natural_language_input:
+          type: string
+          description: Natural language command from the user
+          example: "Please pick up the red cup and place it on the table"
+        context_id:
+          type: string
+          description: Optional context identifier for the command
+          example: "context-12345"
+
+    VLACommandResponse:
+      type: object
+      properties:
+        command_id:
+          type: string
+          description: Unique identifier for the processed command
+          example: "cmd-67890"
+        parsed_intent:
+          type: string
+          description: Parsed intent from the natural language
+          example: "move_object"
+        action_sequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionStep'
+        confidence_score:
+          type: number
+          format: float
+          description: Confidence level of the interpretation
+          minimum: 0
+          maximum: 1
+          example: 0.85
+
+    ActionStep:
+      type: object
+      properties:
+        action_type:
+          type: string
+          description: Type of action to execute
+          enum: [move, grasp, navigate, speak, detect]
+          example: "grasp"
+        parameters:
+          type: object
+          description: Action-specific parameters
+          example:
+            object_id: "red_cup_01"
+            target_position: {"x": 1.2, "y": 0.5, "z": 0.8}
+        constraints:
+          type: object
+          description: Safety and execution constraints
+          example:
+            max_force: 10.0
+            timeout: 30
+
+    VLACommandStatus:
+      type: object
+      properties:
+        command_id:
+          type: string
+          description: Unique identifier for the command
+          example: "cmd-67890"
+        status:
+          type: string
+          description: Current status of the command
+          enum: [new, parsed, validated, executing, completed, failed, interrupted]
+          example: "executing"
+        current_step:
+          type: integer
+          description: Current step in the action sequence
+          example: 1
+        total_steps:
+          type: integer
+          description: Total number of steps in the action sequence
+          example: 3
+        execution_log:
+          type: array
+          items:
+            type: string
+          description: Log of execution steps
+          example: ["Started grasp action", "Object detected", "Approaching object"]
+
+    VLAExecuteRequest:
+      type: object
+      required:
+        - command_id
+      properties:
+        command_id:
+          type: string
+          description: Identifier of the command to execute
+          example: "cmd-67890"
+        simulation:
+          type: boolean
+          description: Whether to execute in simulation mode
+          default: true
+
+    VLAExecuteResponse:
+      type: object
+      properties:
+        execution_id:
+          type: string
+          description: Unique identifier for the execution
+          example: "exec-111213"
+        status:
+          type: string
+          description: Status of the execution
+          enum: [pending, executing, completed, failed]
+          example: "executing"
+        estimated_completion:
+          type: number
+          format: float
+          description: Estimated time to completion in seconds
+          example: 15.5
+
+    VLAContext:
+      type: object
+      properties:
+        environment_map:
+          type: object
+          description: Current map of the environment
+          example: {"map_id": "office_01", "objects": ["table_01", "chair_02", "cup_03"]}
+        robot_state:
+          $ref: '#/components/schemas/RobotState'
+        task_history:
+          type: array
+          items:
+            type: object
+          description: Previous tasks and their outcomes
+          example: [{"command": "move_to_kitchen", "result": "success", "timestamp": "2023-05-01T10:00:00Z"}]
+        user_preferences:
+          type: object
+          description: User preferences for interaction
+          example: {"preferred_speed": "normal", "greeting_style": "formal"}
+
+    RobotState:
+      type: object
+      properties:
+        position:
+          type: object
+          properties:
+            x:
+              type: number
+              format: float
+              example: 1.2
+            y:
+              type: number
+              format: float
+              example: 2.3
+            z:
+              type: number
+              format: float
+              example: 0.0
+          description: Current position of the robot
+        orientation:
+          type: object
+          properties:
+            roll:
+              type: number
+              format: float
+              example: 0.0
+            pitch:
+              type: number
+              format: float
+              example: 0.0
+            yaw:
+              type: number
+              format: float
+              example: 1.57
+          description: Current orientation of the robot
+        joint_states:
+          type: array
+          items:
+            type: object
+            properties:
+              joint_name:
+                type: string
+                example: "arm_joint_1"
+              position:
+                type: number
+                format: float
+                example: 0.5
+          description: States of all robot joints
+        battery_level:
+          type: number
+          format: float
+          minimum: 0
+          maximum: 1
+          description: Current battery level as percentage
+          example: 0.85
+
+    TaskPlanRequest:
+      type: object
+      required:
+        - natural_language_command
+      properties:
+        natural_language_command:
+          type: string
+          description: Natural language command to generate plan for
+          example: "Clean up the table and put the items in the kitchen"
+        constraints:
+          type: object
+          description: Constraints for the task plan
+          example: {"max_time": 300, "avoid_area": "fragile_items"}
+
+    TaskPlanResponse:
+      type: object
+      properties:
+        plan_id:
+          type: string
+          description: Unique identifier for the generated plan
+          example: "plan-999888"
+        original_command:
+          type: string
+          description: Original natural language command
+          example: "Clean up the table and put the items in the kitchen"
+        subtasks:
+          type: array
+          items:
+            $ref: '#/components/schemas/SubTask'
+        execution_strategy:
+          type: string
+          description: Overall strategy for executing the plan
+          enum: [sequential, parallel, adaptive]
+          example: "sequential"
+        estimated_completion_time:
+          type: number
+          format: float
+          description: Estimated time to complete the plan in seconds
+          example: 120.5
+        status:
+          type: string
+          description: Current status of the plan
+          enum: [planning, executing, completed, failed]
+          example: "planning"
+
+    SubTask:
+      type: object
+      properties:
+        subtask_id:
+          type: string
+          description: Unique identifier for the subtask
+          example: "subtask-001"
+        description:
+          type: string
+          description: Description of the subtask
+          example: "Detect objects on the table"
+        action_sequence:
+          type: array
+          items:
+            $ref: '#/components/schemas/ActionStep'
+          description: Actions required for the subtask
+        dependencies:
+          type: array
+          items:
+            type: string
+          description: Other subtasks this subtask depends on
+          example: ["subtask-000"]
+        success_criteria:
+          type: string
+          description: Criteria for considering the subtask complete
+          example: "All objects on table detected and identified"
+
+tags:
+  - name: vla
+    description: Vision-Language-Action operations
+  - name: commands
+    description: Command processing and execution
+  - name: planning
+    description: Task planning and decomposition
