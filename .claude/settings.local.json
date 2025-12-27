@@ -4,7 +4,18 @@
       "WebSearch",
       "WebFetch(domain:nvidia-isaac.github.io)",
       "Bash(cp \"C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\frontend-book\\\\src\\\\css\\\\custom.css\" \"C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\frontend-book\\\\src\\\\css\\\\custom.css.bak\")",
-      "Bash(powershell \"Get-ChildItem -Path ''C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\frontend-book\\\\src'' -Recurse | Select-Object FullName | Out-String\")"
+      "Bash(powershell \"Get-ChildItem -Path ''C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\frontend-book\\\\src'' -Recurse | Select-Object FullName | Out-String\")",
+      "Bash(dir \"specs\" /AD /B)",
+      "Bash(mkdir -p:*)",
+      "Bash(dir \"fullstack/backend/\" /B)",
+      "Bash(python -m pytest test/test_main.py -v)",
+      "Bash(python test_sitemap.py:*)",
+      "Bash(powershell Remove-Item \"C:\\\\Hackathons\\\\ai-book\\\\fullstack\\\\backend\\\\test_sitemap.py\")",
+      "Bash(python main.py --help)",
+      "Skill(sp.plan)",
+      "Bash(python -m pytest test/test_retrieves.py -v)",
+      "Bash(python retrieves.py --help)",
+      "Bash(python agent.py)"
     ]
   }
 }

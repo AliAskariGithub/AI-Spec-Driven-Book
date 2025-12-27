@@ -1,493 +1,628 @@
-Hackathon I: Create a Textbook for Teaching Module 0: Foundations of Physical AI Course
-The future of work will be a partnership between people, intelligent agents (AI software), and robots. This shift won't necessarily eliminate jobs but will change what humans do, leading to a massive demand for new skills. We have already written a book on AI agents. Therefore, we want you to write a textbook to teach a course in Module 0: Foundations of Physical AI (The course details are documented below). 
+<div align="center">
 
-Excel in the Hackathon and Launch Your Journey as an AI Startup Founder 🚀
-We’ve recently launched Panaversity (panaversity.org), an initiative focused on teaching cutting-edge AI courses. Alongside this, we’re working on publishing our first book, which you can explore at ai-native.panaversity.org. Our next milestone is to build a portal where authors can create AI-native technical textbooks, and readers can easily access and learn from them using AI Agents. We also plan to publish O/A Level, Science, Engineering, and Medical AI-native books to support students and professionals across disciplines. If you perform well in this hackathon, you may be invited for # 🤖 Hackathon I: Module 0: Foundations of Physical AI Textbook
+# 🤖 Hackathon I: Physical AI Textbook Challenge
 
-> **Create an AI‑Native Textbook. Build a RAG Chatbot. Launch Your Journey as an AI Startup Founder.**
+### *Create an AI-Native Textbook • Build a RAG Chatbot • Launch Your Journey as an AI Startup Founder*
 
----
-
-## 🌍 Vision
-
-The future of work is a collaboration between **humans, intelligent AI agents, and robots**. Physical AI represents the next evolution of artificial intelligence—moving beyond screens into the real, physical world.
-
-This hackathon challenges you to **design, write, and publish an AI‑native textbook** for teaching **Module 0: Foundations of Physical AI**, combining robotics, simulation, perception, and generative AI.
+<img src="https://img.shields.io/badge/Deadline-Nov%2030%2C%202025-red?style=for-the-badge" alt="Deadline"/>
+<img src="https://img.shields.io/badge/Max%20Points-300-brightgreen?style=for-the-badge" alt="Points"/>
+<img src="https://img.shields.io/badge/Status-Open-blue?style=for-the-badge" alt="Status"/>
 
 ---
 
-## 🚀 Why This Hackathon Matters
+</div>
 
-We are building **Panaversity** ([https://panaversity.org](https://panaversity.org)), a next‑generation AI education ecosystem.
+## 🌟 **The Vision**
 
-* 📘 We’ve already published our first AI‑native book: [https://ai-native.panaversity.org](https://ai-native.panaversity.org)
-* 🧠 We are building a platform where **AI Agents help authors write textbooks** and help **students learn interactively**
-* 🏫 Future plans include **O/A Level, Science, Engineering, and Medical AI‑native books**
+> *"The future of work is a collaboration between humans, intelligent AI agents, and robots."*
 
-### ⭐ Top Performers Get
+Physical AI represents the **next evolution** of artificial intelligence—moving beyond screens into the **real, physical world**. This hackathon challenges you to create something extraordinary: an **AI-native textbook** that teaches the foundations of this revolutionary field.
 
-* 🎤 Interview invitation to join the **Panaversity Core Team**
-* 🚀 Opportunity to become an **AI Startup Founder**
-* 👨‍🏫 Chance to teach at **Panaversity, PIAIC, and GIAIC**
-* 🤝 Direct mentorship from **Zia, Rehan, Junaid, and Wania**
+<div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 20px; border-radius: 10px; color: black; margin: 20px 0;">
 
----
+### 🎯 **Your Mission**
 
-## 📌 Core Requirements
+Design, write, and publish a comprehensive textbook for **Module 0: Foundations of Physical AI**, combining:
+- 🤖 Robotics & Simulation
+- 👁️ Perception & Computer Vision  
+- 🧠 Generative AI & Language Models
+- 🦾 Embodied Intelligence
 
-You must complete **one unified book project** using **Claude Code** and **Spec‑Kit Plus**.
-
-### 1️⃣ AI / Spec‑Driven Book Creation
-
-* Write a full textbook using **Docusaurus**
-* Use **Spec‑Kit Plus**: [https://github.com/panaversity/spec-kit-plus/](https://github.com/panaversity/spec-kit-plus/)
-* Use **Claude Code**: [https://www.claude.com/product/claude-code](https://www.claude.com/product/claude-code)
-* Deploy the book to **GitHub Pages** or **Vercel**
-
-### 2️⃣ Integrated RAG Chatbot
-
-Embed a **Retrieval‑Augmented Generation (RAG) chatbot** inside the book.
-
-**Required Stack:**
-
-* OpenAI Agents / ChatKit SDKs
-* FastAPI backend
-* Neon Serverless Postgres
-* Qdrant Cloud (Free Tier)
-
-**Capabilities:**
-
-* Answer questions from the entire book
-* Answer questions from **user‑selected text only**
-
-### 3️⃣ Base Scoring
-
-* 🎯 **100 points** for completing all base functionality
+</div>
 
 ---
 
-## 🏆 Bonus Points (Up to +200)
+## 🚀 **Why This Hackathon Matters**
 
-* ➕ **+50**: Reusable intelligence using **Claude Code Subagents & Agent Skills**
-* ➕ **+50**: Signup & Signin with [https://www.better-auth.com/](https://www.better-auth.com/)
+<table>
+<tr>
+<td width="50%">
 
-  * Ask users about software & hardware background
-  * Personalize learning experience
-* ➕ **+50**: Chapter‑level content personalization (button‑based)
-* ➕ **+50**: Chapter‑level **Urdu translation** (button‑based)
+### 📘 **About Panaversity**
 
----
+We're building the future of AI education at [**panaversity.org**](https://panaversity.org)
 
-## 🗓 Timeline
+✅ **Published:** Our first AI-native book  
+🔗 [ai-native.panaversity.org](https://ai-native.panaversity.org)
 
-| Event               | Date & Time                                |
-| ------------------- | ------------------------------------------ |
-| Submission Deadline | **Sunday, Nov 30, 2025 – 06:00 PM**        |
-| Live Presentations  | **Sunday, Nov 30, 2025 – 06:00 PM (Zoom)** |
+✅ **Building:** AI Agent-powered authoring platform
 
-> 🔔 Live presentations are **invite‑only**, but **all submissions are evaluated**.
+✅ **Planning:** O/A Level, Science, Engineering & Medical textbooks
 
----
+</td>
+<td width="50%">
 
-## 📤 Submission Instructions
+### 🏆 **What You Can Win**
 
-Submit your project here:
-👉 [https://forms.gle/CQsSEGM3GeCrL43c8](https://forms.gle/CQsSEGM3GeCrL43c8)
+🎤 **Interview** for Panaversity Core Team  
+🚀 **Opportunity** to become an AI Startup Founder  
+👨‍🏫 **Chance** to teach at Panaversity, PIAIC & GIAIC  
+🤝 **Mentorship** from Zia, Rehan, Junaid & Wania
 
-### Required Fields
-
-* 🔗 Public GitHub Repository
-* 🌐 Published Book URL (GitHub Pages or Vercel)
-* 🎥 Demo Video (**max 90 seconds – only first 90 seconds will be judged**)
-* 📱 WhatsApp Number (for shortlisted teams)
+</td>
+</tr>
+</table>
 
 ---
 
-## 🎥 Live Presentation (Zoom)
+<div align="center">
 
-🕕 **Time:** Nov 30, 2025 — 06:00 PM
+## 📋 **Core Requirements**
 
-🔗 **Join Zoom:**
-[https://us06web.zoom.us/j/84976847088?pwd=Z7t7NaeXwVmmR5fysCv7NiMbfbhIda.1](https://us06web.zoom.us/j/84976847088?pwd=Z7t7NaeXwVmmR5fysCv7NiMbfbhIda.1)
+*Complete ONE unified book project using cutting-edge AI tools*
 
-🆔 Meeting ID: 849 7684 7088
+</div>
+
+### 1️⃣ **AI/Spec-Driven Book Creation** <img src="https://img.shields.io/badge/Base-Required-red?style=flat-square" align="right"/>
+
+| Component | Details |
+|-----------|---------|
+| 📝 **Format** | Full textbook using **Docusaurus** |
+| 🛠️ **Tools** | [Spec-Kit Plus](https://github.com/panaversity/spec-kit-plus/) + [Claude Code](https://www.claude.com/product/claude-code) |
+| 🌐 **Deployment** | GitHub Pages or Vercel |
+| 📚 **Content** | Module 0: Foundations of Physical AI |
+
+---
+
+### 2️⃣ **Integrated RAG Chatbot** <img src="https://img.shields.io/badge/Base-Required-red?style=flat-square" align="right"/>
+
+Build and embed a **Retrieval-Augmented Generation (RAG) chatbot** inside your published book.
+
+<div style="background: #f6f8fa; color: black; padding: 15px; border-left: 4px solid #0366d6; border-radius: 5px; margin: 15px 0;">
+
+**🔧 Required Tech Stack:**
+
+```
+📦 OpenAI Agents / ChatKit SDKs
+⚡ FastAPI Backend  
+🗄️ Neon Serverless Postgres
+🔍 Qdrant Cloud (Free Tier)
+```
+
+**✨ Capabilities:**
+- ✅ Answer questions from the **entire book**
+- ✅ Answer questions from **user-selected text only**
+
+</div>
+
+---
+
+### 3️⃣ **Base Scoring** <img src="https://img.shields.io/badge/Points-100-success?style=flat-square" align="right"/>
+
+Complete all base functionality to earn **100 points**
+
+---
+
+<div align="center">
+
+## 🎁 **Bonus Challenges**
+
+*Earn up to +200 extra points!*
+
+</div>
+
+<table>
+<tr>
+<th width="60%">Challenge</th>
+<th width="20%">Points</th>
+<th width="20%">Difficulty</th>
+</tr>
+<tr>
+<td>
+
+### 🧠 **Reusable Intelligence**
+Create and use reusable AI via **Claude Code Subagents & Agent Skills**
+
+</td>
+<td align="center">
+
+**+50**  
+<img src="https://img.shields.io/badge/🔥-Hard-orange"/>
+
+</td>
+<td align="center">
+
+⭐⭐⭐⭐
+
+</td>
+</tr>
+<tr>
+<td>
+
+### 🔐 **User Authentication**
+Implement Signup & Signin with [Better-Auth](https://www.better-auth.com/)
+- Ask about software & hardware background
+- Enable personalized learning experience
+
+</td>
+<td align="center">
+
+**+50**  
+<img src="https://img.shields.io/badge/🔥-Medium-yellow"/>
+
+</td>
+<td align="center">
+
+⭐⭐⭐
+
+</td>
+</tr>
+<tr>
+<td>
+
+### 🎨 **Content Personalization**
+Chapter-level personalization with button-based interface
+
+</td>
+<td align="center">
+
+**+50**  
+<img src="https://img.shields.io/badge/🔥-Medium-yellow"/>
+
+</td>
+<td align="center">
+
+⭐⭐⭐
+
+</td>
+</tr>
+<tr>
+<td>
+
+### 🌍 **Urdu Translation**
+Chapter-level Urdu translation via button interface
+
+</td>
+<td align="center">
+
+**+50**  
+<img src="https://img.shields.io/badge/🔥-Medium-yellow"/>
+
+</td>
+<td align="center">
+
+⭐⭐⭐
+
+</td>
+</tr>
+</table>
+
+<div style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); color: black; padding: 20px; border-radius: 10px; color: black; margin: 20px 0; text-align: center;">
+
+### 💡 **Maximum Possible Score: 300 Points**
+
+100 (Base) + 200 (Bonuses) = **300 Total**
+
+</div>
+
+---
+
+<div align="center">
+
+## 📅 **Important Dates**
+
+</div>
+
+| 📌 Event | 🕐 Date & Time | 📍 Details |
+|---------|---------------|-----------|
+| ⏰ **Submission Deadline** | **Sunday, Nov 30, 2025**<br/>06:00 PM | Form closes automatically |
+| 🎤 **Live Presentations** | **Sunday, Nov 30, 2025**<br/>06:00 PM | Zoom (Invite Only) |
+| ✉️ **Invitations Sent** | **Nov 30, 2025**<br/>After 12:00 PM | Via WhatsApp |
+
+> 🔔 **Note:** All submissions are evaluated. Live presentation is invite-only but doesn't affect final scoring.
+
+---
+
+<div align="center">
+
+## 📤 **Submission Instructions**
+
+### 👉 [**Submit Your Project Here**](https://forms.gle/CQsSEGM3GeCrL43c8) 👈
+
+</div>
+
+<div style="background: #fff3cd; color: black; border: 2px solid #ffc107; padding: 20px; border-radius: 10px; margin: 20px 0;">
+
+### 📋 **Required Submission Materials:**
+
+- [x] 🔗 **Public GitHub Repository** (must be accessible)
+- [x] 🌐 **Published Book URL** (GitHub Pages or Vercel)
+- [x] 🎥 **Demo Video** (max 90 seconds - only first 90s judged)
+- [x] 📱 **WhatsApp Number** (for top submissions)
+
+</div>
+
+---
+
+<div align="center">
+
+## 🎥 **Live Presentation Details**
+
+### Join us on Zoom to watch the presentations!
+
+</div>
+
+```
+🕕 Time:     November 30, 2025 at 06:00 PM
+🔗 Link:     https://us06web.zoom.us/j/84976847088?pwd=Z7t7NaeXwVmmR5fysCv7NiMbfbhIda.1
+🆔 Meeting:  849 7684 7088
 🔐 Passcode: 305850
+```
+
+<div style="background: #d1ecf1; color: black; border: 2px solid #0c5460; padding: 15px; border-radius: 8px; margin: 20px 0;">
+
+**ℹ️ Presentation Info:**
+- Everyone can join to watch
+- Only invited participants present
+- Invitations sent via WhatsApp
+- Presentations don't affect scoring
+
+</div>
 
 ---
 
-# 📚 Course: Module 0: Foundations of Physical AI
+<div align="center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 30px; border-radius: 15px; color: black; margin: 30px 0;">
 
-## 🎯 Focus
+# 📚 Course: Module 0
 
-**Embodied Intelligence** — AI systems that understand and operate in the physical world.
+## **Foundations of Physical AI**
 
-## 🧠 Goal
+*Bridging the Digital Brain and the Physical Body*
 
-Bridge the gap between the **digital brain** and the **physical body** by designing humanoid robots capable of perception, reasoning, and action.
-
----
-
-## 🧩 Quarter Overview
-
-Students design, simulate, and deploy humanoid robots using:
-
-* ROS 2
-* Gazebo & Unity
-* NVIDIA Isaac Sim & Isaac ROS
-* Vision‑Language‑Action (VLA) systems
+</div>
 
 ---
 
-## 🧱 Modules
+## 🎯 **Course Focus**
 
-### Module 1: The Robotic Nervous System (ROS 2)
+<div style="background: #e7f3ff; color: black; padding: 20px; border-left: 5px solid #2196F3; border-radius: 5px; margin: 20px 0;">
 
-* ROS 2 nodes, topics, services
-* Python agents with `rclpy`
-* URDF for humanoid robots
+### **Embodied Intelligence**
 
-### Module 2: The Digital Twin (Gazebo & Unity)
+AI systems that **understand and operate in the physical world** — moving beyond screens into reality.
 
-* Physics simulation & collisions
-* Sensor simulation (LiDAR, Depth, IMU)
-* Human‑robot interaction environments
+**Goal:** Design humanoid robots capable of:
+- 👁️ **Perception** (sensing the environment)
+- 🧠 **Reasoning** (making decisions)
+- 🦾 **Action** (physical manipulation)
 
-### Module 3: The AI‑Robot Brain (NVIDIA Isaac)
-
-* Isaac Sim & synthetic data
-* Isaac ROS & VSLAM
-* Nav2 for humanoid navigation
-
-### Module 4: Vision‑Language‑Action (VLA)
-
-* Voice‑to‑Action with Whisper
-* LLM‑based cognitive planning
-* **Capstone:** Autonomous humanoid executing voice commands
+</div>
 
 ---
 
-## 🎓 Learning Outcomes
+## 🧩 **Quarter Overview**
 
-* Master Physical AI & embodied intelligence
-* Build robots using ROS 2
-* Simulate in Gazebo & Unity
-* Train perception with NVIDIA Isaac
-* Integrate GPT‑based conversational robotics
+Students will master the complete pipeline of robotic AI systems:
 
----
+<table>
+<tr>
+<td width="50%">
 
-## 🗂 Weekly Breakdown
+### 🛠️ **Tools & Platforms**
+- ROS 2 (Robot Operating System)
+- Gazebo & Unity (Simulation)
+- NVIDIA Isaac Sim & Isaac ROS
+- Vision-Language-Action (VLA) Systems
 
-* **Weeks 1–2:** Physical AI foundations & sensors
-* **Weeks 3–5:** ROS 2 architecture & packages
-* **Weeks 6–7:** Gazebo & Unity simulation
-* **Weeks 8–10:** NVIDIA Isaac & RL
-* **Weeks 11–12:** Humanoid locomotion & manipulation
-* **Week 13:** Conversational & multimodal robotics
+</td>
+<td width="50%">
 
----
+### 📊 **Skills Developed**
+- Robot control & middleware
+- Physics simulation
+- Computer vision & SLAM
+- LLM integration for robotics
 
-## 🧪 Assessments
-
-* ROS 2 package project
-* Gazebo simulation
-* Isaac perception pipeline
-* 🏆 Capstone humanoid robot with conversational AI
-
----
-
-# 🖥 Hardware & Lab Architecture
-
-## 🔥 Digital Twin Workstation (Required)
-
-* GPU: RTX 4070 Ti+ (3090/4090 ideal)
-* CPU: Intel i7 (13th Gen+) / Ryzen 9
-* RAM: **64 GB DDR5**
-* OS: Ubuntu 22.04 LTS
-
-## 🧠 Edge AI Kit
-
-* Jetson Orin Nano / NX
-* Intel RealSense D435i
-* USB IMU (BNO055)
-* USB Mic Array (ReSpeaker)
-
-## 🤖 Robot Lab Options
-
-* **Budget:** Unitree Go2 (Quadruped)
-* **Mini Humanoid:** Unitree G1 / Robotis OP3
-* **Premium:** Unitree G1 Humanoid
+</td>
+</tr>
+</table>
 
 ---
 
-## ☁️ Cloud‑Native Option (Ether Lab)
+<div align="center">
 
-* AWS g5 / g6e instances
-* ~$205 per quarter (compute + storage)
-* Local Jetson kit still required
+## 🧱 **Course Modules**
 
-⚠️ **Latency Warning:** Train in cloud, deploy locally to Jetson.
+</div>
+
+### 📡 **Module 1: The Robotic Nervous System (ROS 2)**
+
+<div style="background: #fff9e6; color: black; padding: 15px; border-radius: 8px; margin: 10px 0;">
+
+**Focus:** Middleware for robot control
+
+- 🔌 ROS 2 nodes, topics, services & actions
+- 🐍 Python agents with `rclpy`
+- 🤖 URDF for humanoid robot description
+- 📦 Building and launching ROS packages
+
+</div>
 
 ---
 
-## 🧠 Final Architecture Summary
+### 🌐 **Module 2: The Digital Twin (Gazebo & Unity)**
 
-| Component  | Hardware           | Role                 |
-| ---------- | ------------------ | -------------------- |
-| Simulation | RTX PC / Cloud GPU | Isaac, Gazebo, Unity |
-| Edge Brain | Jetson Orin        | Inference & control  |
-| Sensors    | RealSense + LiDAR  | Perception           |
-| Robot      | Unitree Go2 / G1   | Actuation            |
+<div style="background: #e6f7ff; color: black; padding: 15px; border-radius: 8px; margin: 10px 0;">
+
+**Focus:** Physics simulation and environment building
+
+- ⚛️ Physics, gravity, and collision simulation
+- 🎨 High-fidelity rendering in Unity
+- 👥 Human-robot interaction environments
+- 📡 Sensor simulation: LiDAR, Depth Cameras, IMUs
+
+</div>
 
 ---
 
-## 🏁 Final Note
+### 🧠 **Module 3: The AI-Robot Brain (NVIDIA Isaac™)**
 
-Building **Physical AI** is challenging, expensive, and transformative.
+<div style="background: #f0fff4; color: black; padding: 15px; border-radius: 8px; margin: 10px 0;">
 
-This hackathon is not just about a book.
+**Focus:** Advanced perception and training
 
-It’s about **creating the future of embodied intelligence**.
+- 🎬 Isaac Sim: Photorealistic simulation & synthetic data
+- 🚀 Isaac ROS: Hardware-accelerated VSLAM
+- 🗺️ Nav2: Path planning for bipedal movement
+- 🤖 Reinforcement learning for control
 
-🚀 **Welcome to the frontier.**
-an interview to join the Panaversity core team and potentially step into the role of a startup founder within this growing ecosystem. You will get a chance to work with Panaversity founders Zia, Rehan, Junaid, and Wania and become the very best. You may also get a chance to teach at Panaversity, PIAIC, and GIAIC. 
-Requirements
+</div>
 
-You are required to complete a unified book project using Claude Code and Spec-Kit Plus. The core deliverables are:
+---
 
-1. AI/Spec-Driven Book Creation: Write a book using Docusaurus and deploy it to GitHub Pages. You will use Spec-Kit Plus ( https://github.com/panaversity/spec-kit-plus/ ) and Claude Code ( https://www.claude.com/product/claude-code ) to write the book. 
+### 🗣️ **Module 4: Vision-Language-Action (VLA)**
 
-2. Integrated RAG Chatbot Development: Build and embed a Retrieval-Augmented Generation (RAG) chatbot within the published book. This chatbot, utilizing the OpenAI Agents/ChatKit SDKs, FastAPI, Neon Serverless Postgres database, and Qdrant Cloud Free Tier, must be able to answer user questions about the book's content, including answering questions based only on text selected by the user.
+<div style="background: #fff0f6; color: black; padding: 15px; border-radius: 8px; margin: 10px 0;">
 
-3. Participants will receive points out of 100, for base functionality defined above. 
+**Focus:** Convergence of LLMs and Robotics
 
-4. Participants can earn up to 50 extra bonus points by creating and using reusable intelligence via Claude Code Subagents and Agent Skills in the book project.
+- 🎤 Voice-to-Action with OpenAI Whisper
+- 💭 Cognitive planning with LLMs
+- 🔄 Natural language to ROS actions
+- 🏆 **Capstone:** Autonomous humanoid with voice commands
 
-5. Participants can receive up to 50 extra bonus points if they also implement Signup and Signin using https://www.better-auth.com/ At signup you will ask questions from the user about their software and hardware background. Knowing the background of the user we will be able to personalize the content.
+</div>
 
-6.  Participants can receive up to 50 extra bonus points if the logged user can personalise the content in the chapters by pressing a button at the start of each chapter. 
+---
 
-7. Participants can receive up to 50 extra bonus points if the logged user can translate the content in Urdu in the chapters by pressing a button at the start of each chapter. 
+## 🎓 **Learning Outcomes**
 
-Timeline
-Submission Deadline: Sunday, Nov 30, 2025 at 06:00 PM (form will close)
-Live Presentations: Sunday, Nov 30, 2025 starting at 6:00 PM on Zoom
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0;">
 
-Top submissions will be invited via WhatsApp to present live on Zoom. 
-Note: All submissions will be evaluated. Live presentation is by invitation only, but does not affect final scoring. 
-Submit and Present Your Project:
+<div style="background: #f8f9fa; color: black; padding: 15px; border-radius: 8px; border-left: 4px solid #28a745;">
 
-Once you have completed the project you will submit your project here:
+✅ Master Physical AI principles  
+✅ Build robots using ROS 2  
+✅ Simulate in Gazebo & Unity
 
-https://forms.gle/CQsSEGM3GeCrL43c8 
+</div>
 
-Submit the following via the form:
-Public GitHub Repo Link
-Published Book Link for Github Pages or Vercel. The Deployment includes Book, ChatKit and any other component developed in hackathon for evaluation. 
-Include a demo video link (must be under 90 seconds). Judges will only watch the first 90 seconds. You can use NotebookLM or record your demo.
-WhatsApp number (top submissions will be invited to present live)
-Everyone is welcome to join the Zoom meeting to watch the presentations. Only invited participants will present their submissions. Meeting starts at 6:00 PM on Sunday, Nov 30:
+<div style="background: #f8f9fa; color: black; padding: 15px; border-radius: 8px; border-left: 4px solid #007bff;">
 
-Join Zoom Meeting
-Time: Nov 30, 2025 06:00 PM
-https://us06web.zoom.us/j/84976847088?pwd=Z7t7NaeXwVmmR5fysCv7NiMbfbhIda.1 
-Meeting ID: 849 7684 7088
-Passcode: 305850
+✅ Train perception with NVIDIA Isaac  
+✅ Integrate GPT-based robotics  
+✅ Deploy to real hardware
 
+</div>
 
-The Course Details
-Module 0: Foundations of Physical AI
-Focus and Theme: AI Systems in the Physical World. Embodied Intelligence.
-Goal: Bridging the gap between the digital brain and the physical body. Students apply their AI knowledge to control Humanoid Robots in simulated and real-world environments.
-Quarter Overview
-The future of AI extends beyond digital spaces into the physical world. This capstone quarter introduces Physical AI—AI systems that function in reality and comprehend physical laws. Students learn to design, simulate, and deploy humanoid robots capable of natural human interactions using ROS 2, Gazebo, and NVIDIA Isaac.
-Module 1: The Robotic Nervous System (ROS 2)
-Focus: Middleware for robot control.
-ROS 2 Nodes, Topics, and Services.
-Bridging Python Agents to ROS controllers using rclpy.
-Understanding URDF (Unified Robot Description Format) for humanoids.
+</div>
 
+---
 
-Module 2: The Digital Twin (Gazebo & Unity)
-Focus: Physics simulation and environment building.
-Simulating physics, gravity, and collisions in Gazebo.
-High-fidelity rendering and human-robot interaction in Unity.
-Simulating sensors: LiDAR, Depth Cameras, and IMUs.
+## 📆 **Weekly Breakdown**
 
+| Weeks | Topic | Focus Area |
+|-------|-------|------------|
+| **1-2** | 🌟 Physical AI Foundations | Embodied intelligence, sensors, LIDAR |
+| **3-5** | 📡 ROS 2 Architecture | Nodes, topics, services, packages |
+| **6-7** | 🌐 Gazebo & Unity | Physics simulation, URDF, rendering |
+| **8-10** | 🧠 NVIDIA Isaac | Isaac Sim, Isaac ROS, RL training |
+| **11-12** | 🤖 Humanoid Development | Locomotion, manipulation, balance |
+| **13** | 🗣️ Conversational Robotics | Multi-modal interaction, voice control |
 
-Module 3: The AI-Robot Brain (NVIDIA Isaac™)
-Focus: Advanced perception and training.
-NVIDIA Isaac Sim: Photorealistic simulation and synthetic data generation.
-Isaac ROS: Hardware-accelerated VSLAM (Visual SLAM) and navigation.
-Nav2: Path planning for bipedal humanoid movement.
+---
 
+## 🧪 **Assessments**
 
-Module 4: Vision-Language-Action (VLA)
-Focus: The convergence of LLMs and Robotics.	
-Voice-to-Action: Using OpenAI Whisper for voice commands.
-Cognitive Planning: Using LLMs to translate natural language ("Clean the room") into a sequence of ROS 2 actions.
-Capstone Project: The Autonomous Humanoid. A final project where a simulated robot receives a voice command, plans a path, navigates obstacles, identifies an object using computer vision, and manipulates it.
+<div style="background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%); color: black; padding: 20px; border-radius: 10px; margin: 20px 0;">
 
-Why Physical AI Matters
-Humanoid robots are poised to excel in our human-centered world because they share our physical form and can be trained with abundant data from interacting in human environments. This represents a significant transition from AI models confined to digital environments to embodied intelligence that operates in physical space.
-Learning Outcomes
-Understand Physical AI principles and embodied intelligence
-Master ROS 2 (Robot Operating System) for robotic control
-Simulate robots with Gazebo and Unity
-Develop with NVIDIA Isaac AI robot platform
-Design humanoid robots for natural interactions
-Integrate GPT models for conversational robotics
-Weekly Breakdown
-Weeks 1-2: Introduction to Physical AI
-Foundations of Physical AI and embodied intelligence
-From digital AI to robots that understand physical laws
-Overview of humanoid robotics landscape
-Sensor systems: LIDAR, cameras, IMUs, force/torque sensors
-Weeks 3-5: ROS 2 Fundamentals
-ROS 2 architecture and core concepts
-Nodes, topics, services, and actions
-Building ROS 2 packages with Python
-Launch files and parameter management
-Weeks 6-7: Robot Simulation with Gazebo
-Gazebo simulation environment setup
-URDF and SDF robot description formats
-Physics simulation and sensor simulation
-Introduction to Unity for robot visualization
-Weeks 8-10: NVIDIA Isaac Platform
-NVIDIA Isaac SDK and Isaac Sim
-AI-powered perception and manipulation
-Reinforcement learning for robot control
-Sim-to-real transfer techniques
-Weeks 11-12: Humanoid Robot Development
-Humanoid robot kinematics and dynamics
-Bipedal locomotion and balance control
-Manipulation and grasping with humanoid hands
-Natural human-robot interaction design
+### 📝 **Projects & Evaluations**
 
-Week 13: Conversational Robotics
-Integrating GPT models for conversational AI in robots
-Speech recognition and natural language understanding
-Multi-modal interaction: speech, gesture, vision
-Assessments
-ROS 2 package development project
-Gazebo simulation implementation
-Isaac-based perception pipeline
-Capstone: Simulated humanoid robot with conversational AI
+1. 📦 **ROS 2 Package** - Build a working ROS package
+2. 🌐 **Gazebo Simulation** - Implement physics simulation
+3. 🧠 **Isaac Perception** - Create perception pipeline
+4. 🏆 **Capstone Project** - Humanoid robot with conversational AI
 
-Hardware Requirements
-This course is technically demanding. It sits at the intersection of three heavy computational loads: Physics Simulation (Isaac Sim/Gazebo), Visual Perception (SLAM/Computer Vision), and Generative AI (LLMs/VLA).
+</div>
 
-Because the capstone involves a "Simulated Humanoid," the primary investment must be in High-Performance Workstations. However, to fulfill the "Physical AI" promise, you also need Edge Computing Kits (brains without bodies) or specific robot hardware.
+---
 
-1. The "Digital Twin" Workstation (Required per Student)
-This is the most critical component. NVIDIA Isaac Sim is an Omniverse application that requires "RTX" (Ray Tracing) capabilities. Standard laptops (MacBooks or non-RTX Windows machines) will not work.
-GPU (The Bottleneck): NVIDIA RTX 4070 Ti (12GB VRAM) or higher.
-Why: You need high VRAM to load the USD (Universal Scene Description) assets for the robot and environment, plus run the VLA (Vision-Language-Action) models simultaneously.
-Ideal: RTX 3090 or 4090 (24GB VRAM) allows for smoother "Sim-to-Real" training.
-CPU: Intel Core i7 (13th Gen+) or AMD Ryzen 9.
-Why: Physics calculations (Rigid Body Dynamics) in Gazebo/Isaac are CPU-intensive.
-RAM: 64 GB DDR5 (32 GB is the absolute minimum, but will crash during complex scene rendering).
-OS: Ubuntu 22.04 LTS.
-Note: While Isaac Sim runs on Windows, ROS 2 (Humble/Iron) is native to Linux. Dual-booting or dedicated Linux machines are mandatory for a friction-free experience.
+<div align="center" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); color: black; padding: 30px; border-radius: 15px; margin: 30px 0;">
 
+# 🖥️ **Hardware & Lab Architecture**
 
-2. The "Physical AI" Edge Kit
-Since a full humanoid robot is expensive, students learn "Physical AI" by setting up the nervous system on a desk before deploying it to a robot. This kit covers Module 3 (Isaac ROS) and Module 4 (VLA).
-The Brain: NVIDIA Jetson Orin Nano (8GB) or Orin NX (16GB).
-Role: This is the industry standard for embodied AI. Students will deploy their ROS 2 nodes here to understand resource constraints vs. their powerful workstations.
-The Eyes (Vision): Intel RealSense D435i or D455.
-Role: Provides RGB (Color) and Depth (Distance) data. Essential for the VSLAM and Perception modules.
-The Inner Ear (Balance): Generic USB IMU (BNO055) (Often built into the RealSense D435i or Jetson boards, but a separate module helps teach IMU calibration).
-Voice Interface: A simple USB Microphone/Speaker array (e.g., ReSpeaker) for the "Voice-to-Action" Whisper integration.
-3. The Robot Lab
-For the "Physical" part of the course, you have three tiers of options depending on budget.
-Option A: The "Proxy" Approach (Recommended for Budget)
-Use a quadruped (dog) or a robotic arm as a proxy. The software principles (ROS 2, VSLAM, Isaac Sim) transfer 90% effectively to humanoids.
-Robot: Unitree Go2 Edu (~$1,800 - $3,000).
-Pros: Highly durable, excellent ROS 2 support, affordable enough to have multiple units.
-Cons: Not a biped (humanoid).
-Option B: The "Miniature Humanoid" Approach
-Small, table-top humanoids.
-Robot: Unitree H1 is too expensive ($90k+), so look at Unitree G1 (~$16k) or Robotis OP3 (older, but stable, ~$12k).
-Budget Alternative: Hiwonder TonyPi Pro (~$600).
-Warning: The cheap kits (Hiwonder) usually run on Raspberry Pi, which cannot run NVIDIA Isaac ROS efficiently. You would use these only for kinematics (walking) and use the Jetson kits for AI.
-Option C: The "Premium" Lab (Sim-to-Real specific)
-If the goal is to actually deploy the Capstone to a real humanoid:
-Robot: Unitree G1 Humanoid.
-Why: It is one of the few commercially available humanoids that can actually walk dynamically and has an SDK open enough for students to inject their own ROS 2 controllers.
+*Building the Future Requires Powerful Tools*
 
-4. Summary of Architecture
-To teach this successfully, your lab infrastructure should look like this:
-Component
-Hardware
-Function
-Sim Rig
-PC with RTX 4080 + Ubuntu 22.04
-Runs Isaac Sim, Gazebo, Unity, and trains LLM/VLA models.
-Edge Brain
-Jetson Orin Nano
-Runs the "Inference" stack. Students deploy their code here.
-Sensors
-RealSense Camera + Lidar
-Connected to the Jetson to feed real-world data to the AI.
-Actuator
-Unitree Go2 or G1 (Shared)
-Receives motor commands from the Jetson.
+</div>
 
+---
 
-If you do not have access to RTX-enabled workstations, we must restructure the course to rely entirely on cloud-based instances (like AWS RoboMaker or NVIDIA's cloud delivery for Omniverse), though this introduces significant latency and cost complexity.
+## 🔥 **Digital Twin Workstation** <img src="https://img.shields.io/badge/Status-Required-critical?style=flat-square" align="right"/>
 
-Building a "Physical AI" lab is a significant investment. You will have to choose between building a physical On-Premise Lab at Home (High CapEx) versus running a Cloud-Native Lab (High OpEx).
+<div style="background: #2c3e50; color: black; padding: 20px; border-radius: 10px; margin: 20px 0;">
 
-Option 2 High OpEx: The "Ether" Lab (Cloud-Native)
-Best for: Rapid deployment, or students with weak laptops.
-1. Cloud Workstations (AWS/Azure) Instead of buying PCs, you rent instances.
-Instance Type: AWS g5.2xlarge (A10G GPU, 24GB VRAM) or g6e.xlarge.
-Software: NVIDIA Isaac Sim on Omniverse Cloud (requires specific AMI).
-Cost Calculation:
-Instance cost: ~$1.50/hour (spot/on-demand mix).
-Usage: 10 hours/week × 12 weeks = 120 hours.
-Storage (EBS volumes for saving environments): ~$25/quarter.
-Total Cloud Bill: ~$205 per quarter.
-2. Local "Bridge" Hardware You cannot eliminate hardware entirely for "Physical AI." You still need the edge devices to deploy the code physically.
-Edge AI Kits: You still need the Jetson Kit for the physical deployment phase.
-Cost: $700 (One-time purchase).
-Robot: You still need one physical robot for the final demo.
-Cost: $3,000 (Unitree Go2 Standard).
-The Economy Jetson Student Kit
-Best for: Learning ROS 2, Basic Computer Vision, and Sim-to-Real control.
-Component
-Model
-Price (Approx.)
-Notes
-The Brain
-NVIDIA Jetson Orin Nano Super Dev Kit (8GB)
-$249
-New official MSRP (Price dropped from ~$499). Capable of 40 TOPS.
-The Eyes
-Intel RealSense D435i
-$349
-Includes IMU (essential for SLAM). Do not buy the D435 (non-i).
-The Ears
-ReSpeaker USB Mic Array v2.0
-$69
-Far-field microphone for voice commands (Module 4).
-Wi-Fi
-(Included in Dev Kit)
-$0
-The new "Super" kit includes the Wi-Fi module pre-installed.
-Power/Misc
-SD Card (128GB) + Jumper Wires
-$30
-High-endurance microSD card required for the OS.
-TOTAL
+### **Minimum Specifications:**
 
+| Component | Requirement | Why It Matters |
+|-----------|-------------|----------------|
+| 🎮 **GPU** | RTX 4070 Ti+ (3090/4090 ideal) | Isaac Sim needs 12GB+ VRAM |
+| 🖥️ **CPU** | Intel i7 13th Gen+ / Ryzen 9 | Physics calculations |
+| 💾 **RAM** | **64 GB DDR5** | Complex scene rendering |
+| 💿 **OS** | Ubuntu 22.04 LTS | ROS 2 native support |
 
-~$700 per kit
+</div>
 
+<div style="background: #ff6b6b; color: black; padding: 15px; border-radius: 8px; margin: 20px 0;">
 
+⚠️ **Critical Warning:**
 
+Standard laptops (MacBooks or non-RTX Windows machines) **will NOT work** for this course. Isaac Sim requires RTX capabilities.
 
-3. The Latency Trap (Hidden Cost)
-Simulating in the cloud works well, but controlling a real robot from a cloud instance is dangerous due to latency.
-Solution: Students train in the Cloud, download the model (weights), and flash it to the local Jetson kit.
+</div>
+
+---
+
+## 🧠 **Edge AI Kit** <img src="https://img.shields.io/badge/Cost-~$700-informational?style=flat-square" align="right"/>
+
+<div style="background: #ecf0f1; color: black; padding: 20px; border-radius: 10px; margin: 20px 0;">
+
+### **The Economy Jetson Student Kit:**
+
+| Component | Model | Price | Purpose |
+|-----------|-------|-------|---------|
+| 🧠 **Brain** | Jetson Orin Nano Super (8GB) | $249 | 40 TOPS inference |
+| 👁️ **Eyes** | Intel RealSense D435i | $349 | RGB + Depth + IMU |
+| 🎤 **Ears** | ReSpeaker USB Mic Array | $69 | Voice commands |
+| 💾 **Storage** | 128GB SD Card | $30 | OS & models |
+| | **TOTAL** | **~$700** | Complete edge kit |
+
+</div>
+
+---
+
+## 🤖 **Robot Lab Options**
+
+<table>
+<tr>
+<th>Tier</th>
+<th>Robot</th>
+<th>Cost</th>
+<th>Best For</th>
+</tr>
+<tr style="background: #d4edda; color: black;">
+<td>💰 <strong>Budget</strong></td>
+<td>Unitree Go2 (Quadruped)</td>
+<td>$1,800 - $3,000</td>
+<td>Learning fundamentals</td>
+</tr>
+<tr style="background: #fff3cd; color: black;">
+<td>🎯 <strong>Mini Humanoid</strong></td>
+<td>Unitree G1 / Robotis OP3</td>
+<td>$12,000 - $16,000</td>
+<td>Desktop bipeds</td>
+</tr>
+<tr style="background: #f8d7da; color: black;">
+<td>💎 <strong>Premium</strong></td>
+<td>Unitree G1 Humanoid</td>
+<td>$16,000+</td>
+<td>Full deployment</td>
+</tr>
+</table>
+
+---
+
+## ☁️ **Cloud-Native Option (Ether Lab)**
+
+<div style="background: #e1f5fe; color: black; padding: 20px; border-radius: 10px; border-left: 5px solid #0288d1; margin: 20px 0;">
+
+### **AWS Cloud Setup:**
+
+- 🖥️ **Instance:** AWS g5.2xlarge (A10G GPU)
+- 💰 **Cost:** ~$205 per quarter (compute + storage)
+- ⚡ **Benefit:** No upfront hardware cost
+- ⚠️ **Limitation:** Local Jetson kit still required for deployment
+
+</div>
+
+<div style="background: #fff9c4; color: black; padding: 15px; border-radius: 8px; border-left: 4px solid #f57c00; margin: 20px 0;">
+
+### ⚡ **The Latency Trap:**
+
+Training in cloud works well, but **controlling real robots from cloud** is dangerous due to latency.
+
+**Solution:** Train in cloud → Download model weights → Deploy to local Jetson
+
+</div>
+
+---
+
+## 🧠 **Final Architecture Summary**
+
+<div style="background: #ffffff; color: black; border: 2px solid #e0e0e0; padding: 20px; border-radius: 10px; margin: 20px 0;">
+
+| 🎯 Component | 🛠️ Hardware | 📋 Role |
+|-------------|-------------|---------|
+| **Simulation** | RTX PC / Cloud GPU | Isaac, Gazebo, Unity rendering |
+| **Edge Brain** | Jetson Orin | Real-time inference & control |
+| **Sensors** | RealSense + LiDAR | Perception & SLAM |
+| **Robot** | Unitree Go2 / G1 | Physical actuation |
+
+</div>
+
+---
+
+<div align="center" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); padding: 40px; border-radius: 15px; color: black; margin: 40px 0;">
+
+## 🏁 **Final Note**
+
+Building **Physical AI** is challenging, expensive, and **transformative**.
+
+This hackathon is not just about creating a book.
+
+It's about **shaping the future of embodied intelligence**.
+
+---
+
+### 🚀 **Welcome to the Frontier**
+
+*Are you ready to build the future?*
+
+</div>
+
+---
+
+<div align="center">
+
+## 📞 **Need Help?**
+
+Have questions? Reach out to the team!
+
+[![Discord](https://img.shields.io/badge/Discord-Join%20Us-7289da?style=for-the-badge&logo=discord)](https://discord.gg/panaversity)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=for-the-badge&logo=github)](https://github.com/panaversity)
+[![Website](https://img.shields.io/badge/Website-Visit-00ADD8?style=for-the-badge&logo=google-chrome)](https://panaversity.org)
+
+---
+
+### 🌟 **Good Luck, Future Founders!** 🌟
+
+*May your code compile, your robots walk, and your dreams become reality.*
+
+</div>
+
+---
+
+<div align="center">
+
+<sub>Built with ❤️ by the Panaversity Team</sub>
+
+</div>
